@@ -64,6 +64,7 @@ GEM
     coderay (1.0.8)
     daemons (1.1.9)
     dalli (2.6.0)
+    database_cleaner (0.9.1)
     erubis (2.7.0)
     eventmachine (1.0.0)
     factory_girl (4.1.0)
@@ -128,6 +129,7 @@ DEPENDENCIES
   acts-as-taggable-on!
   bcrypt-ruby
   dalli
+  database_cleaner
   erubis (~> 2.7.0)
   factory_girl
   kgio
