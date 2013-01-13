@@ -15,8 +15,12 @@ Bundler.require(:default, PADRINO_ENV)
 #
 # ## Configure your I18n
 #
-# I18n.default_locale = :zh_cn
-#
+I18n.default_locale = 'zh_cn'
+
+Dir.glob(File.expand_path("#{PADRINO_ROOT}/locale", __FILE__) + '/**/*.yml').each do |file|
+  I18n.load_path << file
+end
+
 # ## Configure your HTML5 data helpers
 #
 # Padrino::Helpers::TagHelpers::DATA_ATTRIBUTES.push(:dialog)
