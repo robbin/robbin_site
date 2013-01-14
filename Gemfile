@@ -6,7 +6,10 @@ gem 'rainbows'
 
 # Project requirements
 gem 'rake'
-gem 'padrino', :git => 'git://github.com/padrino/padrino-framework.git'
+# gem 'padrino', :git => 'git://github.com/padrino/padrino-framework.git'
+gem 'padrino-core', :git => 'git://github.com/padrino/padrino-framework.git'
+gem 'padrino-helpers', :git => 'git://github.com/padrino/padrino-framework.git'
+gem 'padrino-admin', :git => 'git://github.com/padrino/padrino-framework.git'
 
 # Component requirements
 gem 'bcrypt-ruby', :require => 'bcrypt'
@@ -22,6 +25,7 @@ gem 'acts-as-taggable-on', :git => "git://github.com/robbin/acts-as-taggable-on.
 group :development do
   gem 'thin'
   gem 'pry'
+  gem 'padrino-gen', :git => 'git://github.com/padrino/padrino-framework.git'
 end
 
 # Test requirements
