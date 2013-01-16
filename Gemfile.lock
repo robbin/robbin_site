@@ -9,9 +9,6 @@ GIT
   remote: git://github.com/padrino/padrino-framework.git
   revision: 898853af49f56fd6f8811bda09cc4ca49572550f
   specs:
-    padrino-admin (0.10.7)
-      padrino-core (= 0.10.7)
-      padrino-helpers (= 0.10.7)
     padrino-core (0.10.7)
       activesupport (~> 3.2.0)
       http_router (~> 0.10.2)
@@ -114,7 +111,6 @@ DEPENDENCIES
   kgio
   minitest (~> 2.6.0)
   mysql2
-  padrino-admin!
   padrino-core!
   padrino-gen!
   padrino-helpers!
