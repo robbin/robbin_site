@@ -6,10 +6,10 @@ RobbinSite.controllers :blog do
   end
   
   get :show, :map => '/blog/:id' do
-    @blog = Blog.find params[:id]
+    @blog = Blog.find params[:id].to_i
     render 'blog/show'
   end
-  
+
   # get :index, :map => "/foo/bar" do
   #   session[:foo] = "bar"
   #   render 'index'
