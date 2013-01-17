@@ -63,6 +63,10 @@ class RobbinSite < Padrino::Application
   error 404 do
     render '404', :layout => 'application'
   end
+
+  error 500 do
+    render '500'
+  end
   
   ##
   # You can manage errors like:
