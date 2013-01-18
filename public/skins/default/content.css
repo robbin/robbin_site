@@ -47,25 +47,25 @@ body{ background:#bebebe url(bg.gif);}
 .con .tit{ border-bottom:1px solid #eee; padding:20px 40px 15px 40px; font-size:22px; font-weight:bold;}
 .con em{padding:0 3px; margin:0 3px; background:#f60; color:#fff;}
 .con .lost_search{padding:140px 40px 140px 160px; font-size:16px; min-height:100px; background:url(search.png) no-repeat 80px 115px ;}
-.tit .eidt,
+.tit .edit,
 .tit .del{ display:block; float:right; width:24px; height:24px; margin-left:20px; background:url(y.png) no-repeat;}
-.tit .eidt{ background-position:2px -78px;}
+.tit .edit{ background-position:2px -78px;}
 .tit .del{background-position:2px -158px;}
-.tit .eidt:hover{ background-position:2px -118px;}
+.tit .edit:hover{ background-position:2px -118px;}
 .tit .del:hover{background-position:2px -198px;}
 
 .text{padding:30px 40px; font-size:14px; min-height:120px;}
 .text .img{ margin-bottom:10px; text-align:center;}
 .text img{ max-height:200px;}
-.note_eidt{ background:url(y.png) no-repeat 0 -388px;; color:#999;  padding-left:18px; margin:20px 0 -20px 40px; color:#f60;}
+.note_edit{ background:url(y.png) no-repeat 0 -388px;; color:#999;  padding-left:18px; margin:20px 0 -20px 40px; color:#f60;}
 
 .con .info{ background:#f7f7f7; border-top:1px solid #eee; padding:15px 40px 15px 40px;border-radius: 0 0 5px 5px;-webkit-border-radius:  0 0 5px 5px;-moz-border-radius:  0 0 5px 5px;-khtml-border-radius:  0 0 5px 5px;}
 .con .info .time,
-.con .info .eidt,
+.con .info .edit,
 .con .info .views,
 .con .info .comment{ background:url(y.png) no-repeat; color:#999; margin-left:5px;  padding-left:18px;}
 .con .info .time{ background-position:0 -303px;}
-.con .info .eidt{ background-position:0 -363px;}
+.con .info .edit{ background-position:0 -363px;}
 .con .info .views{ background-position:0 -483px;}
 .con .info .comment{ background-position:0 -423px; padding:0 0 0 18px;}
 .con .info .comment:hover{ background-position:0 -453px; color:#f60;}

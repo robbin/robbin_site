@@ -48,6 +48,7 @@ class RobbinSite < Padrino::Application
   #
   
   get :index do
+    @blogs = Blog.all
     render 'index'
   end
   
