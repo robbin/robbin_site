@@ -19,6 +19,7 @@ gem 'dalli'
 gem 'kgio'
 gem "second_level_cache", :git => "git://github.com/csdn-dev/second_level_cache.git"
 gem 'acts-as-taggable-on', :git => "git://github.com/robbin/acts-as-taggable-on.git"
+gem 'github-markdown'
 
 # Development requirements
 group :development do

@@ -1,11 +1,14 @@
 class Blog < ActiveRecord::Base
   acts_as_cached
   acts_as_taggable
+  
   belongs_to :blog_content, :dependent => :destroy 
-  belongs_to :account
-  has_many :blog_comments
+  belongs_to :account, :counter_cache => true
+  has_many :comments, :class_name => 'BlogComment', :dependent => :destroy
+  
   validates :title, :presence => true
   validates :title, :length => {:in => 3..50}
+  
   delegate :content, :to => :blog_content, :allow_nil => true
   
   def content=(value)

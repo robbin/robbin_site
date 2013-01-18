@@ -2,43 +2,32 @@
 
 <div class="left">
 	<h3>Blog post</h3>
+  
+  <% @blogs.each do |blog| %>
   <div class="con">
   	<div class="tit clearfix">
-      <a href="#">精益创业指导创新产品开发精益创业指导创新产品开发</a>
+      <%= link_to blog.title, url_for(:blog, :show, blog.id) %>
       <a href="#" class="del"></a>
       <a href="#" class="edit"></a>
     </div>
     <div class="text">
-      我在2006年12月的时候在JavaEeye的论坛写的一个帖子,当时我还在自己 创业JavEye技术社区这个帖子我自己都找不到了,又被人挖掘出来我都忘记是我自己写的了。 眨眼已经过了快6年了，我现在负责网站的产品和研发到这个周末的的所有核心产品全部重新发到这个周末CSDN的把整个网站的所有核心产品全部重新设计，所有代码全部重写了一遍，算是做了一个彻底的网站翻新了。 这个时候回头看看当年自己的想法，觉得蛮有趣的论坛也将代码重写上线，至此，我花了两年的时间......
+      <%= blog.content.truncate(300) %>
     </div>
     <div class="info clearfix">
       <div class="fr">
-        <span class="time">12/10/11 </span>
-        <span class="edit">12/11/09 </span>
-        <span class="views">1,245</span>
-        <a href="#" class="comment">15</a>
+        <span class="time"><%= time_ago_in_words(blog.created_at) %></span>
+        <span class="edit"><%= time_ago_in_words(blog.updated_at) %></span>
+        <span class="views"><%= blog.view_count %></span>
+        <a href="#" class="comment"><%= blog.comments_count %></a>
       </div>
-      <a href="#" class="tag" rel="tag"><span>object</span></a>
-      <a href="#" class="tag" rel="tag"><span>objective-c</span></a>
-      <a href="#" class="tag" rel="tag"><span>tags</span></a>
+      <% blog.tag_list.each do |tag| %>
+      <a href="#" class="tag" rel="tag"><span><%= tag %></span></a>
+      <% end %>
     </div>
   </div>
+  <% end %>
   
 	<h3>Note post</h3>
-  <div class="con">
-  	<div class="tit clearfix"><a href="#">精益创业指导创新产品开发精益创业指导创新产品开发</a><a href="#" class="del"></a><a href="#" class="edit"></a></div>
-    <div class="text">我在2006年12月的时候在JavaEeye的论坛写的一个帖子,当时我还在自己 创业JavEye技术社区这个帖子我自己都找不到了,又被人挖掘出来我都忘记是我自己写的了。 眨眼已经过了快6年了，我现在负责网站的产品和研发到这个周末的的所有核心产品全部重新发到这个周末CSDN的把整个网站的所有核心产品全部重新设计，所有代码全部重写了一遍，算是做了一个彻底的网站翻新了。 这个时候回头看看当年自己的想法，觉得蛮有趣的论坛也将代码重写上线，至此，我花了两年的时间......</div>
-    <div class="info clearfix">
-   		 <div class="fr">
-       		<span class="time">12/10/11 </span>
-          <span class="views">1,245</span>
-          <a href="#" class="comment">15</a>
-       </div>
-    	<a href="#" class="tag" rel="tag"><span>object</span></a>
-      <a href="#" class="tag" rel="tag"><span>objective-c</span></a>
-      <a href="#" class="tag" rel="tag"><span>tags</span></a>
-    </div>
-  </div>
 
 </div><!-- left content -->
 

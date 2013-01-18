@@ -1,7 +1,7 @@
 RobbinSite.controllers :blog do
   
   get :index do
-    @blogs = Blog.all
+    @blogs = Blog.order("id DESC").limit(5)
     render 'blog/index'
   end
   

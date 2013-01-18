@@ -54,6 +54,7 @@ GEM
     eventmachine (1.0.0)
     factory_girl (4.1.0)
       activesupport (>= 3.0.0)
+    github-markdown (0.5.3)
     http_router (0.10.2)
       rack (>= 1.0.0)
       url_mount (~> 0.2.1)
@@ -108,6 +109,7 @@ DEPENDENCIES
   database_cleaner
   erubis (~> 2.7.0)
   factory_girl
+  github-markdown
   kgio
   minitest (~> 2.6.0)
   mysql2

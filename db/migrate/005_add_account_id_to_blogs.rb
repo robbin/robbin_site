@@ -11,6 +11,5 @@ class AddAccountIdToBlogs < ActiveRecord::Migration
   
   def self.down
     remove_column :blogs, :account_id
-    remove_index :blogs, :account_id
   end
 end
