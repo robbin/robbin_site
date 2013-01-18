@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 5) do
+ActiveRecord::Schema.define(:version => 6) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -22,6 +22,17 @@ ActiveRecord::Schema.define(:version => 5) do
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
   end
+
+  create_table "blog_comments", :force => true do |t|
+    t.integer  "account_id"
+    t.integer  "blog_id"
+    t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "blog_comments", ["account_id"], :name => "index_blog_comments_on_account_id"
+  add_index "blog_comments", ["blog_id"], :name => "index_blog_comments_on_blog_id"
 
   create_table "blog_contents", :force => true do |t|
     t.text "content", :limit => 16777215, :null => false
