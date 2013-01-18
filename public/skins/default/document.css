@@ -1,0 +1,48 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*
+YUI 3.8.0 (build 5744)
+Copyright 2012 Yahoo! Inc. All rights reserved.
+Licensed under the BSD License.
+http://yuilibrary.com/license/
+*/
+html{color:#666;background:#FFF}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0}
+table{border-collapse:collapse;border-spacing:0}
+fieldset,img{border:0}
+address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}
+ol,ul{list-style:none}
+caption,th{text-align:left}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}
+q:before,q:after{content:''}
+abbr,acronym{border:0;font-variant:normal}
+sup{vertical-align:text-top}
+sub{vertical-align:text-bottom}
+input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit}
+input,textarea,select{*font-size:100%}
+legend{color:#000}
+#yui3-css-stamp.cssreset{display:none}
+/* Copyright (c) 2012, Yahoo! Inc.  All rights reserved. */
+html{ font-size:100%;}
+/*body{font-size:62.5%;}
+body, input, select, button, textarea { font-family: Helvetica, Tahoma, Arial, sans-serif; line-height:2em;}*/
+body, input, select, button, textarea { font-size:12px; font-family: Helvetica, Tahoma, Arial, sans-serif; line-height:24px;}
+button { cursor: pointer; }
+input{outline: none;}
+i, em, cite { font-style: normal; }
+a, a:link { color: #666; text-decoration: none; }
+a:visited {}
+a:active, a:hover { color:#ff6600; text-decoration:underline;}
+a:focus { outline: none; }
+.clearfix {_zoom: 1;}
+.clearfix:after {content: ".";display: block;visibility: hidden;clear: both;height: 0px;}
+.more { float: right; }
+.more a { font-weight: normal; font-size: 12px; }
+.fl, .fr { display: inline; float: left; }
+.fr { float: right; }
+
+input{ border:1px #ccc solid; height:28px;  border-radius: 5px;-webkit-border-radius: 5px;-moz-border-radius: 5px;-khtml-border-radius: 5px;}
+
+.relative{ position:relative;}
+.relative .box{ position:relative;}
