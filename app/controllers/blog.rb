@@ -10,7 +10,7 @@ RobbinSite.controllers :blog do
     case content_type
     when :md then
       @blog.content
-    else
+    when :html then
       render 'blog/show'
     end
   end

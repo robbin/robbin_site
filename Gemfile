@@ -1,9 +1,5 @@
 source :rubygems
 
-# Server requirements
-gem 'unicorn'
-gem 'rainbows'
-
 # Project requirements
 gem 'rake'
 # gem 'padrino', :git => 'git://github.com/padrino/padrino-framework.git'
