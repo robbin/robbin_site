@@ -5,9 +5,14 @@ RobbinSite.controllers :blog do
     render 'blog/index'
   end
   
-  get :show, :map => '/blog/:id' do
+  get :show, :map => '/blog/:id', :provides => [:html, :md] do
     @blog = Blog.find params[:id].to_i
-    render 'blog/show'
+    case content_type
+    when :md then
+      @blog.content
+    else
+      render 'blog/show'
+    end
   end
   
   # get :index, :map => "/foo/bar" do

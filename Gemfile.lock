@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: git://github.com/padrino/padrino-framework.git
-  revision: 898853af49f56fd6f8811bda09cc4ca49572550f
+  revision: 11b6d7659c50795209baedac1dab8090e6ae7863
   specs:
     padrino-core (0.10.7)
       activesupport (~> 3.2.0)
@@ -52,28 +52,28 @@ GEM
     database_cleaner (0.9.1)
     erubis (2.7.0)
     eventmachine (1.0.0)
-    factory_girl (4.1.0)
+    factory_girl (4.2.0)
       activesupport (>= 3.0.0)
     github-markdown (0.5.3)
     http_router (0.10.2)
       rack (>= 1.0.0)
       url_mount (~> 0.2.1)
     i18n (0.6.1)
-    kgio (2.7.4)
+    kgio (2.8.0)
     method_source (0.8.1)
     minitest (2.6.2)
     multi_json (1.5.0)
     mysql2 (0.3.11)
-    pry (0.9.10)
+    pry (0.9.11.3)
       coderay (~> 1.0.5)
       method_source (~> 0.8)
-      slop (~> 3.3.1)
+      slop (~> 3.4)
     rack (1.4.4)
     rack-protection (1.3.2)
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
-    rainbows (4.4.2)
+    rainbows (4.4.3)
       kgio (~> 2.5)
       rack (~> 1.1)
       unicorn (~> 4.1)
@@ -83,7 +83,7 @@ GEM
       rack (~> 1.3, >= 1.3.6)
       rack-protection (~> 1.2)
       tilt (~> 1.3, >= 1.3.3)
-    slop (3.3.3)
+    slop (3.4.3)
     thin (1.5.0)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)

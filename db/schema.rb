@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 7) do
+ActiveRecord::Schema.define(:version => 8) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(:version => 7) do
     t.datetime "updated_at",                     :null => false
     t.integer  "account_id"
     t.integer  "comments_count",  :default => 0
+    t.datetime "modified_at"
   end
 
   add_index "blogs", ["account_id"], :name => "index_blogs_on_account_id"

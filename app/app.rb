@@ -7,6 +7,7 @@ class RobbinSite < Padrino::Application
   # disable :raise_errors
   # disable :show_exceptions
 
+  mime_type :md, 'text/plain'
   ##
   # Caching support
   #

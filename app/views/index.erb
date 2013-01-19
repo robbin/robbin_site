@@ -6,7 +6,7 @@
   <% @blogs.each do |blog| %>
   <div class="con">
   	<div class="tit clearfix">
-      <%= link_to blog.title, url_for(:blog, :show, blog.id) %>
+      <a href='<%= "/blog/#{blog.id}" %>'><%= blog.title %></a>
       <a href="#" class="del"></a>
       <a href="#" class="edit"></a>
     </div>

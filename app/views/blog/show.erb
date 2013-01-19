@@ -1,5 +1,130 @@
-<div>
-  <h1><%= @blog.title %></h1>
-  <p><%= @blog.content %></p>
-  <p><%= url_for(:blog, :show, :id => @blog.id) %></p>
-</div>
+<div class="left">
+  <div class="con">
+    <div class="content">
+    	<div class="tit clearfix">
+        <a href='<%= "/blog/#{@blog.id}" %>'><%= @blog.title %></a>
+        <a href="#" class="del"></a>
+        <a href="#" class="edit"></a>
+      </div>
+      <div class="info clearfix">
+        <div class="fr">
+          <span class="time"><%= time_ago_in_words(@blog.created_at) %></span>
+          <span class="views"><%= @blog.view_count %></span>
+        </div>
+        <% @blog.tag_list.each do |tag| %>
+        <a href="#" class="tag" rel="tag"><span><%= tag %></span></a>
+        <% end %>
+      </div>
+      <div class="text">
+        <%= @blog.md_content %>
+      </div>
+    </div><!-- content -->
+  
+    <div class="share clearfix">
+        <span>
+          <script type="text/javascript" charset="utf-8">
+            (function(){
+              var _w = 24 , _h = 24;
+              var param = {
+                url:location.href,
+                type:'2',
+                count:'', /**是否显示分享数，1显示(可选)*/
+                appkey:'', /**您申请的应用appkey,显示分享来源(可选)*/
+                title:'', /**分享的文字内容(可选，默认为所在页面的title)*/
+                pic:'', /**分享图片的路径(可选)*/
+                ralateUid:'', /**关联用户的UID，分享微博会@该用户(可选)*/
+                language:'zh_cn', /**设置语言，zh_cn|zh_tw(可选)*/
+                rnd:new Date().valueOf()
+              }
+              var temp = [];
+              for( var p in param ){
+                temp.push(p + '=' + encodeURIComponent( param[p] || '' ) )
+              }
+              document.write('<iframe allowTransparency="true" frameborder="0" scrolling="no" src="http://hits.sinajs.cn/A1/weiboshare.html?' + temp.join('&') + '" width="'+ _w+'" height="'+_h+'"></iframe>')
+            })()
+          </script>
+        </span>
+    </div><!-- share -->
+    
+    <div class="comment clearfix">
+   		<h2><span>12</span>Comment</h2>
+      <ul>
+        <li class="clearfix">
+          <div class="user_img"><img src="/skins/data/200.PNG"></div>
+          <div class="cot_con">
+         		<div class="info">
+              <span class="user_name">Flemming Rasmussen</span>
+              <span class="time">12/09/11</span>
+            </div>
+            <p>简单的说，讨论组就是BBS，但这个BBS除了通过浏览器发帖和浏览，还可以通过邮件来发帖和浏览，所以是一个功能更强大的BBS。</p>
+          </div>
+        </li>
+      </ul>
+      <h4>Leave a Reply</h4>
+      <div class="relative">
+        <textarea name="" cols="" rows="" class="comment"></textarea>
+        <button class="comment_btn"></button>
+        <div class="box">
+          <button class="close"></button>
+          <p>我希望知道在与谁进行思想交流，请用以下方式登录留言</p>
+          <button class="google_btn"></button>
+          <button class="sina_btn"></button>
+        </div><!-- box -->
+      </div><!-- relative -->
+     </div><!-- comment -->
+     
+  </div><!-- con -->
+  
+</div><!-- left -->
+
+<div class="right">
+	<h3>Hot Blog Tag</h3>
+  <div class="tag">
+    <a href="#">tags<span>94</span></a>
+    <a href="#">Loadrunner<span>56</span></a>
+    <a href="#">tags <span>56</span></a>
+    <a href="#">JavaScript<span>56</span></a>
+    <a href="#">Lucene<span>56</span></a>
+    <a href="#">Loadrunner<span>56</span></a>
+    <a href="#">tags <span>56</span></a>
+    <a href="#">JavaScript<span>56</span></a>
+    <a href="#">Lucene<span>56</span></a>
+    <a href="#">Loadrunner<span>56</span></a>
+  </div>
+  <h3>Hot Blog</h3>
+  <div class="hot_blog">
+  	<a href="#">robbin的自白：You've got to find what you love</a>
+    <a href="#">2011年的总结和展望 </a>
+    <a href="#">《松本行弘的程序世界》推荐序 </a>
+    <a href="#">robbin的自白：You've got to find what</a>
+    <a href="#">RoR背后的软件开发方法学思考 </a>
+    <a href="#">从京沪列车对比看京服务意识robbin谈管理我敬佩的3位CEO管理者  </a>
+    <a href="#">Hibernate3.2版本正式发布了 </a>
+    <a href="#">Spring2.0的新特性点评 </a>
+    <a href="#">截至现在JavaEye2.0 CVS上面代码看了《墨攻》，感觉还不错 </a>
+    <a href="#">12月16日周六下午JavaEye上海主题活动之开业架构论坛 </a>
+  </div>
+  <h3>Recently Comment</h3>
+  <ul class="comment">
+  	<li>
+    	<span class="user_name">yhjhoo</span>: OSChina最近做的一直不错，我从CSDN转到了javaey
+      <a href="#">从Rails聊聊小公司的研发团队建设</a>
+    </li>
+    <li>
+    	<span class="user_name">yhjhoo</span>: OSChina最近做的一直不错，我从CSDN转到了javaey
+      <a href="#">从Rails聊聊小公司的研发团队建设</a>
+    </li>
+    <li>
+    	<span class="user_name">yhjhoo</span>: OSChina最近做的一直不错，我从CSDN转到了javaey
+      <a href="#">从Rails聊聊小公司的建设</a>
+    </li>
+    <li>
+    	<span class="user_name">yhjhoo</span>: OSChina最近做的一直不错，我从CSDN转到了javaey
+      <a href="#">从Rails聊聊小公司的研发团队建设</a>
+    </li>
+    <li>
+    	<span class="user_name">yhjhoo</span>: OSChina最近做的一直不错，我从CSDN转到了javaey
+      <a href="#">从Rails聊聊小公司的研发团队建设</a>
+    </li>
+  </ul>
+</div><!-- right -->

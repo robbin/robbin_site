@@ -15,4 +15,14 @@ class Blog < ActiveRecord::Base
     self.blog_content ||= BlogContent.new
     self.blog_content.content = value
   end
+  
+  def content_cache_key
+    "#{CACHE_PREFIX}/#{self.class.to_s}/#{self.modified_at.to_i}"
+  end
+  
+  def md_content(mode = :gfm)
+    APP_CACHE.fetch(self.content_cache_key, :expires_in => 14.days) do
+      GitHub::Markdown.to_html(self.content, mode)
+    end
+  end
 end
