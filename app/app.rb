@@ -22,6 +22,10 @@ class RobbinSite < Padrino::Application
     render '404'
   end
   
+  error 403 do
+    render '403'
+  end
+  
   error 404 do
     render '404', :layout => 'application'
   end

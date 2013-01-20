@@ -1,0 +1,43 @@
+<div class="publish">
+	<div class="con">
+		<table class="content">
+      <% form_for @blog, url_for(:admin, :create_blog) do |f| %>
+      <tr>
+        <th valign="top">Title</th>
+        <td><%= f.text_field :title, :class => 'title' %></td>
+      </tr>
+      <tr>
+        <th valign="top">Content</th>
+        <td><%= f.text_area :content %></td>
+      </tr>
+      <tr>
+        <th valign="top">Tag</th>
+        <td>
+          <%= f.text_field :tag_list, :placeholder => '用逗号分开，不超过5个' %>
+          <div class="tag">
+            <a href="#" class="tag" rel="tag"><span>object</span></a>
+            <a href="#" class="tag" rel="tag"><span>objective-c</span></a>
+            <a href="#" class="tag" rel="tag"><span>tags</span></a>
+            <a href="#" class="tag" rel="tag"><span>object</span></a>
+            <a href="#" class="tag" rel="tag"><span>objective-c</span></a>
+            <a href="#" class="tag" rel="tag"><span>tags</span></a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th valign="top">Comment</th>
+        <td>
+          <form name="form1" method="post" action="">
+            <label><input type="radio" name="RadioGroup1" value="单选" id="RadioGroup1_0"> 开启</label>
+            <label><input type="radio" name="RadioGroup1" value="单选" id="RadioGroup1_1"> 关闭</label>
+          </form>
+        </td>
+      </tr>
+      <tr>
+        <th>&nbsp;</th>
+        <td align="center"><button class="submit"></button></td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
