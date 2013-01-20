@@ -6,7 +6,7 @@
   <% @blogs.each do |blog| %>
   <div class="con">
   	<div class="tit clearfix">
-      <a href='<%= "/blog/#{blog.id}" %>'><%= blog.title %></a>
+      <%= link_to blog.title, url_for(:blog, :show, :id => blog.id) %>
       <a href="#" class="del"></a>
       <a href="#" class="edit"></a>
     </div>
@@ -46,36 +46,8 @@
     <a href="#">Loadrunner<span>56</span></a>
   </div>
   
-  <h3>Hot Note Tag</h3>
-  <div class="tag">
-    <a href="#">Lucene<span>56</span></a>
-    <a href="#">Loadrunner<span>56</span></a>
-    <a href="#">tags <span>56</span></a>
-    <a href="#">JavaScript<span>56</span></a>
-    <a href="#">Lucene<span>56</span></a>
-    <a href="#">Loadrunner<span>56</span></a>
-    <a href="#">tags <span>56</span></a>
-    <a href="#">JavaScript<span>56</span></a>
-    <a href="#">Lucene<span>56</span></a>
-    <a href="#">Loadrunner<span>56</span></a>
-  </div>
-  
   <h3>Hot Blog</h3>
   <div class="hot_blog">
-  	<a href="#">robbin的自白：You've got to find what you love</a>
-    <a href="#">2011年的总结和展望 </a>
-    <a href="#">《松本行弘的程序世界》推荐序 </a>
-    <a href="#">robbin的自白：You've got to find what</a>
-    <a href="#">RoR背后的软件开发方法学思考 </a>
-    <a href="#">从京沪列车对比看京服务意识robbin谈管理我敬佩的3位CEO管理者  </a>
-    <a href="#">Hibernate3.2版本正式发布了 </a>
-    <a href="#">Spring2.0的新特性点评 </a>
-    <a href="#">截至现在JavaEye2.0 CVS上面代码看了《墨攻》，感觉还不错 </a>
-    <a href="#">12月16日周六下午JavaEye上海主题活动之开业架构论坛 </a>
-  </div>
-  
-  <h3>Hot note</h3>
-  <div class="hot_note">
   	<a href="#">robbin的自白：You've got to find what you love</a>
     <a href="#">2011年的总结和展望 </a>
     <a href="#">《松本行弘的程序世界》推荐序 </a>

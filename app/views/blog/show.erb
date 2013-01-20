@@ -1,8 +1,10 @@
 <div class="left">
+  
   <div class="con">
+    
     <div class="content">
     	<div class="tit clearfix">
-        <a href='<%= "/blog/#{@blog.id}" %>'><%= @blog.title %></a>
+        <%= link_to @blog.title, url_for(:blog, :show, :id => @blog.id) %>
         <a href="#" class="del"></a>
         <a href="#" class="edit"></a>
       </div>
@@ -47,20 +49,26 @@
     </div><!-- share -->
     
     <div class="comment clearfix">
-   		<h2><span>12</span>Comment</h2>
+      
+   		<h2><span><%= @blog.comments_count %></span>Comment</h2>
+      
       <ul>
+        <% @blog.comments.each do |comment| %>
         <li class="clearfix">
           <div class="user_img"><img src="/skins/data/200.PNG"></div>
           <div class="cot_con">
          		<div class="info">
-              <span class="user_name">Flemming Rasmussen</span>
-              <span class="time">12/09/11</span>
+              <span class="user_name"><%= comment.account.name %></span>
+              <span class="time"><%= time_ago_in_words(comment.created_at) %></span>
             </div>
-            <p>简单的说，讨论组就是BBS，但这个BBS除了通过浏览器发帖和浏览，还可以通过邮件来发帖和浏览，所以是一个功能更强大的BBS。</p>
+            <p><%=h comment.content %></p>
           </div>
         </li>
+        <% end %>
       </ul>
+      
       <h4>Leave a Reply</h4>
+      
       <div class="relative">
         <textarea name="" cols="" rows="" class="comment"></textarea>
         <button class="comment_btn"></button>
@@ -71,7 +79,8 @@
           <button class="sina_btn"></button>
         </div><!-- box -->
       </div><!-- relative -->
-     </div><!-- comment -->
+      
+    </div><!-- comment -->
      
   </div><!-- con -->
   
