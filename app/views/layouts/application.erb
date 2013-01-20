@@ -22,6 +22,10 @@
           <a href="#">Creat Note</a>
         </div>
         <h2>Small is beautiful, constraint is liberty.</h2>
+        <% if login? %>
+          <span><%= current_account.name %></span>
+          <%= button_to '退出', url_for(:admin, :logout), :method => :delete %>
+          <% end %>
       </div>
     </div><!-- header -->
     

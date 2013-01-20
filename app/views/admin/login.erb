@@ -1,0 +1,15 @@
+<% form_for @account, url_for(:admin, :login) do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :email, :caption => "Email地址" %>
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :password, :caption => "输入密码" %>
+    <%= f.password_field :password %>
+  </p>
+  <p>
+    <%= f.submit '登录' %>
+  </p>
+  
+<% end %>
