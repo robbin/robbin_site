@@ -15,12 +15,9 @@
         <td>
           <%= f.text_field :tag_list, :placeholder => '用逗号分开，不超过5个' %>
           <div class="tag">
-            <a href="#" class="tag" rel="tag"><span>object</span></a>
-            <a href="#" class="tag" rel="tag"><span>objective-c</span></a>
-            <a href="#" class="tag" rel="tag"><span>tags</span></a>
-            <a href="#" class="tag" rel="tag"><span>object</span></a>
-            <a href="#" class="tag" rel="tag"><span>objective-c</span></a>
-            <a href="#" class="tag" rel="tag"><span>tags</span></a>
+            <% Blog.tag_counts.each do |tag| %>
+            <a href="#" class="tag" rel="tag"><span><%= tag %></span></a>
+            <% end %>
           </div>
         </td>
       </tr>
