@@ -1,7 +1,4 @@
-<h1>All blogs</h1>
-
-<% tag_cloud(Blog.tag_counts, %w(css1 css2 css3 css4)) do |tag, css_class| %>
-<%= css_class %>
-<%= tag.name %>
-
+<h1>All tags and count</h1>
+<% Blog.hot_tags(2).each do |tag| %>
+<p><%= tag.name %>:<%= tag.count %></p>
 <% end %>

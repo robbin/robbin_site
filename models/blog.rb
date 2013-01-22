@@ -38,4 +38,8 @@ class Blog < ActiveRecord::Base
       GitHub::Markdown.to_html(self.content, mode)
     end
   end
+  
+  def self.hot_tags(count = 1)
+    self.tag_counts.sort_by(&:count).reverse.select {|t| t.count > count}
+  end
 end

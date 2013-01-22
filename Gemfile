@@ -15,7 +15,7 @@ gem 'kgio'
 gem "second_level_cache", :git => "git://github.com/csdn-dev/second_level_cache.git"
 gem 'acts-as-taggable-on', :git => "git://github.com/robbin/acts-as-taggable-on.git"
 gem 'github-markdown', :require => 'github/markdown'
-gem 'will_paginate', :require => ['will_paginate/active_record', 'will_paginate/view_helpers/sinatra']
+gem 'will_paginate', :require => ['will_paginate/active_record']
 
 # Development requirements
 group :development do

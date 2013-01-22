@@ -1,5 +1,4 @@
 RobbinSite.helpers do
-  include ActsAsTaggableOn::TagsHelper
   def current_account
     @account ||= Account.find(session[:account_id]) if session[:account_id]
   end
