@@ -8,15 +8,6 @@ class RobbinSite < Padrino::Application
   mime_type :md, 'text/plain'
 
   # layout  :my_layout            # Layout can be in views/layouts/foo.ext or views/foo.ext (default :application)
-  
-  get :index do
-    @blogs = Blog.order('id DESC').page(params[:page])
-    render 'index'
-  end
-  
-  get :me do
-    render 'me'
-  end
       
   error ActiveRecord::RecordNotFound do
     halt 404
@@ -33,5 +24,4 @@ class RobbinSite < Padrino::Application
   error 500 do
     render '500'
   end
-  
 end

@@ -21,7 +21,7 @@
         <div class="write">
           <%= current_account.name %>
           <%= link_to '写博客', url_for(:admin, :new_blog) %>
-          <%= button_to '退出', url_for(:admin, :logout), :method => :delete %>
+          <%= button_to '退出', url_for(:logout), :method => :delete %>
         </div>
         <% end %>
         <h2>Small is beautiful, constraint is liberty.</h2>
