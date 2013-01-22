@@ -46,15 +46,10 @@ end
 Padrino.after_load do
 end
 
-# initialize memcache
-require 'dalli'
-require 'active_support/cache/dalli_store'
+# initialize memcache and ActiveRecord Cache
 Dalli.logger = logger
 APP_CACHE = ActiveSupport::Cache::DalliStore.new("127.0.0.1")
 CACHE_PREFIX = "robbin"
-
-# initialize ActiveRecord Cache
-require 'second_level_cache'
 SecondLevelCache.configure do |config|
   config.cache_store = APP_CACHE
   config.logger = logger
