@@ -5,9 +5,8 @@
     <div class="content">
     	<div class="tit clearfix">
         <%= link_to @blog.title, url_for(:blog, :show, :id => @blog.id) %>
+        <%= link_to '', url_for(:admin, :blog, :id => @blog.id), :method => :delete, :confirm => 'Are you delete', :class => 'del' %>
         <%= link_to '', url_for(:admin, :edit_blog, :id => @blog.id), :class => 'edit' %>
-        <a href="#" class="del"></a>
-        <a href="#" class="edit"></a>
       </div>
       <div class="info clearfix">
         <div class="fr">
