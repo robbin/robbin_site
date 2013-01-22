@@ -65,4 +65,7 @@ end
 ActsAsTaggableOn.remove_unused_tags = true
 ActsAsTaggableOn.strict_case_match = true
 
+# Set will_paginate default page number
+WillPaginate.per_page = 5
+
 Padrino.load!

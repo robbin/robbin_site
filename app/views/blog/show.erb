@@ -55,6 +55,7 @@
    		<h2><span><%= @blog.comments_count %></span>Comment</h2>
       
       <ul>
+        <% if @blog.comments_count > 0 %>
         <% @blog.comments.each do |comment| %>
         <li class="clearfix">
           <div class="user_img"><img src="/skins/data/200.PNG"></div>
@@ -66,6 +67,7 @@
             <p><%=h comment.content %></p>
           </div>
         </li>
+        <% end %>
         <% end %>
       </ul>
       

@@ -1,32 +1,32 @@
-      <tr>
-        <th valign="top">Title</th>
-        <td><%= form.text_field :title, :class => 'title' %></td>
-      </tr>
-      <tr>
-        <th valign="top">Content</th>
-        <td><%= form.text_area :content %></td>
-      </tr>
-      <tr>
-        <th valign="top">Tag</th>
-        <td>
-          <%= form.text_field :tag_list, :placeholder => '用逗号分开，不超过5个' %>
-          <div class="tag">
-            <% Blog.tag_counts.each do |tag| %>
-            <a href="#" class="tag" rel="tag"><span><%= tag %></span></a>
-            <% end %>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <th valign="top">Comment</th>
-        <td>
-          <label><input type="radio" name="RadioGroup1" value="单选" id="RadioGroup1_0"> 开启</label>
-          <label><input type="radio" name="RadioGroup1" value="单选" id="RadioGroup1_1"> 关闭</label>
-        </td>
-      </tr>
-      <tr>
-        <th>&nbsp;</th>
-        <td align="center">
-          <%= form.submit 'Submit', :class => 'submit' %>
-        </td>
-      </tr>
+<tr>
+  <th valign="top">Title</th>
+  <td><%= form.text_field :title, :class => 'title' %></td>
+</tr>
+<tr>
+  <th valign="top">Content</th>
+  <td><%= form.text_area :content %></td>
+</tr>
+<tr>
+  <th valign="top">Tag</th>
+  <td>
+    <%= form.text_field :tag_list, :placeholder => '用逗号分开，不超过5个' %>
+    <div class="tag">
+      <% Blog.tag_counts.each do |tag| %>
+      <a href="#" class="tag" rel="tag"><span><%= tag %></span></a>
+      <% end %>
+    </div>
+  </td>
+</tr>
+<tr>
+  <th valign="top">Comment</th>
+  <td>
+    <label><input type="radio" name="RadioGroup1" value="单选" id="RadioGroup1_0"> 开启</label>
+    <label><input type="radio" name="RadioGroup1" value="单选" id="RadioGroup1_1"> 关闭</label>
+  </td>
+</tr>
+<tr>
+  <th>&nbsp;</th>
+  <td align="center">
+    <%= form.submit 'Submit', :class => 'submit' %>
+  </td>
+</tr>

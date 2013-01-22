@@ -2,7 +2,6 @@ source :rubygems
 
 # Project requirements
 gem 'rake'
-# gem 'padrino', :git => 'git://github.com/padrino/padrino-framework.git'
 gem 'padrino-core', :git => 'git://github.com/padrino/padrino-framework.git'
 gem 'padrino-helpers', :git => 'git://github.com/padrino/padrino-framework.git'
 
@@ -16,6 +15,7 @@ gem 'kgio'
 gem "second_level_cache", :git => "git://github.com/csdn-dev/second_level_cache.git"
 gem 'acts-as-taggable-on', :git => "git://github.com/robbin/acts-as-taggable-on.git"
 gem 'github-markdown', :require => 'github/markdown'
+gem 'will_paginate', :require => ['will_paginate/active_record', 'will_paginate/view_helpers/sinatra']
 
 # Development requirements
 group :development do

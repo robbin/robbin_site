@@ -2,6 +2,7 @@ class RobbinSite < Padrino::Application
   use ActiveRecord::ConnectionAdapters::ConnectionManagement
   register Padrino::Rendering
   register Padrino::Helpers
+  register WillPaginate::Sinatra
 
   enable :sessions
   mime_type :md, 'text/plain'
@@ -9,7 +10,7 @@ class RobbinSite < Padrino::Application
   # layout  :my_layout            # Layout can be in views/layouts/foo.ext or views/foo.ext (default :application)
   
   get :index do
-    @blogs = Blog.order("id DESC").limit(5)
+    @blogs = Blog.order('id DESC').page(params[:page])
     render 'index'
   end
   

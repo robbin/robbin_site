@@ -40,7 +40,9 @@ RobbinSite.controllers :admin do
   end
   
   post :blog, :map => '/admin/blog' do
-    if @blog = Blog.create(params[:blog])
+    @blog = Blog.new(params[:blog])
+    @blog.account = @account
+    if @blog.save
       flash[:notice] = "创建成功"
       redirect url(:blog, :show, :id => @blog.id)
     else

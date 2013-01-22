@@ -1,5 +1,3 @@
-# Helper methods defined here can be accessed in any controller or view in the application
-
 RobbinSite.helpers do
   
   def current_account
@@ -7,11 +5,7 @@ RobbinSite.helpers do
   end
   
   def account_login?
-    if current_account
-      return true
-    else
-      return false
-    end
+    current_account ? true : false
   end
   
   def account_admin?

@@ -88,6 +88,7 @@ GEM
     tzinfo (0.3.35)
     url_mount (0.2.1)
       rack
+    will_paginate (3.0.4)
 
 PLATFORMS
   ruby
@@ -112,3 +113,4 @@ DEPENDENCIES
   rake
   second_level_cache!
   thin
+  will_paginate

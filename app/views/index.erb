@@ -29,7 +29,9 @@
   </div>
   <% end %>
   
-	<h3>Note post</h3>
+  <div>
+    <%= will_paginate @blogs, :previous_label => '前一页', :next_label => '下一页' %>
+  </div>
 
 </div><!-- left content -->
 

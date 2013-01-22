@@ -28,7 +28,7 @@ class Blog < ActiveRecord::Base
   end
   
   def content_cache_key
-    "#{CACHE_PREFIX}/#{self.class.to_s}/#{self.content_updated_at.to_i}"
+    "#{CACHE_PREFIX}/blog_content/#{self.id}/#{self.content_updated_at.to_i}"
   end
   
   def md_content(mode = :gfm)
