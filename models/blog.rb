@@ -15,6 +15,17 @@ class Blog < ActiveRecord::Base
     self.blog_content ||= BlogContent.new
     self.blog_content.content = value
   end
+
+  def update_blog(param_hash)
+    self.transaction do
+      self.update_attributes!(param_hash)
+      self.content_updated_at = Time.now
+      self.blog_content.save!
+      self.save!
+    end
+  rescue
+    return false
+  end
   
   def content_cache_key
     "#{CACHE_PREFIX}/#{self.class.to_s}/#{self.content_updated_at.to_i}"
