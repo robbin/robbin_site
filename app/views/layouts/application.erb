@@ -17,7 +17,7 @@
       <div class="warp">
       	<div class="user_img"><img src="/skins/data/100.PNG" width="80" height="80"></div>
         <h1><span class="blog_name">Robbin</span><span class="blog_title">的自言自语</span></h1>
-        <% if login? %>
+        <% if account_admin? %>
         <div class="write">
           <%= current_account.name %>
           <%= link_to '写博客', url_for(:admin, :new_blog) %>

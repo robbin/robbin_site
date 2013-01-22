@@ -7,8 +7,10 @@
   <div class="con">
   	<div class="tit clearfix">
       <%= link_to blog.title, url_for(:blog, :show, :id => blog.id) %>
-      <a href="#" class="del"></a>
-      <a href="#" class="edit"></a>
+      <% if account_admin? %>
+      <%= link_to '', url_for(:admin, :blog, :id => blog.id), :method => :delete, :confirm => 'Are you delete', :class => 'del' %>
+      <%= link_to '', url_for(:admin, :edit_blog, :id => blog.id), :class => 'edit' %>
+      <% end %>
     </div>
     <div class="text">
       <%= blog.content.truncate(300) %>

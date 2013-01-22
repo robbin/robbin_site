@@ -3,11 +3,19 @@
 RobbinSite.helpers do
   
   def current_account
-    return Account.find(session[:account_id]) if session[:account_id]
+    @account ||= Account.find(session[:account_id]) if session[:account_id]
   end
   
-  def login?
+  def account_login?
     if current_account
+      return true
+    else
+      return false
+    end
+  end
+  
+  def account_admin?
+    if current_account && current_account.admin?
       return true
     else
       return false
