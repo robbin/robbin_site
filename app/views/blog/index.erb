@@ -1,1 +1,7 @@
 <h1>All blogs</h1>
+
+<% tag_cloud(Blog.tag_counts, %w(css1 css2 css3 css4)) do |tag, css_class| %>
+<%= css_class %>
+<%= tag.name %>
+
+<% end %>

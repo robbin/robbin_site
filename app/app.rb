@@ -3,6 +3,7 @@ class RobbinSite < Padrino::Application
   register Padrino::Rendering
   register Padrino::Helpers
   register WillPaginate::Sinatra
+  register ActsAsTaggableOn::TagsHelper
 
   enable :sessions
   mime_type :md, 'text/plain'
