@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 9) do
+ActiveRecord::Schema.define(:version => 10) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(:version => 9) do
     t.boolean  "commentable",        :default => true, :null => false
     t.boolean  "original",           :default => true, :null => false
     t.string   "original_url"
+    t.string   "cached_tag_list"
   end
 
   add_index "blogs", ["account_id"], :name => "index_blogs_on_account_id"

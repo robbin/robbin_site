@@ -1,4 +1,4 @@
 <h1>All tags and count</h1>
-<% Blog.hot_tags(2).each do |tag| %>
+<% Blog.hot_tags.each do |tag| %>
 <p><%= tag.name %>:<%= tag.count %></p>
 <% end %>

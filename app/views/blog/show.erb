@@ -15,7 +15,7 @@
           <span class="time"><%= time_ago_in_words(@blog.created_at) %></span>
           <span class="views"><%= @blog.view_count %></span>
         </div>
-        <% @blog.tag_list.each do |tag| %>
+        <% @blog.cached_tags.each do |tag| %>
         <a href="#" class="tag" rel="tag"><span><%= tag %></span></a>
         <% end %>
       </div>

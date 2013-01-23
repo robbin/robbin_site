@@ -1,6 +1,9 @@
 class Blog < ActiveRecord::Base
   acts_as_cached
   acts_as_taggable
+
+  after_save :clear_tag_cache
+  before_destroy :clear_tag_cache
   
   belongs_to :blog_content, :dependent => :destroy 
   belongs_to :account, :counter_cache => true
@@ -16,12 +19,12 @@ class Blog < ActiveRecord::Base
   def content=(value)
     self.blog_content ||= BlogContent.new
     self.blog_content.content = value
+    self.content_updated_at = Time.now
   end
 
   def update_blog(param_hash)
     self.transaction do
       self.update_attributes!(param_hash)
-      self.content_updated_at = Time.now
       self.blog_content.save!
       self.save!
     end
@@ -29,17 +32,27 @@ class Blog < ActiveRecord::Base
     return false
   end
   
+  def cached_tags
+    cached_tag_list ? cached_tag_list.split(",") : []
+  end
+  
+  def clear_tag_cache
+    APP_CACHE.delete("#{CACHE_PREFIX}/blog_tags/hot")
+  end
+  
   def content_cache_key
     "#{CACHE_PREFIX}/blog_content/#{self.id}/#{self.content_updated_at.to_i}"
   end
   
   def md_content(mode = :gfm)
-    APP_CACHE.fetch(self.content_cache_key) do
+    APP_CACHE.fetch(content_cache_key) do
       GitHub::Markdown.to_html(self.content, mode)
     end
   end
   
-  def self.hot_tags(count = 1)
-    self.tag_counts.sort_by(&:count).reverse.select {|t| t.count > count}
+  def self.hot_tags
+    APP_CACHE.fetch("#{CACHE_PREFIX}/blog_tags/hot") do
+      self.tag_counts.sort_by(&:count).reverse.select {|t| t.count > 1}
+    end
   end
 end

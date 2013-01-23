@@ -22,7 +22,7 @@
         <span class="views"><%= blog.view_count %></span>
         <a href="#" class="comment"><%= blog.comments_count %></a>
       </div>
-      <% blog.tag_list.each do |tag| %>
+      <% blog.cached_tags.each do |tag| %>
       <a href="#" class="tag" rel="tag"><span><%= tag %></span></a>
       <% end %>
     </div>
