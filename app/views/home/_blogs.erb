@@ -1,0 +1,25 @@
+<% blogs.each do |blog| %>
+<div class="con">
+	<div class="tit clearfix">
+    <%= link_to blog.title, url_for(:blog, :show, :id => blog.id) %>
+    <% if account_admin? %>
+    <%= link_to '', url_for(:admin, :blog, :id => blog.id), :method => :delete, :confirm => 'Are you delete', :class => 'del' %>
+    <%= link_to '', url_for(:admin, :edit_blog, :id => blog.id), :class => 'edit' %>
+    <% end %>
+  </div>
+  <div class="text">
+    <%= blog.content.truncate(300) %>
+  </div>
+  <div class="info clearfix">
+    <div class="fr">
+      <span class="time"><%= time_ago_in_words(blog.created_at) %></span>
+      <span class="edit"><%= time_ago_in_words(blog.updated_at) %></span>
+      <span class="views"><%= blog.view_count %></span>
+      <a href="#" class="comment"><%= blog.comments_count %></a>
+    </div>
+    <% blog.cached_tags.each do |tag| %>
+    <a href="#" class="tag" rel="tag"><span><%= tag %></span></a>
+    <% end %>
+  </div>
+</div>
+<% end %>

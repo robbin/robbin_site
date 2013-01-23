@@ -1,0 +1,18 @@
+<h3>Hot Tag</h3>
+<div class="tag">
+  <% Blog.hot_tags.each do |tag| %>
+  <%= link_to "#{tag.name}<span>#{tag.count}</span>", url_for(:blog, :tag, :name => tag.name) %>
+  <% end %>
+</div>
+  
+<h3>Hot Blog</h3>
+<div class="hot_blog">
+  <% Blog.hot_blogs.each do |blog| %>
+  <%= link_to blog.title, url(:blog, :show, :id => blog.id) %>
+  <% end %>
+</div>
+  
+<h3>Others</h3>
+<div class="rss clearfix">
+  <button></button><input name="" type="text" placeholder="请输入E-Mail 订阅">
+</div>

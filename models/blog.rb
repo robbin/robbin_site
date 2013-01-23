@@ -55,4 +55,8 @@ class Blog < ActiveRecord::Base
       self.tag_counts.sort_by(&:count).reverse.select {|t| t.count > 1}
     end
   end
+  
+  def self.hot_blogs
+    self.order('view_count DESC, comments_count DESC').limit(5)
+  end
 end
