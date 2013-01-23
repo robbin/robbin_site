@@ -23,13 +23,21 @@ class Blog < ActiveRecord::Base
   end
 
   def update_blog(param_hash)
-    self.transaction do
-      self.update_attributes!(param_hash)
-      self.blog_content.save!
-      self.save!
+    transaction do
+      update_attributes!(param_hash)
+      blog_content.save!
+      save!
     end
   rescue
     return false
+  end
+  
+  # blog viewer hit counter
+  def increment_view_count
+    increment(:view_count)        # add view_count += 1
+    write_second_level_cache      # update cache per hit, but do not touch db
+    # update db per 10 hits
+    self.class.update_all({:view_count => view_count}, :id => id) if view_count % 10 == 0
   end
   
   def cached_tags
@@ -42,12 +50,12 @@ class Blog < ActiveRecord::Base
   end
   
   def content_cache_key
-    "#{CACHE_PREFIX}/blog_content/#{self.id}/#{self.content_updated_at.to_i}"
+    "#{CACHE_PREFIX}/blog_content/#{self.id}/#{content_updated_at.to_i}"
   end
   
   def md_content(mode = :gfm)
     APP_CACHE.fetch(content_cache_key) do
-      GitHub::Markdown.to_html(self.content, mode)
+      GitHub::Markdown.to_html(content, mode)
     end
   end
   

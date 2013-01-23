@@ -11,7 +11,7 @@ RobbinSite.controllers :blog do
     when :md then
       @blog.content
     when :html then
-      Blog.increment_counter(:view_count, @blog.id)
+      @blog.increment_view_count
       render 'blog/show'
     end
   end
