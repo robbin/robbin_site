@@ -37,7 +37,8 @@ class Blog < ActiveRecord::Base
   end
   
   def clear_tag_cache
-    APP_CACHE.delete("#{CACHE_PREFIX}/blog_tags/hot")
+    APP_CACHE.delete("#{CACHE_PREFIX}/blog_tags/hot")    # clear hot_tags
+    APP_CACHE.delete("#{CACHE_PREFIX}/hot_blogs")        # clear hot_blogs
   end
   
   def content_cache_key
@@ -57,6 +58,8 @@ class Blog < ActiveRecord::Base
   end
   
   def self.hot_blogs
-    self.order('view_count DESC, comments_count DESC').limit(5)
+    APP_CACHE.fetch("#{CACHE_PREFIX}/hot_blogs", :expire_in => 1.day) do
+      self.order('view_count DESC, comments_count DESC').limit(5).all
+    end
   end
 end

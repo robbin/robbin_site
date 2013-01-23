@@ -18,6 +18,10 @@ RobbinSite.controllers :blog do
   
   get :tag, :map => '/tag/:name' do
     @blogs = Blog.tagged_with(params[:name]).order('id DESC').page(params[:page])
-    render 'blog/tag'
+    unless @blogs.blank?
+      render 'blog/tag'
+    else
+      halt 404
+    end
   end
 end
