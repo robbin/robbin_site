@@ -24,4 +24,11 @@ RobbinSite.controllers :blog do
       halt 404
     end
   end
+  
+  post :create_comment, :map => '/blog/:id/comments' do
+    content_type :json
+    blog = Blog.find params[:id]
+    blog.comments.create(:account => current_account, :content => params[:blog_comment][:content])
+    "alert('success');"
+  end
 end

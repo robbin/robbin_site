@@ -12,13 +12,6 @@
   <% end %>
 </div>
 
-<h3>Hot Blog</h3>
-<div class="hot_blog">
-  <% Blog.hot_blogs.each do |blog| %>
-  <%= link_to blog.title, url(:blog, :show, :id => blog.id) %>
-  <% end %>
-</div>
-
 <h3>Recently Comment</h3>
 <ul class="comment">
   <% BlogComment.order('id DESC').limit(5).each do |comment| %>

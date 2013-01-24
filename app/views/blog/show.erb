@@ -74,10 +74,12 @@
       <h4>Leave a Reply</h4>
       <a name="comments"></a>
       <div class="relative">
-        <textarea name="" cols="" rows="" class="comment"></textarea>
-        <button class="comment_btn"></button>
-        <div class="box">
-          <button class="close"></button>
+        <% form_for BlogComment.new, url(:blog, :create_comment, :id => @blog.id), :remote => true do |f| %>
+        <%= f.text_area :content, :class => 'comment' %>
+        <%= f.submit '', :class => 'comment_btn' %>
+        <% end %>
+        <div class="box" style="display:none;">
+          <button class="close" onclick=""></button>
           <p>我希望知道在与谁进行思想交流，请用以下方式登录留言</p>
           <button class="google_btn"></button>
           <button class="sina_btn"></button>
