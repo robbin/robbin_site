@@ -2,8 +2,8 @@ class Blog < ActiveRecord::Base
   acts_as_cached
   acts_as_taggable
 
-  after_save :clear_tag_cache
-  before_destroy :clear_tag_cache
+  after_save :clear_cache
+  before_destroy :clear_cache
   
   belongs_to :blog_content, :dependent => :destroy 
   belongs_to :account, :counter_cache => true
@@ -18,8 +18,8 @@ class Blog < ActiveRecord::Base
   
   def content=(value)
     self.blog_content ||= BlogContent.new
-    self.blog_content.content = value
-    self.content_updated_at = Time.now
+    blog_content.content = value
+    content_updated_at = Time.now
   end
 
   def update_blog(param_hash)
@@ -44,7 +44,7 @@ class Blog < ActiveRecord::Base
     cached_tag_list ? cached_tag_list.split(",") : []
   end
   
-  def clear_tag_cache
+  def clear_cache
     APP_CACHE.delete("#{CACHE_PREFIX}/blog_tags/hot")    # clear hot_tags
     APP_CACHE.delete("#{CACHE_PREFIX}/hot_blogs")        # clear hot_blogs
   end

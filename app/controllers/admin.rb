@@ -2,7 +2,7 @@
 
 RobbinSite.controllers :admin do
 
-  before :except => :login do
+  before do
     halt 403 unless session[:account_id]
     halt 403 unless @account = Account.find(session[:account_id])
     halt 403 unless @account.admin?
