@@ -2,6 +2,8 @@ class Blog < ActiveRecord::Base
   acts_as_cached
   acts_as_taggable
 
+  attr_protected :account_id, :blog_content_id
+  
   after_save :clear_cache
   before_destroy :clear_cache
   
@@ -16,10 +18,10 @@ class Blog < ActiveRecord::Base
   
   scope :by_join_date, order('created_at DESC')
   
-  def content=(value)
+  def content=(value)            # must prepend self otherwise do not update blog_content
     self.blog_content ||= BlogContent.new
-    blog_content.content = value
-    content_updated_at = Time.now
+    self.blog_content.content = value
+    self.content_updated_at = Time.now
   end
 
   def update_blog(param_hash)
@@ -36,7 +38,7 @@ class Blog < ActiveRecord::Base
   def increment_view_count
     increment(:view_count)        # add view_count += 1
     write_second_level_cache      # update cache per hit, but do not touch db
-    # update db per 10 hits
+                                  # update db per 10 hits
     self.class.update_all({:view_count => view_count}, :id => id) if view_count % 10 == 0
   end
   
