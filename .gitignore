@@ -3,6 +3,8 @@ log
 log/**/*
 tmp/**/*
 bin/*
+config/database.yml
+config/app_config.yml
 vendor/gems/*
 !vendor/gems/cache/
 .sass-cache/*

@@ -1,42 +1,3 @@
-ActiveRecord::Base.configurations[:development] = {
-  :adapter   => 'mysql2',
-  :encoding  => 'utf8',
-  :reconnect => true,
-  :database  => 'robbin_site',
-  :pool      => 5,
-  :username  => 'root',
-  :password  => 'fankai',
-  :host      => 'localhost',
-  :socket    => '/tmp/mysql.sock'
-
-}
-
-ActiveRecord::Base.configurations[:production] = {
-  :adapter   => 'mysql2',
-  :encoding  => 'utf8',
-  :reconnect => true,
-  :database  => 'robbin_site',
-  :pool      => 5,
-  :username  => 'root',
-  :password  => 'fankai',
-  :host      => 'localhost',
-  :socket    => '/tmp/mysql.sock'
-
-}
-
-ActiveRecord::Base.configurations[:test] = {
-  :adapter   => 'mysql2',
-  :encoding  => 'utf8',
-  :reconnect => true,
-  :database  => 'robbin_site_test',
-  :pool      => 5,
-  :username  => 'root',
-  :password  => 'fankai',
-  :host      => 'localhost',
-  :socket    => '/tmp/mysql.sock'
-
-}
-
 # Setup our logger
 ActiveRecord::Base.logger = logger
 
@@ -65,4 +26,4 @@ ActiveRecord::Base.default_timezone = :local
 ActiveRecord::Base.time_zone_aware_attributes = false
 
 # Now we can establish connection with our db.
-ActiveRecord::Base.establish_connection(ActiveRecord::Base.configurations[Padrino.env])
+ActiveRecord::Base.establish_connection YAML::load(File.open(File.expand_path("#{PADRINO_ROOT}/config", __FILE__) + '/database.yml'))[PADRINO_ENV]

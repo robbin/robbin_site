@@ -1,0 +1,8 @@
+development: &default
+  session_secret: '1234567890'
+
+test: 
+  <<: *default
+
+production:
+  <<: *default

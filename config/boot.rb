@@ -46,6 +46,9 @@ end
 Padrino.after_load do
 end
 
+# load project config
+APP_CONFIG = YAML.load_file(File.expand_path("#{PADRINO_ROOT}/config", __FILE__) + '/app_config.yml')[PADRINO_ENV]
+
 # initialize memcache and ActiveRecord Cache
 Dalli.logger = logger
 APP_CACHE = ActiveSupport::Cache::DalliStore.new("127.0.0.1")

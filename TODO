@@ -1,8 +1,10 @@
 * blog comments
 * ui tweak
 * md github style render
+* file upload with carrierwave
 * omniauth
 * weibo integration
 * slug url
 * cookie login
+* ferret search
 
