@@ -1,7 +1,7 @@
 <div class="publish">
 	<div class="con">
 		<table class="content">
-      <% form_for @blog, url_for(:admin, :blog, :id => @blog.id), :method => :put do |f| %>
+      <% form_for @blog, url(:admin, :blog, :id => @blog.id), :method => :put do |f| %>
       <%= partial 'admin/form', :object => f %>
       <% end %>
     </table>

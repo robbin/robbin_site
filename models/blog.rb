@@ -43,7 +43,7 @@ class Blog < ActiveRecord::Base
   end
   
   def cached_tags
-    cached_tag_list ? cached_tag_list.split(",") : []
+    cached_tag_list ? cached_tag_list.split(",").collect {|t| t.strip} : []
   end
   
   def clear_cache

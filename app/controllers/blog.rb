@@ -29,6 +29,16 @@ RobbinSite.controllers :blog do
     content_type :json
     blog = Blog.find params[:id]
     blog.comments.create(:account => current_account, :content => params[:blog_comment][:content])
-    "alert('success');"
+    s = partial('blog/comments', :locals => { :blog => blog })
+    "$('div#comments').html('#{s}');"
+  end
+  
+  delete :comment, :map => '/blog/:id/comments/:comment_id' do
+    content_type :json
+    blog = Blog.find params[:id]
+    comment = blog.comments.find params[:comment_id]
+    if blog.comments.delete(comment)
+      "$('div#comments>ul>li##{comment.id}').remove()"
+    end
   end
 end

@@ -4,10 +4,10 @@
     
     <div class="content">
     	<div class="tit clearfix">
-        <%= link_to @blog.title, url_for(:blog, :show, :id => @blog.id) %>
+        <%= link_to @blog.title, url(:blog, :show, :id => @blog.id) %>
         <% if account_admin? %>
-        <%= link_to '', url_for(:admin, :blog, :id => @blog.id), :method => :delete, :confirm => 'Are you delete', :class => 'del' %>
-        <%= link_to '', url_for(:admin, :edit_blog, :id => @blog.id), :class => 'edit' %>
+        <%= link_to '', url(:admin, :blog, :id => @blog.id), :method => :delete, :confirm => 'Are you delete', :class => 'del' %>
+        <%= link_to '', url(:admin, :edit_blog, :id => @blog.id), :class => 'edit' %>
         <% end %>
       </div>
       <div class="info clearfix">
@@ -16,7 +16,7 @@
           <span class="views"><%= @blog.view_count %></span>
         </div>
         <% @blog.cached_tags.each do |tag| %>
-        <a href="#" class="tag" rel="tag"><span><%= tag %></span></a>
+        <%= link_to "<span>#{tag}</span>", url(:blog, :tag, :name => tag), :class => 'tag', :rel => 'tag' %>
         <% end %>
       </div>
       <div class="text">
@@ -51,26 +51,9 @@
     </div><!-- share -->
     
     <div class="comment clearfix">
-      
-   		<h2><span><%= @blog.comments_count %></span>Comment</h2>
-      
-      <ul>
-        <% if @blog.comments_count > 0 %>
-        <% @blog.comments.each do |comment| %>
-        <li class="clearfix">
-          <div class="user_img"><img src="/skins/data/200.PNG"></div>
-          <div class="cot_con">
-         		<div class="info">
-              <span class="user_name"><%= comment.account.name %></span>
-              <span class="time"><%= time_ago_in_words(comment.created_at) %></span>
-            </div>
-            <p><%=h comment.content %></p>
-          </div>
-        </li>
-        <% end %>
-        <% end %>
-      </ul>
-      
+      <div id="comments">      
+        <%= partial 'blog/comments', :locals => { :blog => @blog } %>
+      </div>
       <h4>Leave a Reply</h4>
       <a name="comments"></a>
       <div class="relative">
