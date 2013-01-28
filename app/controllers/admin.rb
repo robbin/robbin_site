@@ -50,4 +50,13 @@ RobbinSite.controllers :admin do
     redirect url(:blog, :index)
   end
 
+  delete :comment, :map => '/admin/blog/:id/comments/:comment_id' do
+    content_type :js
+    blog = Blog.find params[:id]
+    comment = blog.comments.find params[:comment_id]
+    if blog.comments.delete(comment)
+      "$('div#comments>ul>li##{comment.id}').remove()"
+    end
+  end
+
 end

@@ -26,19 +26,12 @@ RobbinSite.controllers :blog do
   end
   
   post :create_comment, :map => '/blog/:id/comments' do
-    content_type :json
+    content_type :js
+    halt 403 unless account_login?
     blog = Blog.find params[:id]
     blog.comments.create(:account => current_account, :content => params[:blog_comment][:content])
     s = partial('blog/comments', :locals => { :blog => blog })
     "$('div#comments').html('#{s}');"
   end
-  
-  delete :comment, :map => '/blog/:id/comments/:comment_id' do
-    content_type :json
-    blog = Blog.find params[:id]
-    comment = blog.comments.find params[:comment_id]
-    if blog.comments.delete(comment)
-      "$('div#comments>ul>li##{comment.id}').remove()"
-    end
-  end
+
 end

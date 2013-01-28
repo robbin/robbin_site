@@ -9,7 +9,7 @@
         <span class="user_name"><%= comment.account.name %></span>
         <span class="time"><%= time_ago_in_words(comment.created_at) %></span>
         <% if account_admin? %>
-        <span><%= link_to "删除", url(:blog, :comment, :id => blog.id, :comment_id => comment.id), :method => :delete, :remote => true %></span>
+        <span><%= link_to "删除", url(:admin, :comment, :id => blog.id, :comment_id => comment.id), :method => :delete, :remote => true %></span>
         <% end %>
       </div>
       <p><%=h comment.content %></p>
