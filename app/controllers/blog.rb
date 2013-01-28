@@ -31,6 +31,7 @@ RobbinSite.controllers :blog do
     blog = Blog.find params[:id]
     blog.comments.create(:account => current_account, :content => params[:blog_comment][:content])
     s = partial('blog/comments', :locals => { :blog => blog })
+    s = js_escape_html(s)
     "$('div#comments').html('#{s}');"
   end
 
