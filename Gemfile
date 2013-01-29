@@ -18,6 +18,12 @@ gem 'github-markdown', :require => 'github/markdown'
 gem 'will_paginate', :require => ['will_paginate/active_record', 'will_paginate/view_helpers/sinatra']
 gem 'sanitize'
 
+# Production requirements
+group :production do
+  gem 'unicorn'
+  gem 'rainbows'
+end
+
 # Development requirements
 group :development do
   gem 'thin'
