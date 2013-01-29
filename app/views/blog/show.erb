@@ -52,7 +52,12 @@
     
     <div class="comment clearfix">
       <div id="comments">      
-        <%= partial 'blog/comments', :locals => { :blog => @blog } %>
+        <h2><span><%= @blog.comments_count %></span>Comment</h2>
+        <ul>
+          <% if @blog.comments_count > 0 %>
+          <%= partial 'blog/comment', :collection => @blog.comments.reverse %>
+          <% end %>
+        </ul>
       </div>
       <h4>Leave a Reply</h4>
       <a name="comments"></a>

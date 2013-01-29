@@ -29,10 +29,8 @@ RobbinSite.controllers :blog do
     content_type :js
     halt 403 unless account_login?
     blog = Blog.find params[:id]
-    blog.comments.create(:account => current_account, :content => params[:blog_comment][:content])
-    s = partial('blog/comments', :locals => { :blog => blog })
-    s = js_escape_html(s)
-    "$('div#comments').html('#{s}');"
+    @comment = blog.comments.create(:account => current_account, :content => params[:blog_comment][:content])
+    render 'blog/create_comment'
   end
 
 end

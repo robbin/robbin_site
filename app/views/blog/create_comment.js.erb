@@ -1,0 +1,2 @@
+$('div#comments>ul).prepend('<%=js_escape_html partial("blog/comment", :object => @comment) %>');
+$('textarea#blog_comment_content').attr("value", "");
