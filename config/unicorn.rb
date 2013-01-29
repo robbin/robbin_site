@@ -1,7 +1,8 @@
 # paths and things
+development = ENV["RACK_ENV"] || 'development'
 wd          = File.expand_path('../../', __FILE__)
-development = ENV["RACK_ENV"] == 'development'
 tmp_path    = File.join(wd, 'log')
+Dir.mkdir(tmp_path) unless File.exist?(tmp_path)
 socket_path = File.join(tmp_path, 'unicorn.sock')
 pid_path    = File.join(tmp_path, 'unicorn.pid')
 err_path    = File.join(tmp_path, 'unicorn.error.log')
