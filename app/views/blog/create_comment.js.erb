@@ -1,2 +1,14 @@
-$('div#comments>ul).prepend('<%=js_escape_html partial("blog/comment", :object => @comment) %>');
+$(document).scrollTop($('div#comments').offset().top);
+$('div#comments>ul').prepend('<%=js_escape_html partial("blog/comment", :object => @comment) %>');
+$('div#comments>ul>li#<%= @comment.id %>').hide().fadeIn('slow');
 $('textarea#blog_comment_content').attr("value", "");
+
+$('a[data-remote=true]').on('click', function(e) {
+  var element = $(this); 
+  if (e.stopped) return;
+  e.preventDefault(); e.stopped = true;
+  JSAdapter.sendRequest(element, { 
+    verb: element.data('method') || 'get', 
+    url: element.attr('href')
+  });
+});

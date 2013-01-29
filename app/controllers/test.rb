@@ -6,7 +6,7 @@ RobbinSite.controllers :test do
   
   get :ajax do
     content_type :js
-    "$('div#content').html('<h1>OK</h1>');"
+    "$('div#content>ul').prepend('<li>item0</li>');"
   end
   
   post :index do

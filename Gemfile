@@ -8,7 +8,7 @@ gem 'padrino-helpers', :git => 'git://github.com/padrino/padrino-framework.git'
 # Component requirements
 gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'erubis', '~> 2.7.0'
-gem 'activerecord', :require => 'active_record'
+gem 'activerecord', '~> 3.2', :require => 'active_record'
 gem 'mysql2'
 gem 'dalli', :require => 'active_support/cache/dalli_store'
 gem 'kgio'
@@ -17,6 +17,7 @@ gem 'acts-as-taggable-on', :git => "git://github.com/robbin/acts-as-taggable-on.
 gem 'github-markdown', :require => 'github/markdown'
 gem 'will_paginate', :require => ['will_paginate/active_record', 'will_paginate/view_helpers/sinatra']
 gem 'sanitize'
+gem 'carrierwave'
 
 # Production requirements
 group :production do

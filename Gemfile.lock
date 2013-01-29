@@ -46,6 +46,9 @@ GEM
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     builder (3.0.4)
+    carrierwave (0.8.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
     coderay (1.0.8)
     daemons (1.1.9)
     dalli (2.6.2)
@@ -106,9 +109,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord
+  activerecord (~> 3.2)
   acts-as-taggable-on!
   bcrypt-ruby
+  carrierwave
   dalli
   database_cleaner
   erubis (~> 2.7.0)

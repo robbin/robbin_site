@@ -11,6 +11,7 @@ This is my personal website project.
 4. run `rake secret` to generate session secret key and fill it in app_config.
 5. create database match your database.yml
 6. run `rake ar:migrate` to setup database schema.
-7. run `thin start`.
+7. run `rake seed` to generate admin user.
+8. run `thin start`.
 
 ## MIT License
