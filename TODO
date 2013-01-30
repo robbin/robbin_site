@@ -1,11 +1,11 @@
-* blog comments ajax effect
+* cookie login
+* model validation
+* flash notice
 * ui tweak
 * md github style render
 * file upload with carrierwave
 
-* omniauth
-* weibo integration
-* slug url
-* cookie login
+* SEO: page title, description, keywords, etc
+* omniauth and google/weibo integration
 * ferret search
 

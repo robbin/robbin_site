@@ -5,8 +5,20 @@ RobbinSite.controllers :blog do
     render 'blog/index'
   end
   
+  get :show_url, :map => '/blog/:id/:url', :provides => [:html, :md] do
+    @blog = Blog.find params[:id].to_i
+    case content_type
+    when :md then
+      @blog.content
+    when :html then
+      @blog.increment_view_count
+      render 'blog/show'
+    end
+  end
+  
   get :show, :map => '/blog/:id', :provides => [:html, :md] do
     @blog = Blog.find params[:id].to_i
+    redirect url(:blog, :show_url, :id => @blog.id, :url => @blog.slug_url), 301 unless @blog.slug_url.blank?
     case content_type
     when :md then
       @blog.content

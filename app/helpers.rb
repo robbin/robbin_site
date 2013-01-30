@@ -14,4 +14,12 @@ RobbinSite.helpers do
       return false
     end
   end
+  
+  def blog_url(blog)
+    if blog.slug_url.blank?
+      url(:blog, :show, :id => blog.id)
+    else
+      url(:blog, :show_url, :id => blog.id, :url => blog.slug_url)
+    end
+  end
 end

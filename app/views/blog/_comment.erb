@@ -8,6 +8,6 @@
       <span><%= link_to "删除", url(:admin, :comment, :id => comment.id), :method => :delete, :remote => true %></span>
       <% end %>
     </div>
-    <p><%=h comment.content %></p>
+    <p><%= comment.md_content %></p>
   </div>
 </li>

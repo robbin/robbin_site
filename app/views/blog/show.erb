@@ -4,7 +4,7 @@
     
     <div class="content">
     	<div class="tit clearfix">
-        <%= link_to @blog.title, url(:blog, :show, :id => @blog.id) %>
+        <%= link_to @blog.title, blog_url(@blog) %>
         <% if account_admin? %>
         <%= link_to '', url(:admin, :blog, :id => @blog.id), :method => :delete, :confirm => 'Are you delete', :class => 'del' %>
         <%= link_to '', url(:admin, :edit_blog, :id => @blog.id), :class => 'edit' %>

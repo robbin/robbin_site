@@ -8,7 +8,7 @@
 <h3>Hot Blog</h3>
 <div class="hot_blog">
   <% Blog.hot_blogs.each do |blog| %>
-  <%= link_to blog.title, url(:blog, :show, :id => blog.id) %>
+  <%= link_to blog.title, blog_url(blog) %>
   <% end %>
 </div>
 
@@ -18,7 +18,7 @@
 	<li>
   	<span class="user_name"><%= comment.account.name %></span>
     <%= comment.brief_content %>
-    <%= link_to comment.blog.title, url(:blog, :show, :id => comment.blog.id), :anchor => 'comments' %>
+    <%= link_to comment.blog.title, blog_url(comment.blog), :anchor => 'comments' %>
   </li>
   <% end %>
 </ul>
