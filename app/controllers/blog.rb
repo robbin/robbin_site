@@ -18,7 +18,7 @@ RobbinSite.controllers :blog do
   
   get :show, :map => '/blog/:id', :provides => [:html, :md] do
     @blog = Blog.find params[:id].to_i
-    redirect url(:blog, :show_url, :id => @blog.id, :url => @blog.slug_url), 301 unless @blog.slug_url.blank?
+    redirect blog_url(@blog, mime_type = content_type), 301 unless @blog.slug_url.blank?
     case content_type
     when :md then
       @blog.content

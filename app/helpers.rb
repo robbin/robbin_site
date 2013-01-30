@@ -15,11 +15,13 @@ RobbinSite.helpers do
     end
   end
   
-  def blog_url(blog)
+  def blog_url(blog, mime_type = :html)
     if blog.slug_url.blank?
-      url(:blog, :show, :id => blog.id)
+      slug_url = url(:blog, :show, :id => blog.id)
     else
-      url(:blog, :show_url, :id => blog.id, :url => blog.slug_url)
+      slug_url = url(:blog, :show_url, :id => blog.id, :url => blog.slug_url)
     end
+    slug_url << "." << mime_type.to_s if mime_type != :html
+    slug_url
   end
 end
