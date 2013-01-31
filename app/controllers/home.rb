@@ -29,7 +29,8 @@ RobbinSite.controllers do
       response.set_cookie('user', {:value => login_account.encrypt_cookie_value, :path => "/", :expires => 2.weeks.since, :httponly => true}) if params[:remember_me]
       redirect url(:index)
     else
-      APP_CACHE.increment("#{CACHE_PREFIX}/login_counter/#{request.ip}", 1, :expires_in => 10.minute)
+      # reties 5 times per one hour
+      APP_CACHE.increment("#{CACHE_PREFIX}/login_counter/#{request.ip}", 1, :expires_in => 1.hour)
       render 'home/login'
     end
   end
