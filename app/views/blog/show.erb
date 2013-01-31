@@ -3,6 +3,9 @@
   <div class="con">
     
     <div class="content">
+      <div>
+        <%= flash_tag :notice, :class => 'flash', :id => 'flash-notice' %>
+      </div>
     	<div class="tit clearfix">
         <%= link_to @blog.title, blog_url(@blog) %>
         <%= link_to '', blog_url(@blog, mime_type = :md), :class => 'edit' %>

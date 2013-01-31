@@ -1,8 +1,7 @@
+* file upload with carrierwave
 * model validation
-* flash notice
 * ui tweak
 * md github style render
-* file upload with carrierwave
 * blog channel: order by created_at
 * note channel: order by contented_at
 * SEO: page title, description, keywords, etc

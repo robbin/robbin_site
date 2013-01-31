@@ -1,6 +1,9 @@
+# encoding: utf-8
+
 RobbinSite.controllers :test do
 
   get :index do
+    flash[:notice] = "测试成功"
     render 'test/index'
   end
   
