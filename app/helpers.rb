@@ -2,12 +2,9 @@ RobbinSite.helpers do
   def current_account
     return @current_account if @current_account
     return @current_account = Account.find_by_id(session[:account_id]) if session[:account_id]
-    if request.cookies['user']
-      user_id, created_at = Account.decrypt_cookie_value(request.cookies['user'])
-      if (@current_account = Account.find_by_id(user_id)) and (@current_account.created_at = created_at)
-        session[:account_id] = @current_account.id
-        return @current_account
-      end
+    if request.cookies['user'] && (@current_account = Account.validate_cookie(request.cookies['user']))
+      session[:account_id] = @current_account.id
+      return @current_account
     end
   end
   
