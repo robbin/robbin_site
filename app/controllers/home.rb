@@ -21,12 +21,15 @@ RobbinSite.controllers do
   end
   
   post :login, :map => '/login' do
+    login_tries = APP_CACHE.read("#{CACHE_PREFIX}/login_counter/#{request.ip}")
+    halt 401 if login_tries && login_tries.to_i > 5  # reject ip if login tries is over 5 times
     @account = Account.new(params[:account])
     if login_account = Account.authenticate(@account.email, @account.password)
       session[:account_id] = login_account.id
       response.set_cookie('user', {:value => login_account.encrypt_cookie_value, :path => "/", :expires => 2.weeks.since, :httponly => true}) if params[:remember_me]
       redirect url(:index)
     else
+      APP_CACHE.increment("#{CACHE_PREFIX}/login_counter/#{request.ip}", 1, :expires_in => 10.minute)
       render 'home/login'
     end
   end

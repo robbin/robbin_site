@@ -12,6 +12,10 @@ class RobbinSite < Padrino::Application
   error ActiveRecord::RecordNotFound do
     halt 404
   end
+
+  error 401 do
+    render '401'
+  end
   
   error 403 do
     render '403'
