@@ -3,9 +3,7 @@
 RobbinSite.controllers :admin do
 
   before do
-    halt 403 unless session[:account_id]
-    halt 403 unless @account = Account.find(session[:account_id])
-    halt 403 unless @account.admin?
+    halt 403 unless account_admin?
   end
   
   get :index do
@@ -19,7 +17,7 @@ RobbinSite.controllers :admin do
   
   post :blog, :map => '/admin/blog' do
     @blog = Blog.new(params[:blog])
-    @blog.account = @account
+    @blog.account = current_account
     if @blog.save
       flash[:notice] = "创建成功"
       redirect url(:blog, :show, :id => @blog.id)

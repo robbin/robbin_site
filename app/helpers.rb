@@ -1,6 +1,14 @@
 RobbinSite.helpers do
   def current_account
-    @account ||= Account.find(session[:account_id]) if session[:account_id]
+    return @current_account if @current_account
+    return @current_account = Account.find_by_id(session[:account_id]) if session[:account_id]
+    if request.cookies['user']
+      user_id, created_at = Account.decrypt_cookie_value(request.cookies['user'])
+      if (@current_account = Account.find_by_id(user_id)) and (@current_account.created_at = created_at)
+        session[:account_id] = @current_account.id
+        return @current_account
+      end
+    end
   end
   
   def account_login?
@@ -8,11 +16,7 @@ RobbinSite.helpers do
   end
   
   def account_admin?
-    if current_account && current_account.admin?
-      return true
-    else
-      return false
-    end
+    current_account && current_account.admin? ? true : false
   end
   
   def blog_url(blog, mime_type = :html)

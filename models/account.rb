@@ -1,3 +1,6 @@
+require 'openssl'
+require 'base64'
+
 class Account < ActiveRecord::Base
   attr_accessor :password, :password_confirmation
   acts_as_cached
@@ -31,6 +34,22 @@ class Account < ActiveRecord::Base
 
   def admin?
     self.role == "admin"
+  end
+  
+  def encrypt_cookie_value
+    cipher = OpenSSL::Cipher::AES.new(256, :CBC)
+    cipher.encrypt
+    cipher.key = APP_CONFIG['session_secret']
+    Base64.encode64(cipher.update("#{id} #{created_at.to_i}") + cipher.final)
+  end
+  
+  def self.decrypt_cookie_value(encrypted_value)
+    decipher = OpenSSL::Cipher::AES.new(256, :CBC)
+    decipher.decrypt
+    decipher.key = APP_CONFIG['session_secret']
+    plain = decipher.update(Base64.decode64(encrypted_value)) + decipher.final
+    id, created_timestamp = plain.split.map{|e| e.to_i}
+    return id, Time.at(created_timestamp)
   end
   
   private
