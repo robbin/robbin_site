@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 11) do
+ActiveRecord::Schema.define(:version => 12) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -23,6 +23,20 @@ ActiveRecord::Schema.define(:version => 11) do
     t.datetime "updated_at",                      :null => false
     t.integer  "blogs_count",      :default => 0
   end
+
+  create_table "attachments", :force => true do |t|
+    t.string   "content_type"
+    t.string   "filename"
+    t.integer  "size"
+    t.integer  "download_count", :default => 0, :null => false
+    t.integer  "account_id"
+    t.integer  "blog_id"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
+
+  add_index "attachments", ["account_id"], :name => "index_attachments_on_account_id"
+  add_index "attachments", ["blog_id"], :name => "index_attachments_on_blog_id"
 
   create_table "blog_comments", :force => true do |t|
     t.integer  "account_id"
