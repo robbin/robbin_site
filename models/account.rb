@@ -54,7 +54,9 @@ class Account < ActiveRecord::Base
 
   def self.validate_cookie(encrypted_value)
     user_id, crypted_password = decrypt_cookie_value(encrypted_value)
-    return account if (account = Account.find_by_id(user_id)) && (account.crypted_password = crypted_password)
+    if (account = Account.find_by_id(user_id)) && (account.crypted_password = crypted_password)
+      return account
+    end
   end
   
   private
