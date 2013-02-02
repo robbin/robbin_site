@@ -66,4 +66,7 @@ ActsAsTaggableOn.strict_case_match = true
 # Set will_paginate default page number
 WillPaginate.per_page = 5
 
+# Set carrierwave sanitize
+CarrierWave::SanitizedFile.sanitize_regexp = /[^[:word:]\.\-\+]/
+
 Padrino.load!

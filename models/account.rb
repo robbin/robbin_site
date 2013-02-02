@@ -6,6 +6,8 @@ class Account < ActiveRecord::Base
   acts_as_cached
   has_many :blogs
   has_many :blog_comments
+  has_many :attachments
+  
   # Validations
   validates_presence_of     :email, :role
   validates_presence_of     :password,                   :if => :password_required

@@ -10,6 +10,7 @@ class Blog < ActiveRecord::Base
   belongs_to :blog_content, :dependent => :destroy 
   belongs_to :account, :counter_cache => true
   has_many :comments, :class_name => 'BlogComment', :dependent => :destroy
+  has_many :attachments
   
   validates :title, :presence => true
   validates :title, :length => {:in => 3..50}

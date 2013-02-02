@@ -5,6 +5,7 @@ tmp/**/*
 bin/*
 config/database.yml
 config/app_config.yml
+public/uploads
 vendor/gems/*
 !vendor/gems/cache/
 .sass-cache/*

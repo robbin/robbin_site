@@ -25,14 +25,10 @@ ActiveRecord::Schema.define(:version => 12) do
   end
 
   create_table "attachments", :force => true do |t|
-    t.string   "content_type"
-    t.string   "filename"
-    t.integer  "size"
-    t.integer  "download_count", :default => 0, :null => false
+    t.string   "file"
     t.integer  "account_id"
     t.integer  "blog_id"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.datetime "created_at"
   end
 
   add_index "attachments", ["account_id"], :name => "index_attachments_on_account_id"
