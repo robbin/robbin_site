@@ -58,6 +58,7 @@ GEM
     factory_girl (4.2.0)
       activesupport (>= 3.0.0)
     github-markdown (0.5.3)
+    gravtastic (3.2.6)
     http_router (0.10.2)
       rack (>= 1.0.0)
       url_mount (~> 0.2.1)
@@ -118,6 +119,7 @@ DEPENDENCIES
   erubis (~> 2.7.0)
   factory_girl
   github-markdown
+  gravtastic
   kgio
   minitest (~> 2.6.0)
   mysql2

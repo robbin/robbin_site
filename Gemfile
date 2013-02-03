@@ -18,6 +18,7 @@ gem 'github-markdown', :require => 'github/markdown'
 gem 'will_paginate', :require => ['will_paginate/active_record', 'will_paginate/view_helpers/sinatra']
 gem 'sanitize'
 gem 'carrierwave', :require => ['carrierwave', 'carrierwave/orm/activerecord']
+gem 'gravtastic'
 
 # Production requirements
 group :production do

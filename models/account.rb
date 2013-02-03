@@ -2,6 +2,8 @@ require 'openssl'
 require 'base64'
 
 class Account < ActiveRecord::Base
+  include Gravtastic
+  gravtastic :secure => false, :size => 80, :rating => 'G'
   attr_accessor :password, :password_confirmation
   acts_as_cached
   has_many :blogs
