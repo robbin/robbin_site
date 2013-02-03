@@ -4,7 +4,7 @@
     
     <div class="content">
       <div>
-        <%= flash_tag :notice, :class => 'flash', :id => 'flash-notice' %>
+        <%= (flash_tag :notice, :class => 'flash', :id => 'flash-notice').html_safe %>
       </div>
     	<div class="tit clearfix">
         <%= link_to @blog.title, blog_url(@blog) %>

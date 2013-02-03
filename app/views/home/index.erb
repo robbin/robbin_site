@@ -2,9 +2,9 @@
 
 <div class="left">
 	<h3>Blog post</h3>
-  <%= partial 'home/blogs', :object => @blogs %>
+  <%= partial 'home/blog', :collection => @blogs %>
   <div>
-    <%= will_paginate @blogs, :previous_label => '前一页', :next_label => '下一页' %>
+    <%= (will_paginate @blogs, :previous_label => '前一页', :next_label => '下一页').html_safe %>
   </div>
 </div><!-- left content -->
 
