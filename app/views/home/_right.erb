@@ -1,7 +1,7 @@
 <h3>Hot Tag</h3>
 <div class="tag">
   <% Blog.hot_tags.each do |tag| %>
-  <%= link_to "#{tag.name}<span>#{tag.count}</span>", url(:blog, :tag, :name => tag.name) %>
+  <%= link_to "#{tag.name}<span>#{tag.count}</span>".html_safe, url(:blog, :tag, :name => tag.name) %>
   <% end %>
 </div>
   

@@ -52,6 +52,8 @@ class Account < ActiveRecord::Base
     plain = decipher.update(Base64.decode64(encrypted_value)) + decipher.final
     id, crypted_password = plain.split
     return id.to_i, crypted_password
+  rescue
+    return 0, ""
   end
 
   def self.validate_cookie(encrypted_value)

@@ -20,11 +20,11 @@
           <span class="views"><%= @blog.view_count %></span>
         </div>
         <% @blog.cached_tags.each do |tag| %>
-        <%= link_to "<span>#{tag}</span>", url(:blog, :tag, :name => tag), :class => 'tag', :rel => 'tag' %>
+        <%= link_to "<span>#{tag}</span>".html_safe, url(:blog, :tag, :name => tag), :class => 'tag', :rel => 'tag' %>
         <% end %>
       </div>
       <div class="text">
-        <%= @blog.md_content %>
+        <%= @blog.md_content.html_safe %>
       </div>
     </div><!-- content -->
   
