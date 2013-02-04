@@ -3,7 +3,7 @@
 RobbinSite.controllers :test do
 
   get :index do
-    flash[:notice] = "测试成功"
+    @comment = BlogComment.first
     render 'test/index'
   end
   

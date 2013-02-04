@@ -1,5 +1,5 @@
 $(document).scrollTop($('div#comments').offset().top);
-$('div#comments>ul').prepend('<%=js_escape_html partial("blog/comment", :object => @comment) %>');
+$('div#comments>ul').prepend('<%= js_escape_html(partial("blog/comment", :object => @comment)).html_safe %>');
 $('div#comments>ul>li#<%= @comment.id %>').hide().fadeIn('slow');
 $('textarea#blog_comment_content').attr("value", "");
 
