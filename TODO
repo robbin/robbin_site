@@ -1,3 +1,5 @@
+* favicon
+* main nav
 * file upload with carrierwave
 * omniauth and google/weibo integration
 * blog channel: order by created_at

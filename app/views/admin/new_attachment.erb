@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <%= javascript_include_tag 'jquery', 'jquery-ujs', 'application' %>
+  </head>
+  <body>
+    <% form_for :attachment, url(:admin, :attachment), :html => { :id => "attachment_form", :multipart => true } do |f| -%>
+      <%= f.file_field :uploaded_data, :onchange => "upload(this.value);" %>
+      <span id="spinner" style="display:none;">上传中 <%= image_tag "spinner.gif" %></span>
+    <% end %>
+    
+    <script type="text/javascript">
+
+      function upload(fileName) {
+        if (!$A(['jpg','jpeg','bmp','png','gif','rar','zip', 'tar', 'gz', 'jar', 'war', 'bz2', '7z', 'pdf', 'swf']).any(function(extName){return new RegExp('\\.'+extName+'$','i').test(fileName);})){
+          alert("如果您上传图片，请上传png, jpg, gif或者bmp格式的图片\n如果您上传附件，请先压缩再上传");
+          return false;
+        }        
+        var counter = parseInt(window.parent.$('attachments_counter').value) + 1;
+        window.parent.$('attachments_counter').value = counter;
+        window.parent.$('submit_button').value = counter + " 个文件正在上传中，请等待完成后再提交";
+        $('spinner').show();        
+        var iframes = window.parent.$("attachment_iframes");
+        iframes.appendChild(iframes.getElementsByTagName('iframe')[0].cloneNode(false));
+        $('attachment_form').submit();
+      }
+    </script>
+  </body>
+</html>

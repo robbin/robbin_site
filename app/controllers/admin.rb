@@ -54,5 +54,12 @@ RobbinSite.controllers :admin do
     comment.destroy
     "$('div#comments>ul>li##{comment.id}').fadeOut('slow');"
   end
-
+  
+  get :attachment, :map => '/admin/attachment/new' do
+    @attachment = Attachment.new
+    render 'admin/new_attachment'
+  end
+  
+  post :attachment, :map => '/admin/attachment' do
+  end
 end
