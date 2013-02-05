@@ -1,6 +1,5 @@
 @charset "utf-8";
 
-
 /*heard*/
 body{ background:#bebebe url(bg.gif);}
 .warp{ max-width:1000px;margin:0 auto; }
@@ -12,9 +11,12 @@ body{ background:#bebebe url(bg.gif);}
 .header h1 .blog_name{ font-size:50px; line-height:50px; }
 .header h1 .blog_title{ font-size:30px; line-height:30px;}
 .header h2{ color:#fff; font-size:18px; font-weight:bold; }
-.header .write{ float:right;}
+.header .write{ float:right; color:#fff; width:200px; text-align:right;}
 .header .write a{color:#fff; margin-right:20px; display:inline-block; height:20px; line-height:20px; vertical-align:middle; background:url(y.png) 0px -240px no-repeat; padding-left:20px;}
 .header .write a:hover{background:url(y.png) 0px -270px no-repeat; color:#f87b00;}
+.header .write input{ background:none; border:none; color:#fff;background: url(y.png) 0px -716px no-repeat; padding-left:20px;}
+.header .write input:hover{ color:#f60;background: url(y.png) 0px -746px no-repeat; text-decoration:underline;}
+.header .write form{ display:inline;}
 
 /*nav*/
 .nav{ font-size:14px; background:url(x.png) 0 0 ; height:53px;}
@@ -87,19 +89,24 @@ body{ background:#bebebe url(bg.gif);}
 .right .hot_blog a,
 .right .hot_note a{display:block; margin-bottom:18px;}
 .right .comment a{ display:block; border-bottom:1px dotted #ddd; margin-bottom:15px; padding-bottom:5px; color:#f60;}
+.right .comment{word-break: break-all;}
 .right .user_name{ color:#666;}
 
 /*footer*/
 .footer{ text-align:center; background:#fff; height: 70px; padding-top:30px; box-shadow: 0px -1px 1px #aaa;}
 .footer a{ display:inline-block; height:20px; font-size:14px; color:#999; font-weight:bold;}
 .footer .weibo,
+.footer .github,
 .footer .mail{ background:url(y.png) no-repeat; padding-left:25px; margin-right:20px;}
 .footer .weibo{ background-position:0 -540px;}
 .footer .weibo:hover{background-position:0 -570px; color:#f60;}
+.footer .github{ background-position:0 -785px;}
+.footer .github:hover{ background-position:0 -825px; color:#f60}
 .footer .mail{ background-position:0 -598px;}
 .footer .mail:hover{ background-position:0 -628px; color:#f60;}
 .footer .iteye{background:url(x.png) no-repeat 0 -310px; padding-left:45px; }
 .footer .iteye:hover{ background-position:0 -340px; color:#f60;}
+.footer .certification a{ font-weight:100; font-size:12px; color:#666;}
 
 /*page_nav*/
 .page_nav a{ width:50px; height:34px; font-size:18px; font-weight:bold; line-height:34px; padding:0 10px; background:#ddd url(x.png) no-repeat; color:#fff; box-shadow: 0px 1px 1px #aaa; border-radius:3px;-webkit-border-radius:  3px;-moz-border-radius: 3px;-khtml-border-radius: 3px; margin:-20px 0 30px 0;}
@@ -126,6 +133,7 @@ body{ background:#bebebe url(bg.gif);}
 .publish .content th{ width:100px; text-align:right; padding:5px 20px 5px 0; font-size:16px; font-weight:bold;}
 .publish .content td{ width:800px; padding:5px 0;}
 .publish input{ width: 680px; border:1px #ccc solid; height:28px;  border-radius: 5px;-webkit-border-radius: 5px;-moz-border-radius: 5px;-khtml-border-radius: 5px; padding:0 5px;}
+.publish input.submit{ width:110px; height:40px; border:none;border-radius:0;-webkit-border-radius:0;-moz-border-radius: 0px;-khtml-border-radius: 0px;}
 .publish textarea{ height:500px; width: 680px; border:1px #ccc solid;  border-radius: 5px;-webkit-border-radius: 5px;-moz-border-radius: 5px;-khtml-border-radius: 5px; padding:0 5px; font-size:14px;outline: none;}
 .publish label{ vertical-align:middle; margin-right:20px;}
 .publish label input{ vertical-align:middle; width:auto;}
@@ -146,7 +154,7 @@ body{ background:#bebebe url(bg.gif);}
 .con .comment ul li:last-child { border-bottom: 0; margin-bottom:20px;} 
 .con .comment h4{font-size:18px; font-weight:bold; margin-bottom:10px;}
 .con .comment textarea{ height:140px; width: 615px; border:1px #ccc solid;  border-radius: 5px;-webkit-border-radius: 5px;-moz-border-radius: 5px;-khtml-border-radius: 5px; padding:5px 10px; font-size:14px;outline: none;}
-.comment_btn{background:url(x.png) no-repeat 0 -540px; border:none; width:110px; height:40px; float:right;}
+.comment_btn{background:url(x.png) no-repeat 0 -540px; border:none; width:110px; height:40px; float:right; border-radius: 0px;-webkit-border-radius: 0px;-moz-border-radius: 0px;-khtml-border-radius: 0px;}
 .comment_btn:hover{background:url(x.png) no-repeat 0 -590px; }
 
 /*tag_list*/
@@ -168,3 +176,16 @@ body{ background:#bebebe url(bg.gif);}
 .box button.sina_btn{ background: url(x.png); border:none; width:110px; height:40px;}
 .box button.google_btn{ background-position:0 -690px; margin-right:10px}
 .box button.sina_btn{ background-position:0 -740px;}
+
+/*page*/
+.pagination{ margin-bottom:30px; margin-top:-15px; text-align:center;}
+.pagination .previous_page,
+.pagination a,
+.pagination em,
+.pagination .next_page{ background:#fff; display: inline-block; padding:0px 8px; margin:0 2px;border-radius: 2px;-webkit-border-radius: 2px;-moz-border-radius: 2px;-khtml-border-radius: 2px;box-shadow: 0px 1px 2px #999;}
+.pagination .previous_page:hover,
+.pagination a:hover,
+.pagination .next_page:hover{ background:#eee;}
+.pagination em{ color:#f60;}
+.pagination .disabled{ background:#ddd;}
+.pagination .disabled:hover{ background:#ddd;}
