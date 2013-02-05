@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0"  xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>robbin的自言自语</title>
+    <description>范凯，互联网创业者，JavaEye网站创始人</description>
+    <link>http://robbinfan.com</link>
+    <language>zh-CN</language>
+    <copyright>Copyright 2012-2013, robbinfan.com</copyright>
+    <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+    <atom:link href="http://robbinfan.com/rss" rel="self" type="application/rss+xml" />
+    <% @blogs.each do |blog| %>
+    <item>
+      <title><%= blog.title %></title>
+      <description>
+        <![CDATA[ <%= blog.md_content.html_safe %> ]]>
+      </description>
+      <pubDate><%= blog.created_at.rfc822 %></pubDate>
+      <link>http://robbinfan.com<%= blog_url(blog) %></link>
+      <guid isPermaLink="false">http://robbinfan.com<%= blog_url(blog) %></guid>
+    </item>
+    <% end %>
+  </channel>
+</rss>

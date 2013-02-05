@@ -15,6 +15,12 @@ RobbinSite.controllers do
     render 'home/me'
   end
   
+  get :rss do
+    content_type :xml
+    @blogs = Blog.order('id DESC').limit(10)
+    render 'home/rss'
+  end
+  
   get :login, :map => '/login' do
     @account = Account.new
     render 'home/login'

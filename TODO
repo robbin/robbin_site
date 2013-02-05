@@ -1,10 +1,8 @@
 * file upload with carrierwave
 * omniauth and google/weibo integration
-* ui tweak and markdown github style render
-
-* model validation
 * blog channel: order by created_at
 * note channel: order by contented_at
 * SEO: page title, description, keywords, etc
 * notify google blog search when blog created
+* model validation
 * ferret search

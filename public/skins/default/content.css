@@ -50,11 +50,14 @@ body{ background:#bebebe url(bg.gif);}
 .con em{padding:0 3px; margin:0 3px; background:#f60; color:#fff;}
 .con .lost_search{padding:140px 40px 140px 160px; font-size:16px; min-height:100px; background:url(search.png) no-repeat 80px 115px ;}
 .tit .edit,
+.tit .markdown,
 .tit .del{ display:block; float:right; width:24px; height:24px; margin-left:20px; background:url(y.png) no-repeat;}
 .tit .edit{ background-position:2px -78px;}
 .tit .del{background-position:2px -158px;}
+.tit .markdown{ background-position:0 -856px;}
 .tit .edit:hover{ background-position:2px -118px;}
 .tit .del:hover{background-position:2px -198px;}
+.tit .markdown:hover{ background-position:0 -886px;}
 
 .text{padding:30px 40px; font-size:14px; min-height:120px;}
 .text .img{ margin-bottom:10px; text-align:center;}
@@ -73,7 +76,7 @@ body{ background:#bebebe url(bg.gif);}
 .con .info .comment:hover{ background-position:0 -453px; color:#f60;}
 
 /*right*/
-.right{ width:200px; float:left; background:#fff url(x.png) repeat-x 0 -795px; margin-top:-5px; padding:20px; margin-bottom:20px;border-radius: 0 0 5px 5px;-webkit-border-radius:  0 0 5px 5px;-moz-border-radius:  0 0 5px 5px;-khtml-border-radius:  0 0 5px 5px; box-shadow: 0px 1px 2px #999;}
+.right{ width:200px; float:left; background:#fff url(x.png) repeat-x 0 -995px; margin-top:-5px; padding:20px; margin-bottom:20px;border-radius: 0 0 5px 5px;-webkit-border-radius:  0 0 5px 5px;-moz-border-radius:  0 0 5px 5px;-khtml-border-radius:  0 0 5px 5px; box-shadow: 0px 1px 2px #999;}
 .right h3{ font-size:18px; margin-bottom:10px; font-weight:bold; color:#666;}
 .right ul{ margin-bottom:20px;}
 .right .tag { font-size:14px; line-height:16px; margin-bottom:30px;}
@@ -81,14 +84,14 @@ body{ background:#bebebe url(bg.gif);}
 .right .tag a:hover{color:#666;text-decoration:none;background-color:#fff}
 .right .tag a span {border-left: 1px solid #DDD;display: block;float: right;margin: -5px 0 -5px 5px;padding: 6px 5px;text-align: center;width: 20px;}
 .right .tag a span:hover{color:#666;text-decoration:none;background-color:#fff}
-.right .rss button{ background:url(x.png) 0 -260px; width:30px; height:30px; border:none; margin-right:5px; float:left;}
-.right .rss button:hover{ background-position: -50px -260px; }
+.right .rss a{ display:block; background:url(x.png) 0 -260px no-repeat; height:30px; line-height:30px; border:none; margin-right:5px; font-size:18px; padding-left:40px; font-weight:bold;}
+.right .rss a:hover{ background-position: 0px -310px; }
 .right .rss input{ padding-left:5px;}
 .right .hot_blog,
 .right .hot_note{ line-height:18px; margin-bottom:30px;}
 .right .hot_blog a,
 .right .hot_note a{display:block; margin-bottom:18px;}
-.right .comment a{ display:block; border-bottom:1px dotted #ddd; margin-bottom:15px; padding-bottom:5px; color:#f60;}
+.right .comment a{ display:block; border-bottom:1px dotted #ddd; margin-bottom:15px; padding-bottom:5px; color:#369;}
 .right .comment{word-break: break-all;}
 .right .user_name{ color:#666;}
 
@@ -189,3 +192,13 @@ body{ background:#bebebe url(bg.gif);}
 .pagination em{ color:#f60;}
 .pagination .disabled{ background:#ddd;}
 .pagination .disabled:hover{ background:#ddd;}
+
+/*login*/
+.login{ margin-top:20px; height:200px; mborder-radius: 5px;-webkit-border-radius: 5px;-moz-border-radius: 5px;-khtml-border-radius: 5px;background: #fff;margin-bottom: 40px;box-shadow: 0px 1px 2px #999; padding:100px 300px; text-align:center;}
+.login label{ display:inline-block; width:90px; text-align:right; padding-right:10px;}
+.login p{ margin:10px;}
+.login input{ width:196px; padding:0 5px;}
+.login input.login{ background:#ccc; height:40px; width:120px; padding:0; margin:0; background:url(x.png) no-repeat 0 -790px; mborder-radius: 0px;-webkit-border-radius: 0px;-moz-border-radius: 0px;-khtml-border-radius: 0px;box-shadow: none; border:0; margin-left:20px;}
+.login input.login:hover{ background-position:0 -840px;}
+
+.error-info{ margin-top:20px; height:200px; mborder-radius: 5px;-webkit-border-radius: 5px;-moz-border-radius: 5px;-khtml-border-radius: 5px;background: #fff;margin-bottom: 40px;box-shadow: 0px 1px 2px #999; padding:100px 300px; text-align:center; font-size:20px; font-weight:bold;}

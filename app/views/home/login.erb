@@ -1,3 +1,4 @@
+<div class="login">
 <% form_for @account, url(:login) do |f| %>
   <%= f.error_messages %>
   <p>
@@ -13,6 +14,7 @@
     <%= check_box_tag :remember_me, :checked => true %>
   </p>
   <p>
-    <%= f.submit '登录' %>
+    <%= f.submit '', :class => 'login' %>
   </p>
 <% end %>
+</div>
