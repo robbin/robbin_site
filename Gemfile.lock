@@ -30,7 +30,7 @@ GIT
       activerecord (~> 3.0)
 
 GEM
-  remote: https://rubygems.org/
+  remote: http://rubygems.org/
   specs:
     activemodel (3.2.11)
       activesupport (= 3.2.11)
