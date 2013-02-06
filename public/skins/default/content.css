@@ -47,7 +47,7 @@ body{ background:#bebebe url(bg.gif);}
 
 .con{border-radius:5px; -webkit-border-radius:5px;-moz-border-radius:5px;-khtml-border-radius:5px; background:#fff; margin-bottom:40px;box-shadow: 0px 1px 2px #999;}
 .con .tit{ border-bottom:1px solid #eee; padding:20px 40px 15px 40px; font-size:22px; font-weight:bold;}
-.con em{padding:0 3px; margin:0 3px; background:#f60; color:#fff;}
+.con em{padding:0 3px; margin:0 3px; background:#369; color:#fff;}
 .con .lost_search{padding:140px 40px 140px 160px; font-size:16px; min-height:100px; background:url(search.png) no-repeat 80px 115px ;}
 .tit .edit,
 .tit .markdown,
