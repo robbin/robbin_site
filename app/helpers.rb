@@ -1,6 +1,6 @@
 RobbinSite.helpers do
   
-  def js_escape_html(html_content)
+  def js_escape_html(html_content)  # fix padrino helpers bug
     return '' unless html_content
     javascript_mapping = { '\\' => '\\\\', '</' => '<\/', "\r\n" => '\n', "\n" => '\n', "\r" => '\n', '"' => '\\"', "'" => "\\'" }
     html_content.to_str.gsub(/(\\|<\/|\r\n|[\n\r"'])/) { javascript_mapping[$1] }

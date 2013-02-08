@@ -12,6 +12,7 @@ RobbinSite.controllers :admin do
 
   get :new_blog, :map => '/admin/blog/new' do
     @blog = Blog.new
+    @attachments = current_account.attachments.where(:blog_id => nil)
     render 'admin/new_blog'
   end
   
@@ -19,6 +20,7 @@ RobbinSite.controllers :admin do
     @blog = Blog.new(params[:blog])
     @blog.account = current_account
     if @blog.save
+      @blog.attach!(current_account)
       flash[:notice] = "创建成功"
       redirect url(:blog, :show, :id => @blog.id)
     else
@@ -28,12 +30,14 @@ RobbinSite.controllers :admin do
   
   get :edit_blog, :map => '/admin/blog/:id/edit' do
     @blog = Blog.find params[:id].to_i
+    @attachments = current_account.attachments.where(:blog_id => [nil, @blog.id])
     render 'admin/edit_blog'
   end
   
   put :blog, :map => '/admin/blog/:id' do
     @blog = Blog.find params[:id].to_i
     if @blog.update_blog(params[:blog])
+      @blog.attach!(current_account)
       flash[:notice] = '更新成功'
       redirect url(:blog, :show, :id => @blog.id)
     else
@@ -52,14 +56,33 @@ RobbinSite.controllers :admin do
     content_type :js
     comment = BlogComment.find params[:id]
     comment.destroy
-    "$('div#comments>ul>li##{comment.id}').fadeOut('slow');"
+    "$('div#comments>ul>li##{comment.id}').fadeOut('slow').remove();"
   end
-  
-  get :attachment, :map => '/admin/attachment/new' do
+
+  get :new_attachment, :map => '/admin/attachment/new' do
     @attachment = Attachment.new
-    render 'admin/new_attachment'
+    render 'admin/new_attachment', :layout => false
   end
   
-  post :attachment, :map => '/admin/attachment' do
+  get :attachment, :map => '/admin/attachment/:id' do
+    @attachment = Attachment.find params[:id]
+    render 'admin/attachment', :layout => false
+  end
+  
+  post :create_attachment, :map => '/admin/attachment' do
+    attachment = Attachment.new(params[:attachment])
+    attachment.account = current_account
+    if attachment.save
+      redirect_to url(:admin, :attachment, :id => attachment.id)
+    else
+      render 'admin/attachment_fail', :layout => false
+    end
+  end
+  
+  delete :attachment, :map => '/admin/attachment/:id' do
+    content_type :js
+    @attachment = Attachment.find params[:id]
+    @attachment.destroy
+    "$('#attachment_#{@attachment.id}').html('<del> #{@attachment.file} 附件已被删除</del>')"
   end
 end

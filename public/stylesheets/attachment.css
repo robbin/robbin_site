@@ -1,0 +1,18 @@
+body {
+    background-color:transparent;
+    color:black;
+    font-family: Helvetica, Tahoma, Arial, sans-serif;
+    font-size:12px;
+    line-height:1em;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    color:#006699;
+    text-decoration:none;
+}
+
+img {
+    border: 0px;
+}

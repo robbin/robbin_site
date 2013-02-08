@@ -26,13 +26,19 @@ class Blog < ActiveRecord::Base
   end
 
   def update_blog(param_hash)
-    transaction do
+    self.transaction do
       update_attributes!(param_hash)
       blog_content.save!
       save!
     end
   rescue
     return false
+  end
+  
+  def attach!(owner)
+    self.transaction do
+      owner.attachments.where(:blog_id => nil).each {|attachment| attachment.update_attribute(:blog_id, self.id) }
+    end
   end
   
   # blog viewer hit counter

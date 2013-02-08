@@ -1,4 +1,3 @@
-* favicon
 * main nav
 * file upload with carrierwave
 * omniauth and google/weibo integration
@@ -7,4 +6,5 @@
 * SEO: page title, description, keywords, etc
 * notify google blog search when blog created
 * model validation
+* favicon
 * ferret search
