@@ -31,11 +31,11 @@
           <input name="search" type="text" placeholder="Search"><button></button>
         </div>
         <ul>
-          <li><a href="/" class="current">Home</a></li>
-          <li><a href="/blog">Blog</a></li>
-          <li><a href="/tag">Tag</a></li>
-          <li><a href="/weibo">Weibo</a></li>
-          <li><a href="/me">About</a></li>
+          <li><a href="/" <%= "class='current'".html_safe if @nav == 'home' %>>Home</a></li>
+          <li><a href="/blog" <%= "class='current'".html_safe if @nav == 'blog' %>>Blog</a></li>
+          <li><a href="/tag" <%= "class='current'".html_safe if @nav == 'tag' %>>Tag</a></li>
+          <li><a href="/weibo" <%= "class='current'".html_safe if @nav == 'weibo' %>>Weibo</a></li>
+          <li><a href="/me" <%= "class='current'".html_safe if @nav == 'me' %>>About</a></li>
         </ul>
       </div>
     </div><!-- nav -->

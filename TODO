@@ -1,5 +1,6 @@
 * main nav
 * file upload with carrierwave
+* EpicEditor
 * omniauth and google/weibo integration
 * blog channel: order by created_at
 * note channel: order by contented_at
