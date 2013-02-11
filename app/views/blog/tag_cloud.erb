@@ -1,0 +1,21 @@
+<% @title = "Tag" %>
+<% @nav = 'tag' %>
+
+<div class="left">
+  <div class="con">
+  	<div class="tag_list">
+  		<ul class="clearfix">
+        <% Blog.cached_tag_cloud.each do |tag| %>
+        <li>
+          <%= link_to "<span>#{tag.name}</span>".html_safe, url(:blog, :tag, :name => tag.name), :class => 'tag', :rel => 'rel' %>
+          X <span><%= tag.count %></span>
+        </li>
+        <% end %>
+      </ul>
+  	</div>
+  </div>
+</div><!-- left content -->
+
+<div class="right">
+  <%= partial 'home/right' %>
+</div><!-- right content -->

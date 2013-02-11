@@ -10,7 +10,13 @@ RobbinSite.controllers :blog do
     render 'blog/note'
   end
 
+  get :tag_cloud, :map => '/tag' do
+    render 'blog/tag_cloud'
+  end
+  
   get :tag, :map => '/tag/:name' do
+    redirect_to url(:blog, :index), 301 if params[:name] && params[:name] == 'blog'
+    redirect_to url(:blog, :note), 301 if params[:name] && params[:name] == 'note'
     @blogs = Blog.tagged_with(params[:name]).order('content_updated_at DESC').page(params[:page])
     unless @blogs.blank?
       render 'blog/tag'

@@ -54,8 +54,8 @@ class Blog < ActiveRecord::Base
   end
   
   def clear_cache
-    APP_CACHE.delete("#{CACHE_PREFIX}/blog_tags/hot")    # clear hot_tags
-    APP_CACHE.delete("#{CACHE_PREFIX}/hot_blogs")        # clear hot_blogs
+    APP_CACHE.delete("#{CACHE_PREFIX}/blog_tags/tag_cloud")   # clear tag_cloud
+    APP_CACHE.delete("#{CACHE_PREFIX}/hot_blogs")             # clear hot_blogs
   end
   
   def content_cache_key
@@ -68,9 +68,9 @@ class Blog < ActiveRecord::Base
     end
   end
   
-  def self.hot_tags
-    APP_CACHE.fetch("#{CACHE_PREFIX}/blog_tags/hot") do
-      self.tag_counts.sort_by(&:count).reverse.select {|t| t.count > 1}
+  def self.cached_tag_cloud
+    APP_CACHE.fetch("#{CACHE_PREFIX}/blog_tags/tag_cloud") do
+      self.tag_counts.sort_by(&:count).reverse.reject {|t| t.name == 'blog' || t.name == 'note' }
     end
   end
   

@@ -11,6 +11,10 @@ RobbinSite.controllers do
     render 'home/index'
   end
   
+  get :weibo do
+    render 'home/weibo'
+  end
+  
   get :me do
     render 'home/me'
   end
