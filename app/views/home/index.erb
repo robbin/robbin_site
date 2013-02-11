@@ -1,13 +1,13 @@
-<% @title = "网站首页" %>
 <% @nav = 'home' %>
+<% @title = "网站首页" %>
 
 <div class="left">
-  <%= partial 'home/blog', :collection => @blogs %>
+  <%= partial 'blog/blog', :collection => @blogs %>
   <div>
     <%= (will_paginate @blogs, :previous_label => '前一页', :next_label => '下一页').html_safe %>
   </div>
 </div><!-- left content -->
 
 <div class="right">
-  <%= partial 'home/right' %>
+  <%= partial 'blog/right' %>
 </div><!-- right content -->

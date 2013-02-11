@@ -1,14 +1,15 @@
-<% @title = "博客文章" %>
 <% @nav = 'blog' %>
+<% @title = "最近博客文章" %>
+<% @description = '最近发表的博客文章列表' %>
 
 <div class="left">
 	<h3>Blog post</h3>
-  <%= partial 'home/blog', :collection => @blogs %>
+  <%= partial 'blog/blog', :collection => @blogs %>
   <div>
     <%= will_paginate @blogs, :previous_label => '前一页', :next_label => '下一页' %>
   </div>
 </div><!-- left content -->
 
 <div class="right">
-  <%= partial 'home/right' %>
+  <%= partial 'blog/right' %>
 </div><!-- right content -->

@@ -2,9 +2,9 @@
 <html lang="zh-CN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title><%= @title %> [范凯的个人网站]</title>
+    <title><%= @title || APP_CONFIG['site_title'] %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="This is Robbin's personal website">
+    <meta name="description" content="<%= @description || APP_CONFIG['site_description'] %>">
     <meta name="author" content="Robbin Fan">
     <link href="/rss" rel="alternate" title="<%= APP_CONFIG['site_title'] %>" type="application/rss+xml" />
     <%= stylesheet_link_tag '/skins/default/document', '/skins/default/content', '/skins/default/github' %>

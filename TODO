@@ -1,9 +1,8 @@
 - must
-* SEO: page title, description, keywords, etc
-* omniauth and google/weibo integration
 * right column render
-* totoal cache
+* total cache
 * file upload bug
+* omniauth and google/weibo integration
 * notify google blog search when blog created
 
 - option

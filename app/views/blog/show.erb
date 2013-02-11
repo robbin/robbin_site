@@ -1,4 +1,6 @@
 <% @nav = 'blog' %>
+<% @title = @blog.title %>
+<% @description = @blog.cached_tag_list + ' ' + @blog.content.truncate(200).gsub(/(\r|\n)/, ' ') %>
 
 <div class="left">
   
@@ -86,5 +88,5 @@
 </div><!-- left -->
 
 <div class="right">
-  <%= partial 'home/right' %>
+  <%= partial 'blog/right' %>
 </div><!-- right -->
