@@ -14,18 +14,18 @@ class RobbinSite < Padrino::Application
   end
 
   error 401 do
-    render '401'
+    render 'error/401'
   end
   
   error 403 do
-    render '403'
+    render 'error/403'
   end
   
   error 404 do
-    render '404', :layout => 'application'
+    render 'error/404', :layout => 'application'
   end
 
   error 500 do
-    render '500'
+    render 'error/500'
   end
 end

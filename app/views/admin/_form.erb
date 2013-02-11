@@ -1,59 +1,61 @@
-<tr>
-  <th valign="top">Title</th>
-  <td><%= form.text_field :title, :class => 'title' %></td>
-</tr>
-<tr>
-  <th valign="top">Content</th>
-  <td><%= form.text_area :content %></td>
-</tr>
-<tr>
-  <th valign="top">Tag</th>
-  <td>
-    <%= form.text_field :tag_list, :placeholder => '用逗号分开，不超过5个' %>
-    <div class="tag">
-      <% Blog.tag_counts.each do |tag| %>
-      <a href="#" class="tag" rel="tag"><span><%= tag %></span></a>
+<table class="content">
+  <tr>
+    <th valign="top">Title</th>
+    <td><%= form.text_field :title, :class => 'title' %></td>
+  </tr>
+  <tr>
+    <th valign="top">Content</th>
+    <td><%= form.text_area :content %></td>
+  </tr>
+  <tr>
+    <th valign="top">Tag</th>
+    <td>
+      <%= form.text_field :tag_list, :placeholder => '用逗号分开，不超过5个' %>
+      <div class="tag">
+        <% Blog.tag_counts.each do |tag| %>
+        <a href="#" class="tag" rel="tag"><span><%= tag %></span></a>
+        <% end %>
+      </div>
+    </td>
+  </tr>
+
+  <tr>
+    <th valign="top">附件</th>
+    <td>
+      <% unless @attachments.blank? %>
+        <%= partial 'admin/attachment', :collection => @attachments %>
       <% end %>
-    </div>
-  </td>
-</tr>
+      <div id="attachment_iframes">
+        <iframe src="<%= url(:admin, :new_attachment) %>" style="border:0px;height:30px;width:100%;" frameborder="0" border="0" cellspacing="0" allowTransparency="true" scrolling="no" resizable="no"></iframe>
+        <input type="hidden" value="0" class="max-value-0" id="attachments_counter"/>
+      </div>
+      <ul>
+        提示信息：
+        <li class="note">上传文件请压缩后再上传，允许zip, rar, gz, tar, bz2, 7z, jar, war格式的压缩文件</li>
+        <li class="note">上传图片推荐使用png, jpg, gif等类型</li>
+        <li class="note">文件大小不能超过10MB</li>
+      </ul>
+    </td>
+  </tr>
 
-<tr>
-  <th valign="top">附件</th>
-  <td>
-    <% unless @attachments.blank? %>
-      <%= partial 'admin/attachment', :collection => @attachments %>
-    <% end %>
-    <div id="attachment_iframes">
-      <iframe src="<%= url(:admin, :new_attachment) %>" style="border:0px;height:30px;width:100%;" frameborder="0" border="0" cellspacing="0" allowTransparency="true" scrolling="no" resizable="no"></iframe>
-      <input type="hidden" value="0" class="max-value-0" id="attachments_counter"/>
-    </div>
-    <ul>
-      提示信息：
-      <li class="note">上传文件请压缩后再上传，允许zip, rar, gz, tar, bz2, 7z, jar, war格式的压缩文件</li>
-      <li class="note">上传图片推荐使用png, jpg, gif等类型</li>
-      <li class="note">文件大小不能超过10MB</li>
-    </ul>
-  </td>
-</tr>
+  <tr>
+    <th valign="top">URL</th>
+    <td>
+      <%= form.text_field :slug_url %>
+    </td>
+  </tr>
 
-<tr>
-  <th valign="top">URL</th>
-  <td>
-    <%= form.text_field :slug_url %>
-  </td>
-</tr>
-
-<tr>
-  <th valign="top">Comment</th>
-  <td>
-    <label><input type="radio" name="RadioGroup1" value="单选" id="RadioGroup1_0"> 开启</label>
-    <label><input type="radio" name="RadioGroup1" value="单选" id="RadioGroup1_1"> 关闭</label>
-  </td>
-</tr>
-<tr>
-  <th>&nbsp;</th>
-  <td align="center">
-    <%= form.submit '', :class => 'submit' %>
-  </td>
-</tr>
+  <tr>
+    <th valign="top">Comment</th>
+    <td>
+      <label><input type="radio" name="RadioGroup1" value="单选" id="RadioGroup1_0"> 开启</label>
+      <label><input type="radio" name="RadioGroup1" value="单选" id="RadioGroup1_1"> 关闭</label>
+    </td>
+  </tr>
+  <tr>
+    <th>&nbsp;</th>
+    <td align="center">
+      <%= form.submit '', :class => 'submit' %>
+    </td>
+  </tr>
+</table>

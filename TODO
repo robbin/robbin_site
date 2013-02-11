@@ -1,11 +1,12 @@
-* main nav
-* file upload with carrierwave
-* EpicEditor
+- must
+* file upload bug
 * omniauth and google/weibo integration
-* blog channel: order by created_at
-* note channel: order by contented_at
+* right column render
 * SEO: page title, description, keywords, etc
 * notify google blog search when blog created
+
+- option
+* EpicEditor
 * model validation
 * favicon
 * ferret search

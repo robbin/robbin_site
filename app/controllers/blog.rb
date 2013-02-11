@@ -1,8 +1,22 @@
 RobbinSite.controllers :blog do
   
   get :index do
-    @blogs = Blog.order('id DESC').page(params[:page])
+    @blogs = Blog.tagged_with("blog").order('id DESC').page(params[:page])
     render 'blog/index'
+  end
+  
+  get :note, :map => '/note' do
+    @blogs = Blog.tagged_with("note").order('content_updated_at DESC').page(params[:page])
+    render 'blog/note'
+  end
+
+  get :tag, :map => '/tag/:name' do
+    @blogs = Blog.tagged_with(params[:name]).order('content_updated_at DESC').page(params[:page])
+    unless @blogs.blank?
+      render 'blog/tag'
+    else
+      halt 404
+    end
   end
   
   get :show_url, :map => '/blog/:id/:url', :provides => [:html, :md] do
@@ -25,15 +39,6 @@ RobbinSite.controllers :blog do
     when :html then
       @blog.increment_view_count
       render 'blog/show'
-    end
-  end
-  
-  get :tag, :map => '/tag/:name' do
-    @blogs = Blog.tagged_with(params[:name]).order('id DESC').page(params[:page])
-    unless @blogs.blank?
-      render 'blog/tag'
-    else
-      halt 404
     end
   end
   

@@ -1,0 +1,14 @@
+<% @title = "笔记" %>
+<% @nav = 'note' %>
+
+<div class="left">
+	<h3>Note articles</h3>
+  <%= partial 'home/blog', :collection => @blogs %>
+  <div>
+    <%= will_paginate @blogs, :previous_label => '前一页', :next_label => '下一页' %>
+  </div>
+</div><!-- left content -->
+
+<div class="right">
+  <%= partial 'home/right' %>
+</div><!-- right content -->
