@@ -62,6 +62,7 @@
           <% end %>
         </ul>
       </div>
+      <% if @blog.commentable? %>
       <h4>Leave a Reply</h4>
       <a name="comments"></a>
       <div class="relative">
@@ -76,6 +77,7 @@
           <button class="sina_btn"></button>
         </div><!-- box -->
       </div><!-- relative -->
+      <% end %>
       
     </div><!-- comment -->
      

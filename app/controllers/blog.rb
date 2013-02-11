@@ -46,6 +46,7 @@ RobbinSite.controllers :blog do
     content_type :js
     halt 403 unless account_login?
     blog = Blog.find params[:id]
+    halt 403 unless blog.commentable?
     @comment = blog.comments.create(:account => current_account, :content => params[:blog_comment][:content])
     render 'blog/create_comment'
   end

@@ -1,8 +1,10 @@
 - must
-* file upload bug
+* tag list page
+* SEO: page title, description, keywords, etc
 * omniauth and google/weibo integration
 * right column render
-* SEO: page title, description, keywords, etc
+* cache
+* file upload bug
 * notify google blog search when blog created
 
 - option
@@ -10,3 +12,4 @@
 * model validation
 * favicon
 * ferret search
+* original source if article isn't written by me

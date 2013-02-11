@@ -4,7 +4,7 @@ class CreateBlogComments < ActiveRecord::Migration
       t.references :account
       t.references :blog
       t.text :content
-      t.timestamps
+      t.datetime :created_at
     end
     add_index :blog_comments, :account_id
     add_index :blog_comments, :blog_id
