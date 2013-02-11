@@ -1,11 +1,6 @@
-- must
-* right column render
-* total cache
 * file upload bug
 * omniauth and google/weibo integration
 * notify google blog search when blog created
-
-- option
 * EpicEditor
 * model validation
 * favicon

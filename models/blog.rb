@@ -4,8 +4,8 @@ class Blog < ActiveRecord::Base
 
   attr_protected :account_id, :blog_content_id
   
-  after_save :clear_cache
-  before_destroy :clear_cache
+  after_save :clean_cache
+  before_destroy :clean_cache
   
   belongs_to :blog_content, :dependent => :destroy 
   belongs_to :account, :counter_cache => true
@@ -53,9 +53,9 @@ class Blog < ActiveRecord::Base
     cached_tag_list ? cached_tag_list.split(",").collect {|t| t.strip} : []
   end
   
-  def clear_cache
+  def clean_cache
     APP_CACHE.delete("#{CACHE_PREFIX}/blog_tags/tag_cloud")   # clear tag_cloud
-    APP_CACHE.delete("#{CACHE_PREFIX}/hot_blogs")             # clear hot_blogs
+    APP_CACHE.delete("#{CACHE_PREFIX}/layout/right")          # clear layout right column cache in _right.erb
   end
   
   def content_cache_key
@@ -74,9 +74,7 @@ class Blog < ActiveRecord::Base
     end
   end
   
-  def self.hot_blogs
-    APP_CACHE.fetch("#{CACHE_PREFIX}/hot_blogs", :expire_in => 1.day) do
-      self.order('view_count DESC, comments_count DESC').limit(5).all
-    end
+  def self.hot_blogs(count)
+    self.order('comments_count DESC, view_count DESC').limit(count)
   end
 end

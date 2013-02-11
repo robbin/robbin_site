@@ -1,3 +1,5 @@
+<% s = APP_CACHE.fetch("#{CACHE_PREFIX}/layout/right", :expire_in => 1.day) do %>
+
 <h3>Hot Tag</h3>
 <div class="tag">
   <% Blog.cached_tag_cloud.select {|t| t.count > 1}.each do |tag| %>
@@ -7,7 +9,7 @@
   
 <h3>Hot Blog</h3>
 <div class="hot_blog">
-  <% Blog.hot_blogs.each do |blog| %>
+  <% Blog.hot_blogs(5).each do |blog| %>
   <%= link_to blog.title, blog_url(blog) %>
   <% end %>
 </div>
@@ -23,6 +25,9 @@
   <% end %>
 </ul>
 
+<% end %>
+
+<%= s.html_safe %>
 <div class="rss clearfix">
   <a href="/rss">RSS订阅</a>
 </div>
