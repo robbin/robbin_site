@@ -2,6 +2,7 @@ development: &default
   session_secret: '1234567890'
   site_url: 'http://localhost:3000'
   site_title: 'robbin的自言自语'
+  site_description: '范凯个人网站，记录一些个人博客文章和学习笔记'
   
 test: 
   <<: *default

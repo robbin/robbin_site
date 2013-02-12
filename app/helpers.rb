@@ -1,3 +1,5 @@
+require 'xmlrpc/client'
+
 RobbinSite.helpers do
   
   def js_escape_html(html_content)  # fix padrino helpers bug
@@ -31,5 +33,28 @@ RobbinSite.helpers do
     end
     slug_url << "." << mime_type.to_s if mime_type != :html
     slug_url
+  end
+  
+  def ping_search_engine(blog)
+    # http://www.google.cn/intl/zh-CN/help/blogsearch/pinging_API.html
+    # http://www.baidu.com/search/blogsearch_help.html
+    google = XMLRPC::Client.new2("http://blogsearch.google.com/ping/RPC2")
+    google.timeout = 5  # set timeout 5 seconds
+    google.call("weblogUpdates.extendedPing",
+                APP_CONFIG['site_title'], 
+                APP_CONFIG['site_url'],
+                APP_CONFIG['site_url'] + '/' + blog_url(blog),
+                APP_CONFIG['site_url'] + '/rss',
+                blog.cached_tag_list.gsub(/,/, '|'))
+    
+    baidu = XMLRPC::Client.new2("http://ping.baidu.com/ping/RPC2")
+    baidu.timeout = 5  # set timeout 5 seconds
+    baidu.call("weblogUpdates.extendedPing", 
+               APP_CONFIG['site_title'], 
+               APP_CONFIG['site_url'],
+               APP_CONFIG['site_url'] + '/' + blog_url(blog),
+               APP_CONFIG['site_url'] + '/rss')
+  rescue Exception => e
+   logger.error e
   end
 end

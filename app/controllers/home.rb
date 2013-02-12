@@ -22,7 +22,7 @@ RobbinSite.controllers do
   get :rss do
     content_type :xml
     @blogs = Blog.order('id DESC').limit(10)
-    render 'home/rss'
+    APP_CACHE.fetch("#{CACHE_PREFIX}/rss/all") { render 'home/rss' }
   end
   
   get :login, :map => '/login' do

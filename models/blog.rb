@@ -54,8 +54,9 @@ class Blog < ActiveRecord::Base
   end
   
   def clean_cache
-    APP_CACHE.delete("#{CACHE_PREFIX}/blog_tags/tag_cloud")   # clear tag_cloud
-    APP_CACHE.delete("#{CACHE_PREFIX}/layout/right")          # clear layout right column cache in _right.erb
+    APP_CACHE.delete("#{CACHE_PREFIX}/blog_tags/tag_cloud")   # clean tag_cloud
+    APP_CACHE.delete("#{CACHE_PREFIX}/rss/all")               # clean rss cache
+    APP_CACHE.delete("#{CACHE_PREFIX}/layout/right")          # clean layout right column cache in _right.erb
   end
   
   def content_cache_key

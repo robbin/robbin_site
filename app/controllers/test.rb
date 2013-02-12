@@ -3,7 +3,8 @@
 RobbinSite.controllers :test do
 
   get :index do
-    @comment = BlogComment.first
+    @blog = Blog.find 8
+    ping_search_engine(@blog)
     render 'test/index'
   end
   
