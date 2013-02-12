@@ -2,12 +2,6 @@ require 'xmlrpc/client'
 
 RobbinSite.helpers do
   
-  def js_escape_html(html_content)  # fix padrino helpers bug
-    return '' unless html_content
-    javascript_mapping = { '\\' => '\\\\', '</' => '<\/', "\r\n" => '\n', "\n" => '\n', "\r" => '\n', '"' => '\\"', "'" => "\\'" }
-    html_content.to_str.gsub(/(\\|<\/|\r\n|[\n\r"'])/) { javascript_mapping[$1] }
-  end
-  
   def current_account
     return @current_account if @current_account
     return @current_account = Account.find_by_id(session[:account_id]) if session[:account_id]
