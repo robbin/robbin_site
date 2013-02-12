@@ -18,6 +18,11 @@ RobbinSite.controllers do
   get :me do
     render 'home/me'
   end
+
+  get :search do
+    
+    render 'home/search'
+  end
   
   get :rss do
     content_type :xml

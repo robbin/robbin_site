@@ -22,8 +22,7 @@ RobbinSite.controllers :admin do
     if @blog.save
       @blog.attach!(current_account)
       flash[:notice] = "创建成功"
-      # TODO test blog search ping in production environment.
-      # ping_search_engine(@blog)
+      ping_search_engine(@blog) if APP_CONFIG['blog_search_ping'] # only ping search engine in production environment
       redirect url(:blog, :show, :id => @blog.id)
     else
       render 'admin/new_blog'

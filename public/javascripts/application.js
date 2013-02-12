@@ -3,6 +3,22 @@ $(function(){
   $('button.close').click(function() {
     $('div.box').hide();
   });
+  
+  $('button#search-button').click(function() {
+    var keyword = $.trim($('input#search-box').val());
+    if (keyword != null && keyword != '') {
+      $('form#cse-search-box').submit();
+    }
+  });
+  
+  $('input#search-box').keyup(function(event) {
+    if (event.keyCode == 13) {
+      var keyword = $.trim($('input#search-box').val());
+      if (keyword != null && keyword != '') {
+        $('form#cse-search-box').submit();
+      }
+    }
+  });
 });
 
 (function($){ 
