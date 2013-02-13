@@ -3,7 +3,7 @@ class CreateBlogs < ActiveRecord::Migration
     create_table :blogs do |t|
       t.string :title, :limit => 255, :null => false
       t.string :slug_url, :limit => 255
-      t.integer :view_count, :default => 0
+      t.integer :view_count, :default => 0, :null => false
       t.references :blog_content, :null => false
       t.timestamps
     end

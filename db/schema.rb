@@ -11,16 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 12) do
+ActiveRecord::Schema.define(:version => 13) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
-    t.string   "surname"
     t.string   "email"
     t.string   "crypted_password"
     t.string   "role"
     t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
     t.integer  "blogs_count",      :default => 0
   end
 
@@ -39,7 +37,6 @@ ActiveRecord::Schema.define(:version => 12) do
     t.integer  "blog_id"
     t.text     "content"
     t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
   add_index "blog_comments", ["account_id"], :name => "index_blog_comments_on_account_id"
@@ -65,7 +62,7 @@ ActiveRecord::Schema.define(:version => 12) do
   end
 
   add_index "blogs", ["account_id"], :name => "index_blogs_on_account_id"
-  add_index "blogs", ["blog_content_id"], :name => "index_blogs_on_blog_content_id"
+  add_index "blogs", ["content_updated_at"], :name => "index_blogs_on_content_updated_at"
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"

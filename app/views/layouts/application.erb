@@ -14,13 +14,18 @@
       <div class="warp">
       	<div class="user_img"><img src="/skins/data/100.png" width="80" height="80"></div>
         <h1><span class="blog_name">Robbin</span><span class="blog_title">的自言自语</span></h1>
-        <% if account_admin? %>
         <div class="write">
+        <% unless account_login? %>
+          <%= link_to '登录', url(:login) %>
+        <% else %>
           <%= current_account.name %>
+          <% if account_admin? %>
           <%= link_to '写博客', url(:admin, :new_blog) %>
+          <%= link_to '设置', url(:admin, :index) %>
+          <% end %>
           <%= button_to '退出', url(:logout), :method => :delete %>
-        </div>
         <% end %>
+        </div>
         <h2>Small is beautiful, constraint is liberty.</h2>
       </div>
     </div><!-- header -->

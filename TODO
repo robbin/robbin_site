@@ -1,8 +1,13 @@
 * file upload bug
-* omniauth and google/weibo integration
 * EpicEditor
 * ajax tag suggestion
 * model validation
+
+* deploy production environment
+
+* omniauth and google/weibo integration
+* show weibo content
+* admin panel: change password, upload logo
 
 * favicon
 * original source if article isn't written by me
