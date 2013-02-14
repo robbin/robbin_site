@@ -4,7 +4,7 @@
 <div class="left">
   <%= partial 'blog/blog', :collection => @blogs %>
   <div>
-    <%= (will_paginate @blogs, :previous_label => '前一页', :next_label => '下一页').html_safe %>
+    <%= (will_paginate @blogs, :previous_label => '前一页', :next_label => '下一页').to_s.html_safe %>
   </div>
 </div><!-- left content -->
 
