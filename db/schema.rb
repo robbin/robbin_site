@@ -18,9 +18,11 @@ ActiveRecord::Schema.define(:version => 13) do
     t.string   "email"
     t.string   "crypted_password"
     t.string   "role"
-    t.datetime "created_at",                      :null => false
-    t.integer  "blogs_count",      :default => 0
+    t.datetime "created_at"
+    t.integer  "blogs_count",      :default => 0, :null => false
   end
+
+  add_index "accounts", ["email"], :name => "index_accounts_on_email", :unique => true
 
   create_table "attachments", :force => true do |t|
     t.string   "file"
@@ -36,7 +38,7 @@ ActiveRecord::Schema.define(:version => 13) do
     t.integer  "account_id"
     t.integer  "blog_id"
     t.text     "content"
-    t.datetime "created_at", :null => false
+    t.datetime "created_at"
   end
 
   add_index "blog_comments", ["account_id"], :name => "index_blog_comments_on_account_id"
@@ -49,11 +51,11 @@ ActiveRecord::Schema.define(:version => 13) do
   create_table "blogs", :force => true do |t|
     t.string   "title",                                :null => false
     t.string   "slug_url"
-    t.integer  "view_count",         :default => 0
+    t.integer  "view_count",         :default => 0,    :null => false
     t.integer  "blog_content_id",                      :null => false
     t.datetime "created_at",                           :null => false
     t.integer  "account_id"
-    t.integer  "comments_count",     :default => 0
+    t.integer  "comments_count",     :default => 0,    :null => false
     t.datetime "content_updated_at"
     t.boolean  "commentable",        :default => true, :null => false
     t.boolean  "original",           :default => true, :null => false

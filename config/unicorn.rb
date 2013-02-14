@@ -65,10 +65,10 @@ end
 after_fork do |server, worker|
 end
 
-# Rainbows! do
-#   #  use :ThreadPool
-#   use :ThreadSpawn
-#   worker_connections 32
-#   keepalive_timeout 5 # zero disables keepalives entirely
-#   keepalive_requests 66 # default:100
-# end
+Rainbows! do
+  use :ThreadPool
+  # use :ThreadSpawn
+  worker_connections 32
+  # keepalive_timeout 5 # zero disables keepalives entirely
+  # keepalive_requests 66 # default:100
+end
