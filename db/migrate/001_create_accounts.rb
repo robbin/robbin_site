@@ -7,7 +7,7 @@ class CreateAccounts < ActiveRecord::Migration
       t.string :role
       t.datetime :created_at
     end
-    add_index :email, :unique => true
+    add_index :accounts, :email, :unique => true
   end
 
   def self.down
