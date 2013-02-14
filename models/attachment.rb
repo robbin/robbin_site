@@ -4,4 +4,5 @@ class Attachment < ActiveRecord::Base
     
   belongs_to :account
   belongs_to :blog
+  scope :orphan, where(:blog_id => nil)
 end

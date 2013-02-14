@@ -37,7 +37,7 @@ class Blog < ActiveRecord::Base
   
   def attach!(owner)
     self.transaction do
-      owner.attachments.where(:blog_id => nil).each {|attachment| attachment.update_attribute(:blog_id, self.id) }
+      owner.attachments.orphan.each {|attachment| attachment.update_attribute(:blog_id, self.id) }
     end
   end
   
@@ -63,10 +63,8 @@ class Blog < ActiveRecord::Base
     "#{CACHE_PREFIX}/blog_content/#{self.id}/#{content_updated_at.to_i}"
   end
   
-  def md_content(mode = :gfm)
-    APP_CACHE.fetch(content_cache_key) do
-      GitHub::Markdown.to_html(content, mode)
-    end
+  def md_content(mode = :gfm)  # cached markdown format blog content
+    APP_CACHE.fetch(content_cache_key) { GitHub::Markdown.to_html(content, mode) }
   end
   
   def self.cached_tag_cloud

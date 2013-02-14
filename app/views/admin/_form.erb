@@ -12,7 +12,7 @@
     <td>
       <%= form.text_field :tag_list, :placeholder => '用逗号分开，不超过5个' %>
       <div class="tag">
-        <% Blog.tag_counts.each do |tag| %>
+        <% Blog.cached_tag_cloud.each do |tag| %>
         <a href="#" class="tag" rel="tag"><span><%= tag %></span></a>
         <% end %>
       </div>

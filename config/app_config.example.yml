@@ -3,6 +3,8 @@ development: &default
   site_url: 'http://localhost:3000'
   site_title: 'robbin的自言自语'
   site_description: '范凯个人网站，记录一些个人博客文章和学习笔记'
+  blog_search_ping: false
+  google_cse: '009432631322478558153:qih9evvtgy0'
   
 test: 
   <<: *default
@@ -10,3 +12,4 @@ test:
 production:
   <<: *default
   site_url: 'http://robbinfan.com'
+  blog_search_ping: true

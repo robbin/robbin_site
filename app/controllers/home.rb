@@ -20,12 +20,11 @@ RobbinSite.controllers do
   end
 
   get :search do
-    
     render 'home/search'
   end
   
   get :rss do
-    content_type :xml
+    content_type :rss
     @blogs = Blog.order('id DESC').limit(10)
     APP_CACHE.fetch("#{CACHE_PREFIX}/rss/all") { render 'home/rss' }
   end

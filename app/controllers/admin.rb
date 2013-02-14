@@ -12,7 +12,7 @@ RobbinSite.controllers :admin do
 
   get :new_blog, :map => '/admin/blog/new' do
     @blog = Blog.new
-    @attachments = current_account.attachments.where(:blog_id => nil)
+    @attachments = current_account.attachments.orphan
     render 'admin/new_blog'
   end
   
@@ -21,7 +21,6 @@ RobbinSite.controllers :admin do
     @blog.account = current_account
     if @blog.save
       @blog.attach!(current_account)
-      flash[:notice] = "创建成功"
       ping_search_engine(@blog) if APP_CONFIG['blog_search_ping'] # only ping search engine in production environment
       redirect url(:blog, :show, :id => @blog.id)
     else
@@ -39,7 +38,6 @@ RobbinSite.controllers :admin do
     @blog = Blog.find params[:id].to_i
     if @blog.update_blog(params[:blog])
       @blog.attach!(current_account)
-      flash[:notice] = '更新成功'
       redirect url(:blog, :show, :id => @blog.id)
     else
       render 'admin/edit_blog'
@@ -49,7 +47,6 @@ RobbinSite.controllers :admin do
   delete :blog, :map => '/admin/blog/:id' do
     @blog = Blog.find params[:id].to_i
     @blog.destroy
-    flash[:notice] = "删除成功"
     redirect url(:blog, :index)
   end
 

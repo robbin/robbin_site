@@ -1,5 +1,5 @@
 <div id="attachment_<%= attachment.id %>">
   <%= attachment.file.url %>
   <%= link_to '删除', url(:admin, :attachment, :id => attachment.id), :method => :delete, :remote => true, :confirm => '是否删除附件' %>
-  <a href="#" onclick="$('#blog_content').insertAtCaret('\n![](<%= attachment.file.url %>)\n');return false;">插入</a>
+  <a href="#" onclick="window.parent.$('#blog_content').insertAtCaret('\n![](<%= attachment.file.url %>)\n');return false;">插入</a>
 </div>
