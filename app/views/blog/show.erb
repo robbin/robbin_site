@@ -8,16 +8,17 @@
     <div class="content">
     	<div class="tit clearfix">
         <%= link_to @blog.title, blog_url(@blog) %>
-        <%= link_to '', blog_url(@blog, mime_type = :md), :class => 'markdown' %>
+        <%= link_to '', blog_url(@blog, mime_type = :md), :class => 'markdown', :title => 'Markdown格式原文' %>
         <% if account_admin? %>
-        <%= link_to '', url(:admin, :blog, :id => @blog.id), :method => :delete, :confirm => 'Are you delete', :class => 'del' %>
-        <%= link_to '', url(:admin, :edit_blog, :id => @blog.id), :class => 'edit' %>
+        <%= link_to '', url(:admin, :blog, :id => @blog.id), :method => :delete, :confirm => 'Are you delete', :class => 'del', :title => '删除' %>
+        <%= link_to '', url(:admin, :edit_blog, :id => @blog.id), :class => 'edit', :title => '编辑' %>
         <% end %>
       </div>
       <div class="info clearfix">
         <div class="fr">
-          <span class="time"><%= time_ago_in_words(@blog.created_at) %></span>
-          <span class="views"><%= @blog.view_count %></span>
+          <span class="time"><%= time_ago_in_words(@blog.created_at) %>发表</span>
+          <span class="edit"><%= time_ago_in_words(@blog.content_updated_at) %>更新</span>
+          <span class="views" title="浏览次数"><%= @blog.view_count %></span>
         </div>
         <% @blog.cached_tags.each do |tag| %>
         <%= link_to "<span>#{tag}</span>".html_safe, url(:blog, :tag, :name => tag), :class => 'tag', :rel => 'tag' %>
