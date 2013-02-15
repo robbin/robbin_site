@@ -11,10 +11,10 @@ pid=`cat log/unicorn.pid`
 case "$1" in
   start)
     bundle exec rainbows -c config/unicorn.rb -E production -D
-  	;;
+    ;;
   stop)
     kill -QUIT $pid
-  	;;
+    ;;
   restart)
     $0 stop
     sleep 1
@@ -25,7 +25,7 @@ case "$1" in
     ;;
   force-stop)
     kill -INT $pid
-  	;;
+    ;;
   shutdown-workers)
     kill -WINCH $pid
     ;;
@@ -37,8 +37,8 @@ case "$1" in
     ;;
   logrotate)
     kill -USR1 $pid
-  	;;
+    ;;
   *)
-  	echo $"Usage: $0 {start|stop|restart|reload|force-stop|shutdown-workers|increment-worker|decrement-worker|logrotate|}"
+    echo $"Usage: $0 {start|stop|restart|reload|force-stop|shutdown-workers|increment-worker|decrement-worker|logrotate|}"
     ;;
 esac

@@ -11,7 +11,7 @@ body{ background:#bebebe url(bg.gif);}
 .header h1 .blog_name{ font-size:50px; line-height:50px; }
 .header h1 .blog_title{ font-size:30px; line-height:30px;}
 .header h2{ color:#fff; font-size:18px; font-weight:bold; }
-.header .write{ float:right; color:#fff; width:220px; text-align:right;}
+.header .write{ float:right; color:#fff; width:230px; text-align:right;}
 .header .write a{color:#fff; margin-right:20px; display:inline-block; height:20px; line-height:20px; vertical-align:middle; background:url(y.png) 0px -240px no-repeat; padding-left:20px;}
 .header .write a:hover{background:url(y.png) 0px -270px no-repeat; color:#f87b00;}
 .header .write input{ background:none; border:none; color:#fff;background: url(y.png) 0px -716px no-repeat; padding-left:20px;}
