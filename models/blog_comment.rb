@@ -7,7 +7,7 @@ class BlogComment < ActiveRecord::Base
   before_destroy :clean_cache
   
   def clean_cache
-    APP_CACHE.delete("#{CACHE_PREFIX}/layout/right")     # clear layout right column cache in _right.erb
+    APP_CACHE.delete("#{CACHE_PREFIX}/layout/right")     # clean layout right column cache in _right.erb
   end
         
   def content_cache_key
