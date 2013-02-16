@@ -8,6 +8,8 @@ development: &default
   weibo_api_key: '1234567890'
   weibo_api_secret: '1234567890'
   weibo_redirect_uri: 'http://robbinfan.com/weibo_callback'
+  weibo_uid: '1654762921'
+  weibo_uid_verifier: '6bd0aff2'
   
 test: 
   <<: *default

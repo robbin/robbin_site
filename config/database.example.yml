@@ -26,4 +26,4 @@ test:
 production:
   <<: *default
   reconnect: true
-  pool: 32
+  pool: 16

@@ -1,11 +1,12 @@
+- Frontend
+* UI enhancement
+* icon
+* favicon
+
+- Backend
 * file upload enhancement
 * EpicEditor
 * ajax tag suggestion
 * model validation
-
-* google/weibo third-part login
-* show weibo content
 * admin panel: change password, upload logo
-
-* favicon
-* original source if article isn't written by me
+* ajax weibo login (waiting for weibo application)

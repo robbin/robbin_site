@@ -68,7 +68,7 @@ end
 Rainbows! do
   use :ThreadPool
   # use :ThreadSpawn
-  worker_connections 32
+  worker_connections 16
   # keepalive_timeout 5 # zero disables keepalives entirely
   # keepalive_requests 66 # default:100
 end

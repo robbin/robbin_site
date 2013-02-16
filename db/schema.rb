@@ -59,8 +59,6 @@ ActiveRecord::Schema.define(:version => 14) do
     t.integer  "comments_count",     :default => 0,    :null => false
     t.datetime "content_updated_at"
     t.boolean  "commentable",        :default => true, :null => false
-    t.boolean  "original",           :default => true, :null => false
-    t.string   "original_url"
     t.string   "cached_tag_list"
   end
 
