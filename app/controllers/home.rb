@@ -28,7 +28,8 @@ RobbinSite.controllers do
     @blogs = Blog.order('id DESC').limit(20)
     APP_CACHE.fetch("#{CACHE_PREFIX}/rss/all") { render 'home/rss' }
   end
-  
+
+  # native authentication
   get :login, :map => '/login' do
     @account = Account.new
     render 'home/login'
@@ -56,6 +57,28 @@ RobbinSite.controllers do
       flash[:notice] = "成功退出"
     end
     redirect url(:index)
+  end
+
+  # weibo authentication
+  get :weibo_login do
+    client = WeiboOAuth2::Client.new
+    redirect client.authorize_url
+  end
+
+  get :weibo_callback do
+    client = WeiboOAuth2::Client.new
+    if access_token = client.auth_code.get_token(params[:code].to_s)
+      weibo_uid = access_token.params["uid"]
+      account = Account.where(:provider => 'weibo', :uid => weibo_uid).first
+      unless account 
+        weibo_user = client.users.show_by_uid(weibo_uid)
+        account = Account.create(:provider => 'weibo', :uid => weibo_uid, :name => weibo_user.screen_name, :role => 'commentor')
+      end
+      session[:account_id] = account.id
+      redirect_to url(:index)
+    else
+      halt 401
+    end
   end
 
 end

@@ -1,7 +1,7 @@
 class BlogComment < ActiveRecord::Base
   acts_as_cached
   belongs_to :blog, :counter_cache => :comments_count
-  belongs_to :account
+  belongs_to :account, :counter_cache => :comments_count
 
   after_save :clean_cache
   before_destroy :clean_cache

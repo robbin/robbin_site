@@ -5,6 +5,9 @@ development: &default
   site_description: '范凯个人网站，记录一些个人博客文章和学习笔记'
   blog_search_ping: false
   google_cse: '009432631322478558153:qih9evvtgy0'
+  weibo_api_key: '1234567890'
+  weibo_api_secret: '1234567890'
+  weibo_redirect_uri: 'http://robbinfan.com/weibo_callback'
   
 test: 
   <<: *default

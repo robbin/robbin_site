@@ -19,6 +19,7 @@ gem 'will_paginate', :require => ['will_paginate/active_record', 'will_paginate/
 gem 'sanitize'
 gem 'carrierwave', :require => ['carrierwave', 'carrierwave/orm/activerecord']
 gem 'gravtastic'
+gem 'weibo_2'
 
 # Production requirements
 group :production do

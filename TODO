@@ -3,7 +3,7 @@
 * ajax tag suggestion
 * model validation
 
-* omniauth and google/weibo integration
+* google/weibo third-part login
 * show weibo content
 * admin panel: change password, upload logo
 

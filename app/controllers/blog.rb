@@ -15,8 +15,8 @@ RobbinSite.controllers :blog do
   end
   
   get :tag, :map => '/tag/:name' do
-    redirect_to url(:blog, :index), 301 if params[:name] && params[:name] == 'blog'
-    redirect_to url(:blog, :note), 301 if params[:name] && params[:name] == 'note'
+    redirect_to url(:blog, :index), 301 if params[:name] && params[:name] == 'blog'  # unique url for SEO: /blog
+    redirect_to url(:blog, :note), 301 if params[:name] && params[:name] == 'note'   # unique url for SEO: /note
     @blogs = Blog.tagged_with(params[:name]).order('content_updated_at DESC').page(params[:page])
     unless @blogs.blank?
       render 'blog/tag'

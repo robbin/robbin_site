@@ -13,6 +13,6 @@ This is my personal website project.
 6. run `rake ar:migrate` to setup database schema.
 7. run `rake seed` to generate admin user.
 8. start memcached with `memcached -d`.
-9. run `thin start` for development environment and run `unicorn -c config/unicorn.rb -E production -D` for production environment.
+9. run `thin start` for development environment and run `./servicectl start` for production environment.
 
 ## MIT License

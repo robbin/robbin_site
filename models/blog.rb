@@ -17,8 +17,6 @@ class Blog < ActiveRecord::Base
   
   delegate :content, :to => :blog_content, :allow_nil => true
   
-  scope :by_join_date, order('created_at DESC')
-  
   def content=(value)            # must prepend self otherwise do not update blog_content
     self.blog_content ||= BlogContent.new
     self.blog_content.content = value

@@ -11,14 +11,14 @@ class Account < ActiveRecord::Base
   has_many :attachments
   
   # Validations
-  validates_presence_of     :email, :role
-  validates_presence_of     :password,                   :if => :password_required
-  validates_presence_of     :password_confirmation,      :if => :password_required
-  validates_length_of       :password, :within => 4..40, :if => :password_required
-  validates_confirmation_of :password,                   :if => :password_required
-  validates_length_of       :email,    :within => 3..100
+  validates_presence_of     :email,                      :if => :native_login_required
+  validates_presence_of     :password,                   :if => :native_login_required
+  validates_presence_of     :password_confirmation,      :if => :native_login_required
+  validates_length_of       :password, :within => 4..40, :if => :native_login_required
+  validates_confirmation_of :password,                   :if => :native_login_required
+  validates_length_of       :email,    :within => 3..100, :if => :native_login_required
   validates_uniqueness_of   :email,    :case_sensitive => false
-  validates_format_of       :email,    :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
+  validates_format_of       :email,    :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :if => :native_login_required
   validates_format_of       :role,     :with => /[A-Za-z]/
 
   # Callbacks
@@ -67,10 +67,14 @@ class Account < ActiveRecord::Base
   
   private
   def encrypt_password
-    self.crypted_password = ::BCrypt::Password.create(password)
+    self.crypted_password = ::BCrypt::Password.create(password) unless password.blank?
   end
 
   def password_required
     crypted_password.blank? || password.present?
+  end
+  
+  def native_login_required
+    provider.blank? && password_required
   end
 end
