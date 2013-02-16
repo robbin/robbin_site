@@ -2,7 +2,7 @@
 
 RobbinSite.controllers do
 
-  before :login do
+  before :login, :weibo_login do
     redirect url(:index) if account_login?
   end
   
