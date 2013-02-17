@@ -14,7 +14,7 @@
     <div class="header">
       <div class="warp">
       	<div class="user_img"><img src="/skins/data/100.png" width="80" height="80"></div>
-        <h1><span class="blog_name">Robbin</span><span class="blog_title">的自言自语</span></h1>
+        <h1><span class="blog_title"><%= APP_CONFIG['site_title'] %></span></h1>
         <div class="write">
         <% unless account_login? %>
           <%= link_to '登录', url(:login) %>
@@ -27,7 +27,7 @@
           <%= button_to '退出', url(:logout), :method => :delete %>
         <% end %>
         </div>
-        <h2>Small is beautiful, constraint is liberty.</h2>
+        <h2><%= APP_CONFIG['site_motto'] %></h2>
       </div>
     </div><!-- header -->
     

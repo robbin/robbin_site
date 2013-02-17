@@ -2,7 +2,8 @@ development: &default
   session_secret: '1234567890'
   site_url: 'http://localhost:3000'
   site_title: 'robbin的自言自语'
-  site_description: '范凯个人网站，记录一些个人博客文章和学习笔记'
+  site_motto: 'Small is beautiful, constraint is liberty.'
+  site_description: '范凯个人网站，发表个人原创的博客文章和学习笔记，包括互联网产品，研发和运营类的文章'
   blog_search_ping: false
   google_cse: '009432631322478558153:qih9evvtgy0'
   weibo_api_key: '1234567890'
