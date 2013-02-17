@@ -257,6 +257,7 @@ img {
   padding: 0;
   white-space: pre;
   border: none;
+/*  word-wrap: break-word;*/
   background: transparent; }
 
 .con .text .highlight pre {
