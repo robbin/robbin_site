@@ -90,6 +90,14 @@
     $('button.sina_btn').click(function(){
       weibo_auth_window = window.open('<%= url(:weibo_login) %>/?quick_login=1', 'weibo third part authentication', 'height=300px, width=400px, scrollbars=no, resizable=no, status=no, resizable=no, menubar=no')
     });
+    
+    // validate empty comment
+    $('input.comment_btn').click(function(){
+      if ($('textarea#blog_comment_content').val().length < 3) {
+        $('div#flash-notice').html('多写点吧').show().fadeOut(2000);
+        return false;
+      }
+    });
   });
   </script>
 <% end %>

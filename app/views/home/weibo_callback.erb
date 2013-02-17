@@ -1,6 +1,6 @@
-<%= javascript_include_tag 'jquery' %>
 <script type="text/javascript" charset="utf-8">
-  window.close();
   window.opener.$('div.box').hide();
   window.opener.$('#blog_comment_content').focus();
+  window.close();
+  window.opener.$('div#flash-notice').html('成功登录').show().fadeOut(2000);
 </script>

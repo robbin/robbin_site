@@ -42,6 +42,7 @@ RobbinSite.controllers do
     if login_account = Account.authenticate(@account.email, @account.password)
       session[:account_id] = login_account.id
       response.set_cookie('user', {:value => login_account.encrypt_cookie_value, :path => "/", :expires => 2.weeks.since, :httponly => true}) if params[:remember_me]
+      flash[:notice] = '成功登录'
       redirect url(:index)
     else
       # retry 5 times per one hour
@@ -79,6 +80,7 @@ RobbinSite.controllers do
         session[:quick_login] = nil
         render 'home/weibo_callback', :layout => false
       else
+        flash[:notice] = '成功登录'
         redirect_to url(:index)
       end
     else

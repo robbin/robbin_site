@@ -11,6 +11,7 @@
     <%= yield_content :stylesheets %>
   </head>
   <body>
+    <div id="flash-notice">hello</div>
     <div class="header">
       <div class="warp">
       	<div class="user_img"><img src="/skins/data/100.png" width="80" height="80"></div>
@@ -72,5 +73,10 @@
     </div><!-- footer -->
     <%= javascript_include_tag 'jquery', 'jquery-ujs', 'application' %>
     <%= yield_content :javascripts %>
+    <% if flash[:notice] %>
+    <script type="text/javascript" charset="utf-8">
+      $('div#flash-notice').html('<%= flash[:notice] %>').show().fadeOut(2000);
+    </script>
+    <% end %>
   </body>
 </html>

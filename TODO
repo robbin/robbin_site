@@ -1,6 +1,6 @@
 - Frontend
 * resume
-* login and return original url
+* weibo login timeout process
 
 - Backend
 * admin panel: change password, upload logo
@@ -12,9 +12,7 @@
 - UI
 * default website icon
 * default website favicon
+* flash-notice background-color
 
-- UE
-* login and logout flash notice (dynamic effect)
-* admin flash notice
-* weibo ajax login flash notice
-* weibo login timeout process
+-Bug
+* add comment make right.erb double render first
