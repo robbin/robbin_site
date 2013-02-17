@@ -8,6 +8,7 @@
     <meta name="author" content="Robbin Fan">
     <link href="/rss" rel="alternate" title="<%= APP_CONFIG['site_title'] %>" type="application/rss+xml" />
     <%= stylesheet_link_tag '/skins/default/document', '/skins/default/content', '/skins/default/github' %>
+    <%= yield_content :stylesheets %>
   </head>
   <body>
     <div class="header">
@@ -65,5 +66,6 @@
       </div>
     </div><!-- footer -->
     <%= javascript_include_tag 'jquery', 'jquery-ujs', 'application' %>
+    <%= yield_content :javascripts %>
   </body>
 </html>

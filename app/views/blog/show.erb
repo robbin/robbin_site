@@ -1,6 +1,19 @@
 <% @title = @blog.title %>
 <% @description = @blog.cached_tag_list + ' ' + @blog.content.truncate(200).gsub(/(\r|\n)/, ' ') %>
 
+<% content_for :stylesheets do %>
+<%= stylesheet_link_tag 'hightlight/github.min' %>
+<% end %>
+
+<% content_for :javascripts do %>
+<%= javascript_include_tag 'highlight.min' %>
+<script type="text/javascript" charset="utf-8">
+$(function(){
+  hljs.initHighlightingOnLoad();
+});
+</script>
+<% end %>
+
 <div class="left">
   
   <div class="con">
