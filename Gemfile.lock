@@ -60,7 +60,6 @@ GEM
     faraday (0.8.5)
       multipart-post (~> 1.1)
     github-markdown (0.5.3)
-    gravtastic (3.2.6)
     hashie (1.2.0)
     http_router (0.10.2)
       rack (>= 1.0.0)
@@ -141,7 +140,6 @@ DEPENDENCIES
   erubis (~> 2.7.0)
   factory_girl
   github-markdown
-  gravtastic
   kgio
   minitest (~> 2.6.0)
   mysql2

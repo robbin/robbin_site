@@ -1,8 +1,7 @@
 - Frontend
-* UI enhancement
-* icon
-* favicon
+* UI enhancement: articles count, submit cursor hand
 * resume
+* ajax weibo login and weibo avatar
 
 - Backend
 * file upload enhancement
@@ -10,4 +9,10 @@
 * ajax tag suggestion
 * model validation
 * admin panel: change password, upload logo
-* ajax weibo login (waiting for weibo application)
+
+- UI
+* default website icon
+* default website favicon
+* default avatar logo
+
+

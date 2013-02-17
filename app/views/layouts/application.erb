@@ -7,7 +7,7 @@
     <meta name="description" content="<%= @description || APP_CONFIG['site_description'] %>">
     <meta name="author" content="Robbin Fan">
     <link href="/rss" rel="alternate" title="<%= APP_CONFIG['site_title'] %>" type="application/rss+xml" />
-    <%= stylesheet_link_tag '/skins/default/document', '/skins/default/content', '/skins/default/github' %>
+    <%= stylesheet_link_tag '/skins/default/document', '/skins/default/content' %>
     <%= yield_content :stylesheets %>
   </head>
   <body>
@@ -61,8 +61,13 @@
     	<a href="http://weibo.com/robbinfan" class="weibo">Weibo</a>
       <a href="https://github.com/robbin" class="github">Github</a>      
       <a href="mailto:fankai@gmail.com" class="mail">Email</a>
+      <% if APP_CONFIG['show_certification'] %>
       <div class="certification">
-         <a href="http://www.miibeian.gov.cn/">京ICP备13004925号-1</a> 京公网安备11010502023235号
+        <a href="http://www.miibeian.gov.cn/">京ICP备13004925号-1</a> 京公网安备11010502023235号
+      </div>
+      <% end %>
+      <div class="powered-by">
+        <a href="http://robbinfan.com" title="robbin的自言自语">Powered by robbin</a>
       </div>
     </div><!-- footer -->
     <%= javascript_include_tag 'jquery', 'jquery-ujs', 'application' %>
