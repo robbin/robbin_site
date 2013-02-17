@@ -35,7 +35,7 @@
     </div><!-- content -->
   
     <div class="share clearfix">
-        <span><%= partial 'blog/weibo_share', :locals => {:content => (@blog.title + ":" + @blog.content).truncate(120).gsub(/\r|\n/, '')} %></span>
+      <span><%= partial 'blog/weibo_share', :locals => {:content => (@blog.title + ":" + @blog.content).truncate(120).gsub(/\r|\n/, '')} %></span>
     </div><!-- share -->
     
     <div class="comment clearfix">
@@ -57,8 +57,7 @@
         <% end %>
         <div class="box" style="<%= "display:none;" if account_login? %>">
           <button class="close" onclick=""></button>
-          <p>我希望知道在与谁进行思想交流，请用以下方式登录留言</p>
-          <button class="google_btn"></button>
+          <p>我想知道与谁进行思想交流，请用微博登录留言</p>
           <button class="sina_btn"></button>
         </div><!-- box -->
       </div><!-- relative -->
@@ -75,10 +74,21 @@
 </div><!-- right -->
 
 <% content_for :javascripts do %>
-<%= javascript_include_tag 'highlight.min' %>
-<script type="text/javascript" charset="utf-8">
-$(function(){
-  hljs.initHighlightingOnLoad();  // hightlight code
-});
-</script>
+  <%= javascript_include_tag 'highlight.min' %>
+  <script type="text/javascript" charset="utf-8">
+  $(function(){
+    // hightlight code
+    hljs.initHighlightingOnLoad();
+
+    // response close button of weibo login div
+    $('button.close').click(function() {
+      $('div.box').hide();
+    });
+
+    // response sina login button
+    $('button.sina_btn').click(function(){
+      weibo_auth_window = window.open('<%= url(:weibo_login) %>/?quick_login=1', 'weibo third part authentication', 'height=300px, width=400px, scrollbars=no, resizable=no, status=no, resizable=no, menubar=no')
+    });
+  });
+  </script>
 <% end %>

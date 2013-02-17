@@ -1,17 +1,20 @@
 - Frontend
 * resume
-* ajax weibo login and weibo avatar
-* login and logout flash notice
+* login and return original url
 
 - Backend
+* admin panel: change password, upload logo
 * file upload enhancement
 * EpicEditor
 * ajax tag suggestion
 * model validation
-* admin panel: change password, upload logo
-* flash notice
 
 - UI
 * default website icon
 * default website favicon
 
+- UE
+* login and logout flash notice (dynamic effect)
+* admin flash notice
+* weibo ajax login flash notice
+* weibo login timeout process

@@ -61,8 +61,8 @@ RobbinSite.controllers do
 
   # weibo authentication
   get :weibo_login do
-    client = WeiboOAuth2::Client.new
-    redirect client.authorize_url
+    session[:quick_login] = true if params[:quick_login]
+    redirect WeiboOAuth2::Client.new.authorize_url
   end
 
   get :weibo_callback do
@@ -75,7 +75,11 @@ RobbinSite.controllers do
         account = Account.create(:provider => 'weibo', :uid => weibo_uid, :name => weibo_user.screen_name, :role => 'commentor')
       end
       session[:account_id] = account.id
-      redirect_to url(:index)
+      if session[:quick_login]
+        render 'home/weibo_callback', :layout => false
+      else
+        redirect_to url(:index)
+      end
     else
       halt 401
     end

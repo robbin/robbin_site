@@ -1,9 +1,6 @@
 // Put your application scripts here
 $(function(){
-  $('button.close').click(function() {
-    $('div.box').hide();
-  });
-  
+  // response search query on main nav both mouse click and keyboard return key
   $('button#search-button').click(function() {
     var keyword = $.trim($('input#search-box').val());
     if (keyword != null && keyword != '') {
@@ -21,6 +18,7 @@ $(function(){
   });
 });
 
+// add function insertAtCaret which can insert something at cursor in textarea input box.
 (function($){ 
   $.fn.extend({
     insertAtCaret: function(myValue) {
