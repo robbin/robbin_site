@@ -6,7 +6,7 @@ development: &default
   site_description: '范凯个人网站，发表个人原创的博客文章和学习笔记，包括互联网产品，研发和运营类的文章'
   show_certification: true
   blog_search_ping: false
-  google_cse: '009432631322478558153:qih9evvtgy0'
+  google_cse: '007540752216561218107:cgbwg20yn_o'
   weibo_api_key: '1234567890'
   weibo_api_secret: '1234567890'
   weibo_redirect_uri: 'http://robbinfan.com/weibo_callback'

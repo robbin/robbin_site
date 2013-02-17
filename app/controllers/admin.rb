@@ -54,7 +54,7 @@ RobbinSite.controllers :admin do
     content_type :js
     comment = BlogComment.find params[:id]
     comment.destroy
-    "$('div#comments>ul>li##{comment.id}').fadeOut('slow').remove();"
+    "$('div#comments>ul>li##{comment.id}').fadeOut('slow', function(){$(this).remove(); });"
   end
 
   get :new_attachment, :map => '/admin/attachment/new' do
