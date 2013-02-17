@@ -35,7 +35,7 @@
     </div><!-- content -->
   
     <div class="share clearfix">
-        <span><%= partial 'blog/weibo_share', :locals => {:content => @blog.title + ":" + @blog.content.truncate(100)} %></span>
+        <span><%= partial 'blog/weibo_share', :locals => {:content => (@blog.title + ":" + @blog.content).truncate(120).gsub(/\r|\n/, '')} %></span>
     </div><!-- share -->
     
     <div class="comment clearfix">
