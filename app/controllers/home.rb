@@ -76,6 +76,7 @@ RobbinSite.controllers do
       end
       session[:account_id] = account.id
       if session[:quick_login]
+        session[:quick_login] = nil
         render 'home/weibo_callback', :layout => false
       else
         redirect_to url(:index)
