@@ -203,4 +203,4 @@ body{ background:#bebebe url(bg.gif);}
 .error-info{ margin-top:20px; height:200px; mborder-radius: 5px;-webkit-border-radius: 5px;-moz-border-radius: 5px;-khtml-border-radius: 5px;background: #fff;margin-bottom: 40px;box-shadow: 0px 1px 2px #999; padding:100px 300px; text-align:center; font-size:20px; font-weight:bold;}
 
 /*flash*/
-div#flash-notice{ width:100px;height:24px;text-align:center;position:fixed;background-color:red;color:#fff;top:0px;left:0px;display:none;}
+div#flash-notice{ width:100px;height:24px;text-align:center;position:fixed;background-color:red;color:#fff;top:0px;right:0px;display:none;}

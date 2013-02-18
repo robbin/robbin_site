@@ -4,7 +4,6 @@ RobbinSite.controllers :test do
 
   get :index do
     @blog = Blog.find 8
-    ping_search_engine(@blog)
     render 'test/index'
   end
   

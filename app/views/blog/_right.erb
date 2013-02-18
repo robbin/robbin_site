@@ -1,4 +1,4 @@
-<% s = APP_CACHE.fetch("#{CACHE_PREFIX}/layout/right", :expire_in => 1.day) do %>
+<% cache("#{CACHE_PREFIX}/layout/right", :expires_in => 1.day) do %>
 
 <h3>Hot Tag</h3>
 <div class="tag">
@@ -27,7 +27,6 @@
 
 <% end %>
 
-<%= s.html_safe %>
 <div class="rss clearfix">
   <a href="/rss">RSS订阅</a>
 </div>

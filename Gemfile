@@ -1,4 +1,5 @@
 source 'http://rubygems.org'
+source 'http://ruby.taobao.org'
 
 # Project requirements
 gem 'rake'

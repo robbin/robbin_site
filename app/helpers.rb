@@ -1,6 +1,7 @@
 require 'xmlrpc/client'
 
 RobbinSite.helpers do
+  include Padrino::Cache::Helpers::Fragment
   
   # authentication helpers
   def current_account

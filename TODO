@@ -1,6 +1,5 @@
 - Frontend
 * resume
-* weibo login timeout process
 
 - Backend
 * admin panel: change password, upload logo
@@ -12,7 +11,5 @@
 - UI
 * default website icon
 * default website favicon
-* flash-notice background-color
 
 -Bug
-* add comment make right.erb double render first

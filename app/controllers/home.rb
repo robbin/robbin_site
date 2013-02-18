@@ -26,7 +26,8 @@ RobbinSite.controllers do
   get :rss do
     content_type :rss
     @blogs = Blog.order('id DESC').limit(20)
-    APP_CACHE.fetch("#{CACHE_PREFIX}/rss/all") { render 'home/rss' }
+    render 'home/rss'
+    # APP_CACHE.fetch("#{CACHE_PREFIX}/rss/all") { render 'home/rss' }
   end
 
   # native authentication
