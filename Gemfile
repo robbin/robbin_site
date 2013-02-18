@@ -23,7 +23,6 @@ gem 'weibo_2'
 
 # Production requirements
 group :production do
-  gem 'unicorn'
   gem 'rainbows'
 end
 
