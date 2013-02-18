@@ -9,12 +9,11 @@
     <%= f.label :password, :caption => "输入密码" %>
     <%= f.password_field :password %>
   </p>
-  <p>
-    <%= label_tag :remember_me, :caption => "两周内自动登录" %>
-    <%= check_box_tag :remember_me, :checked => true %>
+  <p class="remember_me" >
+    <%= label_tag :remember_me, :caption =><%= check_box_tag :remember_me, :checked => true %> "两周内自动登录" %>
   </p>
   <p>
-    <%= f.submit '', :class => 'login' %>
+    <%= f.submit '', :class => 'login' %><a href="#" class="sina_btn" ></a>
   </p>
 <% end %>
 </div>
