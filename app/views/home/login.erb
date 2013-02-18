@@ -9,12 +9,13 @@
     <%= f.label :password, :caption => "输入密码" %>
     <%= f.password_field :password %>
   </p>
-  <p>
+  <p class="remember_me" >
     <%= label_tag :remember_me, :caption => "两周内自动登录" %>
     <%= check_box_tag :remember_me, :checked => true %>
   </p>
   <p>
     <%= f.submit '', :class => 'login' %>
+    <%= link_to '', url(:weibo_login), :class => 'sina_btn' %>
   </p>
 <% end %>
 </div>
