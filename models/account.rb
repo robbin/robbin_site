@@ -15,7 +15,7 @@ class Account < ActiveRecord::Base
   validates_length_of       :password, :within => 4..40, :if => :native_login_required
   validates_confirmation_of :password,                   :if => :native_login_required
   validates_length_of       :email,    :within => 3..100, :if => :native_login_required
-  validates_uniqueness_of   :email,    :case_sensitive => false
+  validates_uniqueness_of   :email,    :case_sensitive => false, :if => :native_login_required
   validates_format_of       :email,    :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :if => :native_login_required
   validates_format_of       :role,     :with => /[A-Za-z]/
 

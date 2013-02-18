@@ -154,6 +154,5 @@ DEPENDENCIES
   sanitize
   second_level_cache!
   thin
-  unicorn
   weibo_2
   will_paginate

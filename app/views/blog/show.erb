@@ -58,7 +58,6 @@
         <div class="box" style="<%= "display:none;" if account_login? %>">
           <button class="close" onclick=""></button>
           <p>我想知道与谁进行思想交流，请用微博登录留言</p>
-          <p style="color:red;">微博网站接入申请待审中，请暂时不要登录!</p>
           <button class="sina_btn"></button>
         </div><!-- box -->
       </div><!-- relative -->
@@ -94,7 +93,7 @@
     // validate empty comment
     $('input.comment_btn').click(function(){
       if ($('textarea#blog_comment_content').val().length < 3) {
-        $('div#flash-notice').html('多写点吧').show().fadeOut(2000);
+        $('div#flash-notice').html('评论太少，多写点').show().fadeOut(2000);
         return false;
       }
     });
