@@ -1,12 +1,18 @@
+# rainbows config
+Rainbows! do
+  use :ThreadPool
+  # use :ThreadSpawn
+  worker_connections 16
+end
+
 # paths and things
-development = ENV["RACK_ENV"] || 'development'
 wd          = File.expand_path('../../', __FILE__)
 tmp_path    = File.join(wd, 'log')
 Dir.mkdir(tmp_path) unless File.exist?(tmp_path)
-socket_path = File.join(tmp_path, 'unicorn.sock')
-pid_path    = File.join(tmp_path, 'unicorn.pid')
-err_path    = File.join(tmp_path, 'unicorn.error.log')
-out_path    = File.join(tmp_path, 'unicorn.out.log')
+socket_path = File.join(tmp_path, 'rainbows.sock')
+pid_path    = File.join(tmp_path, 'rainbows.pid')
+err_path    = File.join(tmp_path, 'rainbows.error.log')
+out_path    = File.join(tmp_path, 'rainbows.out.log')
 
 # Use at least one worker per core if you're on a dedicated server,
 # more will usually help for _short_ waits on databases/caches.
@@ -32,10 +38,8 @@ pid pid_path
 # By default, the Unicorn logger will write to stderr.
 # Additionally, ome applications/frameworks log to stderr or stdout,
 # so prevent them from going to /dev/null when daemonized here:
-unless development
-  stderr_path err_path
-  stdout_path out_path
-end
+stderr_path err_path
+stdout_path out_path
 
 preload_app true
 
@@ -63,12 +67,4 @@ before_fork do |server, worker|
 end
 
 after_fork do |server, worker|
-end
-
-Rainbows! do
-  use :ThreadPool
-  # use :ThreadSpawn
-  worker_connections 16
-  # keepalive_timeout 5 # zero disables keepalives entirely
-  # keepalive_requests 66 # default:100
 end
