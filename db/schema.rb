@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 14) do
+ActiveRecord::Schema.define(:version => 15) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -19,10 +19,12 @@ ActiveRecord::Schema.define(:version => 14) do
     t.string   "crypted_password"
     t.string   "role"
     t.datetime "created_at"
-    t.integer  "blogs_count",                    :default => 0, :null => false
+    t.integer  "blogs_count",                     :default => 0, :null => false
     t.string   "uid"
-    t.string   "provider",         :limit => 20
-    t.integer  "comments_count",                 :default => 0, :null => false
+    t.string   "provider",          :limit => 20
+    t.integer  "comments_count",                  :default => 0, :null => false
+    t.string   "profile_url"
+    t.string   "profile_image_url"
   end
 
   create_table "attachments", :force => true do |t|

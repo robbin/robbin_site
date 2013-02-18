@@ -71,12 +71,21 @@ RobbinSite.controllers do
     client = WeiboOAuth2::Client.new
     if access_token = client.auth_code.get_token(params[:code].to_s)
       weibo_uid = access_token.params["uid"]
-      account = Account.where(:provider => 'weibo', :uid => weibo_uid).first
-      unless account 
+      @account = Account.where(:provider => 'weibo', :uid => weibo_uid).first
+
+      # create commenter account when first weibo login
+      unless @account 
         weibo_user = client.users.show_by_uid(weibo_uid)
-        account = Account.create(:provider => 'weibo', :uid => weibo_uid, :name => weibo_user.screen_name, :role => 'commentor')
+        @account = Account.create(:provider => 'weibo', :uid => weibo_uid, :name => weibo_user.screen_name, :role => 'commenter', :profile_url => weibo_user.profile_url, :profile_image_url => weibo_user.profile_image_url)
       end
-      session[:account_id] = account.id
+      
+      # update weibo profile if profile is empty
+      if @account.profile_url.blank? || @account.profile_image_url.blank?
+        weibo_user = client.users.show_by_uid(weibo_uid)
+        @account.update_attributes(:profile_url => weibo_user.profile_url, :profile_image_url => weibo_user.profile_image_url)
+      end
+      
+      session[:account_id] = @account.id
       if session[:quick_login]
         session[:quick_login] = nil
         render 'home/weibo_callback', :layout => false

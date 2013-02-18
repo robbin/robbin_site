@@ -1,6 +1,7 @@
 <script type="text/javascript" charset="utf-8">
   window.opener.$('div.box').hide();
-  window.opener.$('#blog_comment_content').focus();
+  window.opener.$('div.header div.write').html('<%= @account.name %><%= js_escape_html(button_to("退出", url(:logout), :method => :delete)).html_safe %>');
   window.close();
   window.opener.$('div#flash-notice').html('成功登录').show().fadeOut(2000);
+  window.opener.$('#blog_comment_content').focus();
 </script>

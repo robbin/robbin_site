@@ -14,7 +14,7 @@ body{ background:#bebebe url(bg.gif);}
 .header .write a{color:#fff; margin-left:8px; margin-right:8px; display:inline-block; height:20px; line-height:20px; vertical-align:middle; background:url(y.png) 0px -240px no-repeat; padding-left:16px;}
 .header .write a:hover{background:url(y.png) 0px -270px no-repeat; color:#f87b00;}
 .header .write input{ background:none; border:none; color:#fff;background: url(y.png) 0px -716px no-repeat; padding-left:20px;}
-.header .write input:hover{ color:#f60;background: url(y.png) 0px -746px no-repeat; text-decoration:underline;}
+.header .write input:hover{ color:#f60;background: url(y.png) 0px -746px no-repeat; text-decoration:underline; cursor:pointer;}
 .header .write form{ display:inline;}
 
 /*nav*/

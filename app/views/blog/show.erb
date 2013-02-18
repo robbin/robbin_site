@@ -57,7 +57,7 @@
         <% end %>
         <div class="box" style="<%= "display:none;" if account_login? %>">
           <button class="close" onclick=""></button>
-          <p>我想知道与谁进行思想交流，请用微博登录留言</p>
+          <p>我想知道与谁交流思想，请用微博登录留言。</p>
           <button class="sina_btn"></button>
         </div><!-- box -->
       </div><!-- relative -->
@@ -87,7 +87,9 @@
 
     // response sina login button
     $('button.sina_btn').click(function(){
-      weibo_auth_window = window.open('<%= url(:weibo_login) %>/?quick_login=1', 'weibo third part authentication', 'height=300px, width=400px, scrollbars=no, resizable=no, status=no, resizable=no, menubar=no')
+      var width=Math.round((window.screen.width-800)/2);
+      var height=Math.round((window.screen.height-600)/2);
+      window.open('<%= url(:weibo_login) %>/?quick_login=1', 'weibo third part authentication', 'height=300px, width=400px, top='+height+',left='+width+', scrollbars=no, resizable=no, status=no, resizable=no, menubar=no')
     });
     
     // validate empty comment

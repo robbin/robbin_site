@@ -32,6 +32,24 @@ RobbinSite.helpers do
     slug_url
   end
   
+  # generate commenter logo and link
+  def commenter_logo(commenter)
+    if commenter.provider && commenter.provider == 'weibo'
+      link_to image_tag(commenter.profile_image_url), "http://weibo.com/#{commenter.profile_url}"
+    else
+      link_to image_tag('default_logo.jpg'), APP_CONFIG['site_url']
+    end
+  end
+  
+  def commenter_link(commenter)
+    if commenter.provider && commenter.provider == 'weibo'
+      link_to commenter.name, "http://weibo.com/#{commenter.profile_url}"
+    else
+      link_to commenter.name, APP_CONFIG['site_url']
+    end
+  end  
+  
+  
   # blog search ping for SEO purpose
   def ping_search_engine(blog)
     # http://www.google.cn/intl/zh-CN/help/blogsearch/pinging_API.html
