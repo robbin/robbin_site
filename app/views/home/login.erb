@@ -10,8 +10,8 @@
     <%= f.password_field :password %>
   </p>
   <p class="remember_me" >
-    <%= label_tag :remember_me, :caption => "两周内自动登录" %>
     <%= check_box_tag :remember_me, :checked => true %>
+    <%= label_tag :remember_me, :caption => "两周内自动登录" %>
   </p>
   <p>
     <%= f.submit '', :class => 'login' %>

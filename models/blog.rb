@@ -16,7 +16,33 @@ class Blog < ActiveRecord::Base
   validates :title, :length => {:in => 3..50}
   
   delegate :content, :to => :blog_content, :allow_nil => true
+
+  # virtual property for article category: blog, note
+  def category
+    return 'blog' if tag_list.include?('blog')
+    return 'note' if tag_list.include?('note')
+  end
   
+  def category=(category_name)
+    if category_name && ['blog', 'note'].include?(category_name)
+      self.tag_list << category_name unless self.tag_list.include?(category_name)
+    end
+  end
+  
+  # virtual property for setting tag_list
+  def user_tags
+    (self.tag_list - ['blog', 'note']).join(",")
+  end
+  
+  def user_tags=(tags)
+    unless tags.blank?
+      user_tags_list = (tags.split(",").collect!{|t| t.strip.downcase}.uniq.reject!{|t| t.empty?} - ['blog', 'note']).join(",") 
+      user_tags_list.prepend("#{category},") if category
+      self.tag_list = user_tags_list
+    end  
+  end
+  
+  # virtual property for blog_content's content body
   def content=(value)            # must prepend self otherwise do not update blog_content
     self.blog_content ||= BlogContent.new
     self.blog_content.content = value
@@ -67,7 +93,7 @@ class Blog < ActiveRecord::Base
   
   def self.cached_tag_cloud
     APP_CACHE.fetch("#{CACHE_PREFIX}/blog_tags/tag_cloud") do
-      self.tag_counts.sort_by(&:count).reverse.reject {|t| t.name == 'blog' || t.name == 'note' }
+      self.tag_counts.sort_by(&:count).reverse.reject {|t| t.name == 'blog' || t.name == 'note'}
     end
   end
   
