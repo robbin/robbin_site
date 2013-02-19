@@ -95,6 +95,21 @@
         return false;
       }
     });
+    
+    // toggle add/remove tag to and from input box
+    $('form#editor div.tag a.tag').click(function(){
+      var tagName = $.trim($(this).find('span').html());
+      var tagList = filterTags($('input#blog_user_tags').val());
+      var index = $.inArray(tagName, tagList)
+      if (index === -1) {
+        tagList.push(tagName);
+      } else {
+        tagList.splice(index, 1);
+      }
+      $('input#blog_user_tags').val(tagList.join(" , ")).focus();
+      return false;
+    });
+    
   });
   </script>
 <% end %>

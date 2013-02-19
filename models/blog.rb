@@ -31,12 +31,13 @@ class Blog < ActiveRecord::Base
   
   # virtual property for setting tag_list
   def user_tags
-    (self.tag_list - ['blog', 'note']).join(",")
+    (self.tag_list - ['blog', 'note']).join(" , ")
   end
   
   def user_tags=(tags)
     unless tags.blank?
-      user_tags_list = (tags.split(",").collect!{|t| t.strip.downcase}.uniq.reject!{|t| t.empty?} - ['blog', 'note']).join(",") 
+      # filter illegal characters
+      user_tags_list = (tags.split(",").collect{|t| t.strip.downcase}.uniq.select{|t| t =~ /^(?!_)(?!.*?_$)[a-zA-Z0-9_\s\u4e00-\u9fa5]+$/} - ['blog', 'note']).join(",") 
       user_tags_list.prepend("#{category},") if category
       self.tag_list = user_tags_list
     end  
@@ -74,7 +75,7 @@ class Blog < ActiveRecord::Base
   end
   
   def cached_tags
-    cached_tag_list ? cached_tag_list.split(",").collect {|t| t.strip} : []
+    cached_tag_list ? cached_tag_list.split(",").collect{|t| t.strip}.reject{|t| ['blog', 'note'].include?(t)} : []
   end
   
   def clean_cache

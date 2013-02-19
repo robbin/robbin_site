@@ -1,9 +1,9 @@
 <% @nav = 'tag' %>
-<% @title = params[:name] + "分类文章" %>
-<% @description = params[:name] + "分类下所有文章列表" %>
+<% @title = @tag.to_s.force_encoding("UTF-8") + "分类文章" %>
+<% @description = @tag.to_s.force_encoding("UTF-8") + "分类下所有文章列表" %>
 
 <div class="left">
-	<h3>Tag: <%= params[:name] %></h3>
+	<h3>Tag: <%= @tag.to_s.force_encoding("UTF-8") %></h3>
   <%= partial 'blog/blog', :collection => @blogs %>
   <div>
     <%= (will_paginate @blogs, :previous_label => '前一页', :next_label => '后一页').to_s.html_safe %>
