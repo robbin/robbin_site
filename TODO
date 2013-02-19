@@ -1,12 +1,16 @@
+- Backend
+* model validation
+* ajax tag suggestion
+* EpicEditor
+* file upload enhancement
+* admin panel: change password, upload logo, add/delete users
+
 - Frontend
 * resume
-
-- Backend
-* admin panel: change password, upload logo
-* file upload enhancement
-* EpicEditor
-* ajax tag suggestion
-* model validation
+* show account logo in article title
+* tag row and status row(add comments count show) is too tight
+* tag page is ugly
+* comment markdown format and style
 
 - UI
 * default website icon
