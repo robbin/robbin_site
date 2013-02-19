@@ -74,9 +74,9 @@
     <%= javascript_include_tag 'jquery', 'jquery-ujs', 'application' %>
     <%= yield_content :javascripts %>
     <% if flash[:notice] %>
-    <script type="text/javascript" charset="utf-8">
-      $('div#flash-notice').html('<%= flash[:notice] %>').show().fadeOut(2000);
-    </script>
+      <script type="text/javascript" charset="utf-8">
+        $('div#flash-notice').html('<%= flash[:notice] %>').show().fadeOut(3000);
+      </script>
     <% end %>
   </body>
 </html>

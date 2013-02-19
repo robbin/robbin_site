@@ -210,5 +210,8 @@ body{ background:#bebebe url(bg.gif);}
 .error_404{ background:#fff url(404.png) no-repeat 230px center;}
 .error_500{ background:#fff url(500.png) no-repeat 100px center;}
 
-/*flash*/
+/*flash notice*/
 div#flash-notice{ width:100px;height:24px;text-align:center;position:fixed;background-color:red;color:#fff;top:0px;right:0px;display:none;}
+div#comment-error-info{ width:120px;height:24px;text-align:center;float:left;position:relative;background-color:red;color:#fff;display:none;}
+div#form-error-info{ width:100%;height:20px;text-align:left;display:block;color:red;}
+div#form-error-info span{padding:0 5px;}

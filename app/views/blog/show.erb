@@ -53,6 +53,7 @@
       <div class="relative">
         <% form_for BlogComment.new, url(:blog, :create_comment, :id => @blog.id), :remote => true do |f| %>
         <%= f.text_area :content, :class => 'comment' %>
+        <div id="comment-error-info"></div>
         <%= f.submit '', :class => 'comment_btn' %>
         <% end %>
         <div class="box" style="<%= "display:none;" if account_login? %>">
@@ -95,7 +96,7 @@
     // validate empty comment
     $('input.comment_btn').click(function(){
       if ($('textarea#blog_comment_content').val().length < 3) {
-        $('div#flash-notice').html('评论太少，多写点').show().fadeOut(2000);
+        $('div#comment-error-info').html('评论太少，多写点').show().fadeOut(3000);
         return false;
       }
     });
