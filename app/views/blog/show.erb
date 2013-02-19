@@ -89,7 +89,7 @@
     $('button.sina_btn').click(function(){
       var width=Math.round((window.screen.width-800)/2);
       var height=Math.round((window.screen.height-600)/2);
-      window.open('<%= url(:weibo_login) %>/?quick_login=1', 'weibo third part authentication', 'height=300px, width=400px, top='+height+',left='+width+', scrollbars=no, resizable=no, status=no, resizable=no, menubar=no')
+      window.open('<%= url(:weibo_login) %>/?quick_login=1', 'weibo_third_part_authentication', 'height=300px, width=400px, top='+height+',left='+width+', scrollbars=no, resizable=no, status=no, resizable=no, menubar=no')
     });
     
     // validate empty comment
