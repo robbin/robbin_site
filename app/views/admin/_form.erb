@@ -58,17 +58,11 @@
   <tr>
     <th valign="top">Comment</th>
     <td>
-      <%= form.check_box :commentable %>
-    </td>
-  </tr>
-
-  <tr>
-    <th>&nbsp;</th>
-    <td align="center">
+      <%= form.check_box :commentable, :style => 'display:inline;' %>
       <div id="form-error-info"></div>
     </td>
   </tr>
-  
+
   <tr>
     <th>&nbsp;</th>
     <td align="center">
@@ -85,10 +79,17 @@
       var error_info = '';
       $('div#form-error-info').html('');
       if ($('input#blog_title').val().length < 3) {
-        error_info += '<span>文章标题太短了</span>';
+        error_info += '<span>文章标题太短了;</span>';
       }
       if ($('textarea#blog_content').val().length < 10) {
-        error_info += '<span>文章内容太少了</span>';
+        error_info += '<span>文章内容太少了;</span>';
+      }
+      var slugUrl = $('input#blog_slug_url').val();
+      if (slugUrl.length > 0) {
+        var re = /^[a-zA-Z0-9\-]{1,}$/;
+        if (!re.test(slugUrl)) {
+          error_info += '<span>URL格式错了：只允许字母数字横线</span>';
+        }
       }
       if (error_info.length > 0) {
         $('div#form-error-info').html(error_info);
