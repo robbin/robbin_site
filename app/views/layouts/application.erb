@@ -13,7 +13,7 @@
   <body>
     <div id="flash-notice"></div>
     <div class="header">
-      <div class="warp">
+      <div class="wrap">
       	<div class="user_img"><img src="/skins/data/100.png" width="80" height="80"></div>
         <h1><span class="blog_title"><%= APP_CONFIG['site_title'] %></span></h1>
         <div class="write">
@@ -22,7 +22,7 @@
         <% else %>
           <%= current_account.name -%>
           <% if account_admin? -%>
-          <%= link_to '写博客', url(:admin, :new_blog) -%>
+          <%= link_to '写文章', url(:admin, :new_blog) -%>
           <%= link_to '设置', url(:admin, :index) -%>
           <% end -%>
           <%= button_to '退出', url(:logout), :method => :delete %>
@@ -33,7 +33,7 @@
     </div><!-- header -->
     
     <div class="nav">
-      <div class="warp clearfix">
+      <div class="wrap clearfix">
       	<div class="search fr">
           <form action="/search" id="cse-search-box" method="get">
             <input type="hidden" name="cx" value="<%= APP_CONFIG['google_cse'] %>" />
@@ -56,7 +56,7 @@
       </div>
     </div><!-- nav -->
     
-    <div class="warp clearfix">
+    <div class="wrap clearfix">
       <%= yield %>
     </div><!-- content -->
     

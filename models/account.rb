@@ -4,6 +4,7 @@ require 'base64'
 class Account < ActiveRecord::Base
   attr_accessor :password, :password_confirmation
   acts_as_cached
+  mount_uploader :logo, AvatarUploader
   has_many :blogs
   has_many :blog_comments
   has_many :attachments

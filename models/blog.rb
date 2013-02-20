@@ -1,5 +1,5 @@
 class Blog < ActiveRecord::Base
-  acts_as_cached
+  acts_as_cached(:version => 1, :expires_in => 1.week)
   acts_as_taggable
 
   attr_protected :account_id, :blog_content_id
@@ -16,29 +16,16 @@ class Blog < ActiveRecord::Base
   validates :title, :length => {:in => 3..50}
   
   delegate :content, :to => :blog_content, :allow_nil => true
-
-  # virtual property for article category: blog, note
-  def category
-    return 'blog' if tag_list.include?('blog')
-    return 'note' if tag_list.include?('note')
-  end
-  
-  def category=(category_name)
-    if category_name && ['blog', 'note'].include?(category_name)
-      self.tag_list << category_name unless self.tag_list.include?(category_name)
-    end
-  end
   
   # virtual property for setting tag_list
   def user_tags
-    (self.tag_list - ['blog', 'note']).join(" , ")
+    self.tag_list.join(" , ")
   end
   
   def user_tags=(tags)
     unless tags.blank?
       # filter illegal characters
-      user_tags_list = (tags.split(",").collect{|t| t.strip.downcase}.uniq.select{|t| t =~ /^(?!_)(?!.*?_$)[\+#a-zA-Z0-9_\s\u4e00-\u9fa5]+$/} - ['blog', 'note']).join(",") 
-      user_tags_list.prepend("#{category},") if category
+      user_tags_list = tags.split(/\s*,\s*/).uniq.collect {|t| t.downcase}.select {|t| t =~ /^(?!_)(?!.*?_$)[\+#a-zA-Z0-9_\s\u4e00-\u9fa5]+$/}.join(",") 
       self.tag_list = user_tags_list
     end  
   end
@@ -75,7 +62,7 @@ class Blog < ActiveRecord::Base
   end
   
   def cached_tags
-    cached_tag_list ? cached_tag_list.split(",").collect{|t| t.strip}.reject{|t| ['blog', 'note'].include?(t)} : []
+    cached_tag_list ? cached_tag_list.split(/\s*,\s*/) : []
   end
   
   def clean_cache
@@ -94,7 +81,7 @@ class Blog < ActiveRecord::Base
   
   def self.cached_tag_cloud
     APP_CACHE.fetch("#{CACHE_PREFIX}/blog_tags/tag_cloud") do
-      self.tag_counts.sort_by(&:count).reverse.reject {|t| t.name == 'blog' || t.name == 'note'}
+      self.tag_counts.sort_by(&:count).reverse
     end
   end
   

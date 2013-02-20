@@ -37,7 +37,7 @@ RobbinSite.helpers do
     if commenter.provider && commenter.provider == 'weibo'
       link_to image_tag(commenter.profile_image_url), "http://weibo.com/#{commenter.profile_url}", :target => '_blank', :rel => 'nofollow'
     else
-      link_to image_tag('default_logo.jpg'), APP_CONFIG['site_url']
+      link_to image_tag(commenter.logo.url), APP_CONFIG['site_url']
     end
   end
   

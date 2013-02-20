@@ -1,19 +1,23 @@
 - Backend
-* Editor Tab
-* admin panel: change password, upload logo, add/delete users
-* file upload enhancement
+  * Editor Tab
+  * admin panel: 
+    + upload logo
+    + change name and password
+    + delete commenter
+    + delete blog comments
+  * file upload enhancement
 
 - Frontend
-* resume
+  * resume
 
 - UI
-* 博客文章和学习笔记icon设计
-* 文章作者logo显示在哪里？
-* 文章tag和文章基本信息一行显示不下
-* Tag频道页面布局样式
-* default website icon
-* default website favicon
+  * 博客文章和学习笔记icon设计
+  * 文章作者logo显示在哪里？
+  * 文章tag和文章基本信息一行显示不下
+  * Tag频道页面布局样式
+  * default website icon
+  * default website favicon
 
 - Bug
-* IE compatiablity
+  * IE compatiablity
 

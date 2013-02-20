@@ -38,7 +38,7 @@
   <tr>
     <th valign="top">Tag</th>
     <td>
-      <%= form.text_field :user_tags, :placeholder => '用逗号分开，不超过5个，Tag必须是字母数字空格下划线和中文' %>
+      <%= form.text_field :user_tags, :placeholder => '用逗号分开，不超过3个，Tag必须是字母数字空格下划线和中文' %>
       <div class="tag">
         <% Blog.cached_tag_cloud.each do |tag| %>
         <a href="#" class="tag" rel="tag"><span><%= tag %></span></a>

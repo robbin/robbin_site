@@ -1,12 +1,12 @@
 RobbinSite.controllers :blog do
   
   get :index do
-    @blogs = Blog.tagged_with("blog").order('id DESC').page(params[:page])
+    @blogs = Blog.where(:category => 'blog').order('id DESC').page(params[:page])
     render 'blog/index'
   end
   
   get :note, :map => '/note' do
-    @blogs = Blog.tagged_with("note").order('content_updated_at DESC').page(params[:page])
+    @blogs = Blog.where(:category => 'note').order('content_updated_at DESC').page(params[:page])
     render 'blog/note'
   end
 
@@ -15,13 +15,11 @@ RobbinSite.controllers :blog do
   end
   
   get :tag, :map => '/tag/:name' do
-    redirect_to url(:blog, :index), 301 if params[:name] && params[:name] == 'blog'  # unique url for SEO: /blog
-    redirect_to url(:blog, :note), 301 if params[:name] && params[:name] == 'note'   # unique url for SEO: /note
     @blogs = Blog.tagged_with(params[:name]).order('content_updated_at DESC').page(params[:page])
-    unless @blogs.blank?
-      render 'blog/tag'
+    if @blogs.blank?
+      halt 404      
     else
-      halt 404
+      render 'blog/tag'      
     end
   end
   
@@ -56,5 +54,4 @@ RobbinSite.controllers :blog do
     @comment = blog.comments.create(:account => current_account, :content => params[:blog_comment][:content])
     render 'blog/create_comment'
   end
-
 end
