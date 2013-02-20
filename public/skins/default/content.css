@@ -147,7 +147,7 @@ body{ background:#bebebe url(bg.gif);}
 .con .comment{ padding:20px 40px; }
 .con .comment h2{ font-size:18px; font-weight:bold; border-bottom:2px #ddd solid; padding-bottom:3px; }
 .con .comment h2 span{ font-size:22px; margin-right:5px;}
-.con .comment .user_img{ float:left; margin-right:20px;}
+.con .comment .user_img{ float:left; margin-right:20px; width:40px; height:40px;}
 .con .comment .user_img img{ width:40px; height:40px; border-radius:50px;-webkit-border-radius:50px;-moz-border-radius:50px;-khtml-border-radius:50px;}
 .con .comment .cot_con{ float:left; width:580px;}
 .con .comment .cot_con .info{ padding:0; border:none; background:none;}
@@ -156,7 +156,7 @@ body{ background:#bebebe url(bg.gif);}
 .con .comment ul li:last-child { border-bottom: 0; margin-bottom:20px;} 
 .con .comment h4{font-size:18px; font-weight:bold; margin-bottom:10px;}
 .con .comment textarea{ height:140px; width: 615px; border:1px #ccc solid;  border-radius: 5px;-webkit-border-radius: 5px;-moz-border-radius: 5px;-khtml-border-radius: 5px; padding:5px 10px; font-size:14px;outline: none;}
-.comment_btn{background:url(x.png) no-repeat 0 -540px; border:none; width:110px; height:40px; float:right; border-radius: 0px;-webkit-border-radius: 0px;-moz-border-radius: 0px;-khtml-border-radius: 0px;}
+.comment_btn{background:url(x.png) no-repeat 0 -540px; border:none; width:110px; height:40px; float:right; border-radius: 0px;-webkit-border-radius: 0px;-moz-border-radius: 0px;-khtml-border-radius: 0px; margin-top:10px\9;}
 .comment_btn:hover{background:url(x.png) no-repeat 0 -590px; cursor:pointer;}
 
 /*tag_list*/
@@ -170,7 +170,7 @@ body{ background:#bebebe url(bg.gif);}
 .tab_list li.current {background-position: 0 0;}
 .tab_list li:hover{background-position: 0 0; color:#666;}
 
-.box{border-radius:5px; -webkit-border-radius:5px;-moz-border-radius:5px;-khtml-border-radius:5px; background:#fefefe; width:360px; padding:30px;color:#333; text-align:center; font-size:14px; top:-130px; right:-100px;box-shadow: 0px 0px 8px #999; }
+.box{border-radius:5px; -webkit-border-radius:5px;-moz-border-radius:5px;-khtml-border-radius:5px; background:#fefefe; width:360px; padding:30px;color:#333; text-align:center; font-size:14px; top:-130px; right:-100px;box-shadow: 0px 0px 8px #999; border:3px #ccc solid \9; }
 .close{ width:30px; height:30px; background:url(y.png) 5px -655px no-repeat; position:absolute; right:0; top:0; border:none;}
 .close:hover{ background-position:5px -685px;}
 .box p{ margin-bottom:20px;}
@@ -178,6 +178,7 @@ body{ background:#bebebe url(bg.gif);}
 .box button.sina_btn{ background: url(x.png); border:none; width:110px; height:40px;}
 .box button.google_btn{ background-position:0 -690px; margin-right:10px}
 .box button.sina_btn{ background-position:0 -740px;}
+.box button.sina_btn:hover{ background-position:0 -940px;}
 
 /*page*/
 .pagination{ margin-bottom:30px; margin-top:-15px; text-align:center;}
@@ -200,6 +201,7 @@ body{ background:#bebebe url(bg.gif);}
 .login input.login{ background:#ccc; height:40px; width:120px; padding:0; margin:0; background:url(x.png) no-repeat 0 -790px; mborder-radius: 0px;-webkit-border-radius: 0px;-moz-border-radius: 0px;-khtml-border-radius: 0px;box-shadow: none; border:0; margin-left:110px; vertical-align:middle;}
 .login input.login:hover{ background-position:0 -840px;cursor:pointer;}
 .login a.sina_btn{ display:inline-block;background: url(x.png) 0 -740px no-repeat;border: none;width: 110px;height: 40px; margin-left:10px; vertical-align:middle;}
+.login a.sina_btn:hover{ background-position:0 -940px;}
 .remember_me{}
 .remember_me label{ width:auto; padding-right:30px;}
 .remember_me input{ width:20px;}
