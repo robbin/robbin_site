@@ -286,3 +286,26 @@ img {
 		page-break-inside: avoid;
 	}
 }
+
+/* blog comments markdown fix */
+.comment .cot_con ul {
+  padding: 0 0 0 20px;
+}
+
+.comment .cot_con ul li {
+  padding: 0;
+  list-style-type: disc;
+  border-bottom:0;
+}
+
+.cot_con h3 {
+  font-size: 15px; color: #666;
+  text-shadow:none;
+}
+/*.cot_con li {
+  margin: 0;
+}
+
+.cot_con p, .cot_con blockquote, .cot_con ul, .cot_con ol, .cot_con dl, .cot_con li, .cot_con table, .cot_con pre {
+  margin: 15px 0;
+}*/

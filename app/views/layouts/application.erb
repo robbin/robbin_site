@@ -48,8 +48,10 @@
           <li><a href="/blog" <%= "class='current'".html_safe if @nav == 'blog' %>>博客</a></li>
           <li><a href="/note" <%= "class='current'".html_safe if @nav == 'note' %>>笔记</a></li>
           <li><a href="/tag" <%= "class='current'".html_safe if @nav == 'tag' %>>分类</a></li>
+          <% if APP_CONFIG['show_weibo_me'] -%>
           <li><a href="/weibo" <%= "class='current'".html_safe if @nav == 'weibo' %>>微博</a></li>
           <li><a href="/me" <%= "class='current'".html_safe if @nav == 'me' %>>关于</a></li>
+          <% end -%>
         </ul>
       </div>
     </div><!-- nav -->

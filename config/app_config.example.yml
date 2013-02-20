@@ -5,6 +5,7 @@ development: &default
   site_motto: 'Small is beautiful, constraint is liberty.'
   site_description: '范凯个人网站，发表个人原创的博客文章和学习笔记，包括互联网产品，研发和运营类的文章'
   show_certification: true
+  show_weibo_me: true
   blog_search_ping: false
   google_cse: '007540752216561218107:cgbwg20yn_o'
   weibo_api_key: '1234567890'
