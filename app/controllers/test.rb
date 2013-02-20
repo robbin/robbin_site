@@ -3,6 +3,7 @@
 RobbinSite.controllers :test do
 
   get :index do
+    render 'test/index', :layout => false
   end
   
   post :index do

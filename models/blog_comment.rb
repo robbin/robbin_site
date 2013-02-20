@@ -21,9 +21,9 @@ class BlogComment < ActiveRecord::Base
     Sanitize.clean(content)
   end
   
-  def md_content(mode = :gfm)
+  def md_content
     APP_CACHE.fetch(content_cache_key) do
-      Sanitize.clean(GitHub::Markdown.to_html(content, mode), Sanitize::Config::BASIC)
+      Sanitize.clean(GitHub::Markdown.to_html(content, :gfm), Sanitize::Config::BASIC)
     end
   end
 end

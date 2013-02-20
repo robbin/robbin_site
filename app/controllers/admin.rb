@@ -29,6 +29,10 @@ RobbinSite.controllers :admin do
       render 'admin/new_blog'
     end
   end
+
+  post :blog_preview, :map => '/admin/blog/preview' do
+    GitHub::Markdown.to_html(params[:term], :gfm) if params[:term]
+  end
   
   get :edit_blog, :map => '/admin/blog/:id/edit' do
     @blog = Blog.find params[:id].to_i
@@ -46,7 +50,7 @@ RobbinSite.controllers :admin do
       render 'admin/edit_blog'
     end
   end
-
+  
   delete :blog, :map => '/admin/blog/:id' do
     @blog = Blog.find params[:id].to_i
     @blog.destroy

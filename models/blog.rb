@@ -88,8 +88,8 @@ class Blog < ActiveRecord::Base
     "#{CACHE_PREFIX}/blog_content/#{self.id}/#{content_updated_at.to_i}"
   end
   
-  def md_content(mode = :gfm)  # cached markdown format blog content
-    APP_CACHE.fetch(content_cache_key) { GitHub::Markdown.to_html(content, mode) }
+  def md_content  # cached markdown format blog content
+    APP_CACHE.fetch(content_cache_key) { GitHub::Markdown.to_html(content, :gfm) }
   end
   
   def self.cached_tag_cloud

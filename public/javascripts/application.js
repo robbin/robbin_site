@@ -46,7 +46,7 @@ $(function(){
   })
 })(jQuery);
 
-// filter illegal tag, only number, underscore, alphabet and chinese words
+// filter illegal tag, only number, underscore, alphabet and chinese words, add #, + like C#, C++
 filterTags = function(tags) {
   var newArray = new Array();
   if (tags != null && tags.length >0) {

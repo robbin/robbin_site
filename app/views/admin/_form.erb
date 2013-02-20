@@ -1,3 +1,8 @@
+<% content_for :stylesheets do %>
+<%= stylesheet_link_tag '/skins/default/github' %>
+<%= stylesheet_link_tag 'hightlight/github.min' %>
+<% end %>
+
 <table class="content">
   <tr>
     <th valign="top">Title</th>
@@ -6,7 +11,20 @@
   
   <tr>
     <th valign="top">Content</th>
-    <td><%= form.text_area :content %></td>
+    <td>
+      <div>
+        <a id="show_blog_content_editor" href="#">Editor</a>
+        <a id="show_blog_content_preview" href="#">Preview</a>
+      </div>
+      <%= form.text_area :content %>
+      <div id="blog_content_preview" class="con text"></div>
+      <div>
+        <ul>
+          <li>编辑器支持Github风格的Markdown格式: [<a href="https://help.github.com/articles/github-flavored-markdown" target="_blank">Github flavored markdown</a>]</li>
+          <li>Markdown中文帮助: [<a href="http://wowubuntu.com/markdown/" target="_blank">Markdown帮助</a>]</li>
+        </ul>
+      </div>
+    </td>
   </tr>
   
   <tr>
@@ -20,7 +38,7 @@
   <tr>
     <th valign="top">Tag</th>
     <td>
-      <%= form.text_field :user_tags, :placeholder => '用逗号分开，不超过5个' %>
+      <%= form.text_field :user_tags, :placeholder => '用逗号分开，不超过5个，Tag必须是字母数字空格下划线和中文' %>
       <div class="tag">
         <% Blog.cached_tag_cloud.each do |tag| %>
         <a href="#" class="tag" rel="tag"><span><%= tag %></span></a>
@@ -51,7 +69,7 @@
   <tr>
     <th valign="top">URL</th>
     <td>
-      <%= form.text_field :slug_url %>
+      <%= form.text_field :slug_url, :placeholder => '填写URL英文关键词，用-连接'  %>
     </td>
   </tr>
 
@@ -72,6 +90,7 @@
 </table>
 
 <% content_for :javascripts do %>
+  <%= javascript_include_tag 'highlight.min' %>
   <script type="text/javascript" charset="utf-8">
   $(function(){
     // form validation
@@ -108,6 +127,21 @@
         tagList.splice(index, 1);
       }
       $('input#blog_user_tags').val(tagList.join(" , ")).focus();
+      return false;
+    });
+    
+    // toggle blog content editor and preview
+    $('a#show_blog_content_editor').click(function(){
+      $('div#blog_content_preview').hide();
+      $('textarea#blog_content').show();
+      return false;
+    });
+    $('a#show_blog_content_preview').click(function(){
+      $.post('<%= url(:admin, :blog_preview) %>', {term: $('textarea#blog_content').val()}, function(data){
+        $('div#blog_content_preview').html(data);
+        $('textarea#blog_content').hide();
+        $('div#blog_content_preview').show();
+      });
       return false;
     });
     
