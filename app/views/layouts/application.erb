@@ -2,7 +2,7 @@
 <html lang="zh-CN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title><%= @title || APP_CONFIG['site_title'] %></title>
+    <title><%= @title ? "#{@title} - #{APP_CONFIG['site_title']}": APP_CONFIG['site_title'] %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="<%= @description || APP_CONFIG['site_description'] %>">
     <meta name="author" content="Robbin Fan">
@@ -44,12 +44,12 @@
           </form>
         </div>
         <ul>
-          <li><a href="/" <%= "class='current'".html_safe if @nav == 'home' %>>Home</a></li>
-          <li><a href="/blog" <%= "class='current'".html_safe if @nav == 'blog' %>>Blog</a></li>
-          <li><a href="/note" <%= "class='current'".html_safe if @nav == 'note' %>>Note</a></li>
-          <li><a href="/tag" <%= "class='current'".html_safe if @nav == 'tag' %>>Tag</a></li>
-          <li><a href="/weibo" <%= "class='current'".html_safe if @nav == 'weibo' %>>Weibo</a></li>
-          <li><a href="/me" <%= "class='current'".html_safe if @nav == 'me' %>>About</a></li>
+          <li><a href="/" <%= "class='current'".html_safe if @nav == 'home' %>>首页</a></li>
+          <li><a href="/blog" <%= "class='current'".html_safe if @nav == 'blog' %>>博客</a></li>
+          <li><a href="/note" <%= "class='current'".html_safe if @nav == 'note' %>>笔记</a></li>
+          <li><a href="/tag" <%= "class='current'".html_safe if @nav == 'tag' %>>分类</a></li>
+          <li><a href="/weibo" <%= "class='current'".html_safe if @nav == 'weibo' %>>微博</a></li>
+          <li><a href="/me" <%= "class='current'".html_safe if @nav == 'me' %>>关于</a></li>
         </ul>
       </div>
     </div><!-- nav -->

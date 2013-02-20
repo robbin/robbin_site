@@ -1,19 +1,20 @@
 - Backend
-* Editor
+* Editor Tab
 * admin panel: change password, upload logo, add/delete users
 * file upload enhancement
 
 - Frontend
-* show blog/note icon, distinguish blog or note with category icon
-* show account logo in article title
-* tag row and status row(add comments count show) is too tight
-* tag page is ugly
 * comment markdown format and style
 * resume
 
 - UI
+* 博客文章和学习笔记icon设计
+* 文章作者logo显示在哪里？
+* 文章tag和文章基本信息一行显示不下
+* Tag频道页面布局样式
 * default website icon
 * default website favicon
 
 - Bug
 * IE compatiablity
+

@@ -1,20 +1,20 @@
 <% cache("#{CACHE_PREFIX}/layout/right", :expires_in => 1.day) do %>
 
-<h3>Hot Tag</h3>
+<h3>文章分类</h3>
 <div class="tag">
   <% Blog.cached_tag_cloud.select {|t| t.count > 1}.each do |tag| %>
   <%= link_to "#{tag.name}<span>#{tag.count}</span>".html_safe, url(:blog, :tag, :name => tag.name) %>
   <% end %>
 </div>
   
-<h3>Hot Blog</h3>
+<h3>热门文章</h3>
 <div class="hot_blog">
   <% Blog.hot_blogs(5).each do |blog| %>
   <%= link_to blog.title, blog_url(blog) %>
   <% end %>
 </div>
 
-<h3>Recently Comment</h3>
+<h3>最新评论</h3>
 <ul class="comment">
   <% BlogComment.order('id DESC').limit(5).each do |comment| %>
 	<li>
