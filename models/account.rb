@@ -6,7 +6,7 @@ class Account < ActiveRecord::Base
   acts_as_cached
   mount_uploader :logo, AvatarUploader
   has_many :blogs
-  has_many :blog_comments
+  has_many :blog_comments, :dependent => :destroy
   has_many :attachments
   
   # Validations

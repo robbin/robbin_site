@@ -5,6 +5,7 @@
     + change name and password
     + delete commenter
     + delete blog comments
+    + quick modifiy articles' tags
   * file upload enhancement
 
 - Frontend
@@ -20,4 +21,3 @@
 
 - Bug
   * IE compatiablity
-

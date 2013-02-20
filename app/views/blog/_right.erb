@@ -2,7 +2,7 @@
 
 <h3>文章分类</h3>
 <div class="tag">
-  <% Blog.cached_tag_cloud.select {|t| t.count > 1}.each do |tag| %>
+  <% Blog.cached_tag_cloud.select {|t| t.count > 2}.each do |tag| %>
   <%= link_to "#{tag.name}<span>#{tag.count}</span>".html_safe, url(:blog, :tag, :name => tag.name) %>
   <% end %>
 </div>

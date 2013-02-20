@@ -1,7 +1,5 @@
 # encoding: utf-8
-
 RobbinSite.controllers :admin do
-
   before do
     halt 403 unless account_admin?
   end
@@ -10,6 +8,7 @@ RobbinSite.controllers :admin do
     render 'admin/index'
   end
 
+  # blog related routes: publish, update, delete blog and blog content editor preview...
   get :new_blog, :map => '/admin/blog/new' do
     @blog = Blog.new
     @blog.category = 'blog'
@@ -62,9 +61,10 @@ RobbinSite.controllers :admin do
     content_type :js
     comment = BlogComment.find params[:id]
     comment.destroy
-    "$('div#comments>ul>li##{comment.id}').fadeOut('slow', function(){$(this).remove(); });"
+    "$('div#comments>ul>li##{comment.id}').fadeOut('slow', function(){$(this).remove();});"
   end
 
+  # attachment related routes: upload, show, delete attachment...
   get :new_attachment, :map => '/admin/attachment/new' do
     @attachment = Attachment.new
     render 'admin/new_attachment', :layout => false
@@ -90,5 +90,40 @@ RobbinSite.controllers :admin do
     @attachment = Attachment.find params[:id]
     @attachment.destroy
     "$('#attachment_#{@attachment.id}').html('<del> #{@attachment.file} 附件已被删除</del>')"
+  end
+  
+  # admin console related: profile, accounts, blogs, comments...
+  get :edit_profile, :map => '/admin/profile/:id/edit' do
+    @account = Account.find params[:id]
+    if @account.admin?
+      render 'admin/edit_profile'
+    else
+      redirect_to url(:admin, :accounts)
+    end
+  end
+  
+  put :profile, :map => '/admin/profile/:id' do
+    @account = Account.find params[:id]
+    if @account.update_attributes(params[:account])
+      flash[:notice] = '修改个人设置成功'
+    else
+      render 'admin/edit_profile'
+    end
+  end
+  
+  get :accounts, :map => '/admin/accounts' do
+    @admin_accounts = Account.where(:role => 'admin').order('id ASC');
+    @commenters = Account.where(:role => 'commenter').order('id DESC');
+    render 'admin/accounts'
+  end
+  
+  get :blogs, :map => '/admin/blogs' do
+    @blogs = Blog.order('id DESC').page(params[:page]).per_page(100)
+    render 'admin/blogs'
+  end
+  
+  get :comments, :map => '/admin/comments' do
+    @comments = BlogComment.order('id DESC').page(params[:page]).per_page(100)
+    render 'admin/comments'
   end
 end
