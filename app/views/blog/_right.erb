@@ -18,9 +18,8 @@
 <ul class="comment">
   <% BlogComment.order('id DESC').limit(5).each do |comment| %>
 	<li>
-  	<span class="user_name"><%= comment.account.name %></span>
-    <%= comment.brief_content %>
-    <%= link_to comment.blog.title, blog_url(comment.blog), :anchor => 'comments' %>
+    <div><%= comment.brief_content %>...</div>
+  	<%= comment.account.name %>评论了<%= link_to comment.blog.title, blog_url(comment.blog), :anchor => 'comments' %>
   </li>
   <% end %>
 </ul>

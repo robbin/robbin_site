@@ -76,7 +76,7 @@ body{ background:#bebebe url(bg.gif);}
 
 /*right*/
 .right{ width:200px; float:left; background:#fff url(x.png) repeat-x 0 -995px; margin-top:-5px; padding:20px; margin-bottom:20px;border-radius: 0 0 5px 5px;-webkit-border-radius:  0 0 5px 5px;-moz-border-radius:  0 0 5px 5px;-khtml-border-radius:  0 0 5px 5px; box-shadow: 0px 1px 2px #999;}
-.right h3{ font-size:18px; margin-bottom:10px; font-weight:bold; color:#666;}
+.right h3{ font-size:18px; margin-bottom:10px; padding-bottom:2px; font-weight:bold; color:#666;border-bottom: 2px #ddd solid;}
 .right ul{ margin-bottom:20px;}
 .right .tag { font-size:14px; line-height:16px; margin-bottom:30px;}
 .right .tag a{color: #999;display: block;border: 1px solid #DDD;padding: 6px 8px;margin-bottom: 5px;font-weight: 400;overflow: hidden;background-color: #F9F9F9;border-radius: 5px;-moz-border-radius: 5px;-webkit-border-radius: 5px;box-shadow: inset 0 1px white,0 0 1px rgba(34, 25, 25, .1);-moz-box-shadow: inset 0 1px #fff,0 0 1px rgba(34,25,25,.1);-webkit-box-shadow: inset 0 1px white,0 0 1px rgba(34, 25, 25, .1);}
@@ -90,7 +90,8 @@ body{ background:#bebebe url(bg.gif);}
 .right .hot_note{ line-height:18px; margin-bottom:30px;}
 .right .hot_blog a,
 .right .hot_note a{display:block; margin-bottom:18px;}
-.right .comment a{ display:block; border-bottom:1px dotted #ddd; margin-bottom:15px; padding-bottom:5px; color:#369;}
+.right .comment li{border-bottom:1px dotted #ddd; margin-bottom:15px; padding-bottom:5px; }
+.right .comment a{color:#369;}
 .right .comment{word-break: break-all;}
 .right .user_name{ color:#666;}
 

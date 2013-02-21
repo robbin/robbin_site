@@ -1,24 +1,14 @@
-- Now
+- Today
   * upload attachment and delete immediately bug
+  * blog article digest layout
+  * right column recent comments layout
   
-- Backend
+- Next
   * Editor Tab
-  * admin panel style:
-    + user profile setting
-    + show accounts list
-    + show blog comments list
-    + quick modifiy articles' tags
-
-- Frontend
   * resume
-
-- UI
-  * 博客文章和学习笔记icon设计
-  * 文章作者logo显示在哪里？
-  * 文章tag和文章基本信息一行显示不下
-  * Tag频道页面布局样式
+  * admin panel:
+  * IE compatiablity
+  
+- Someday
   * default website icon
   * default website favicon
-
-- Bug
-  * IE compatiablity
