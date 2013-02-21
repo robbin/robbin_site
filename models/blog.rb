@@ -25,8 +25,7 @@ class Blog < ActiveRecord::Base
   def user_tags=(tags)
     unless tags.blank?
       # filter illegal characters
-      user_tags_list = tags.split(/\s*,\s*/).uniq.collect {|t| t.downcase}.select {|t| t =~ /^(?!_)(?!.*?_$)[\+#a-zA-Z0-9_\s\u4e00-\u9fa5]+$/}.join(",") 
-      self.tag_list = user_tags_list
+      self.tag_list = tags.split(/\s*,\s*/).uniq.collect {|t| t.downcase}.select {|t| t =~ /^(?!_)(?!.*?_$)[\+#a-zA-Z0-9_\s\u4e00-\u9fa5]+$/}.join(",") 
     end  
   end
   

@@ -19,10 +19,8 @@
       <%= form.text_area :content %>
       <div id="blog_content_preview" class="con text"></div>
       <div>
-        <ul>
-          <li>编辑器支持Github风格的Markdown格式: [<a href="https://help.github.com/articles/github-flavored-markdown" target="_blank">Github flavored markdown</a>]</li>
-          <li>Markdown中文帮助: [<a href="http://wowubuntu.com/markdown/" target="_blank">Markdown帮助</a>]</li>
-        </ul>
+        [<a href="http://wowubuntu.com/markdown/" target="_blank">Markdown中文帮助</a>]
+        [<a href="https://help.github.com/articles/github-flavored-markdown" target="_blank">Github风格的Markdown格式</a>]
       </div>
     </td>
   </tr>
@@ -133,15 +131,18 @@
     
     // toggle blog content editor and preview
     $('a#show_blog_content_editor').click(function(){
+      $('a#show_blog_content_editor').addClass('current');
+      $('a#show_blog_content_preview').removeClass('current');
       $('div#blog_content_preview').hide();
       $('textarea#blog_content').show();
       return false;
     });
     $('a#show_blog_content_preview').click(function(){
       $.post('<%= url(:admin, :blog_preview) %>', {term: $('textarea#blog_content').val()}, function(data){
-        $('div#blog_content_preview').html(data);
+        $('a#show_blog_content_editor').removeClass('current');
+        $('a#show_blog_content_preview').addClass('current');
+        $('div#blog_content_preview').html(data).show();
         $('textarea#blog_content').hide();
-        $('div#blog_content_preview').show();
       });
       return false;
     });
