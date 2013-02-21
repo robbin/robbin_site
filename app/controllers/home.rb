@@ -14,10 +14,6 @@ RobbinSite.controllers do
   get :weibo do
     render 'home/weibo'
   end
-  
-  get :me do
-    render 'home/me'
-  end
 
   get :search do
     render 'home/search'
