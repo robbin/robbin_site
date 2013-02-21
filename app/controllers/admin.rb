@@ -1,5 +1,7 @@
 # encoding: utf-8
+
 RobbinSite.controllers :admin do
+  
   before do
     halt 403 unless account_admin?
   end
@@ -35,7 +37,7 @@ RobbinSite.controllers :admin do
   
   get :edit_blog, :map => '/admin/blog/:id/edit' do
     @blog = Blog.find params[:id].to_i
-    @attachments = current_account.attachments.where(:blog_id => [nil, @blog.id])
+    @attachments = current_account.attachments.where(:blog_id => [nil, @blog.id]).order('id ASC')
     render 'admin/edit_blog'
   end
   
@@ -54,7 +56,7 @@ RobbinSite.controllers :admin do
     @blog = Blog.find params[:id].to_i
     @blog.destroy
     flash[:notice] = '文章已经删除'
-    redirect url(:blog, :index)
+    redirect url(:index)
   end
 
   delete :comment, :map => '/admin/comment/:id' do
@@ -112,8 +114,8 @@ RobbinSite.controllers :admin do
   end
   
   get :accounts, :map => '/admin/accounts' do
-    @admin_accounts = Account.where(:role => 'admin').order('id ASC');
-    @commenters = Account.where(:role => 'commenter').order('id DESC');
+    @admin_accounts = Account.where(:role => 'admin').order('id ASC')
+    @commenters = Account.where(:role => 'commenter').order('id DESC')
     render 'admin/accounts'
   end
   

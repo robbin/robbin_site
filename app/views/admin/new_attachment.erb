@@ -14,9 +14,7 @@
     
     <script type="text/javascript">
       function upload(fileName) {
-        var counter = parseInt(window.parent.$('#attachments_counter').val()) + 1;
-        window.parent.$('#attachments_counter').val(counter);
-        $('#upload-tip').html(counter + " 个文件正在上传中，请等待完成后再提交").show();
+        $('#upload-tip').html("文件正在上传中，请等待完成后再提交").show();
         $('#spinner').show();
         var iframes = window.parent.$("#attachment_iframes")[0];
         iframes.appendChild(iframes.getElementsByTagName('iframe')[0].cloneNode(false));
