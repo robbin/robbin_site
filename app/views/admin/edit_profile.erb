@@ -1,1 +1,43 @@
-edit <%= @account.name %> profile
+<div class="publish">
+	<div class="con">
+    <% form_for @account, url(:admin, :profile, :id => @account.id), :method => :put,  :multipart => true do |form| %>
+    <div class="title">修改用户信息</div>
+    <table class="content">
+      <tr>
+        <th valign="top">用户名字</th>
+        <td><%= form.text_field :name, :class => 'title' %></td>
+      </tr>
+
+      <tr>
+        <th valign="top">Email地址</th>
+        <td><%= form.text_field :email, :class => 'title' %></td>
+      </tr>
+ 
+      <tr>
+        <th valign="top">修改密码</th>
+        <td><%= form.password_field :password, :class => 'title' %></td>
+      </tr>
+      
+      <tr>
+        <th valign="top">确认密码</th>
+        <td><%= form.password_field :password_confirmation, :class => 'title' %></td>
+      </tr>
+             
+      <tr>
+        <th valign="top">头像</th>
+        <td>
+          <p><%= image_tag(@account.logo.url) %></p>
+          <%= form.file_field :logo %>
+        </td>
+      </tr>
+
+      <tr>
+        <th>&nbsp;</th>
+        <td align="center">
+          <%= form.submit '', :class => 'submit' %>
+        </td>
+      </tr>
+    </table>
+    <% end %>
+  </div>
+</div>

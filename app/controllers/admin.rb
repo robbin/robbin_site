@@ -108,6 +108,7 @@ RobbinSite.controllers :admin do
     @account = Account.find params[:id]
     if @account.update_attributes(params[:account])
       flash[:notice] = '修改个人设置成功'
+      redirect_to url(:admin, :edit_profile, :id => @account.id)
     else
       render 'admin/edit_profile'
     end

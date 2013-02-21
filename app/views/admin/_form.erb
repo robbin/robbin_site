@@ -5,12 +5,12 @@
 
 <table class="content">
   <tr>
-    <th valign="top">Title</th>
+    <th valign="top">文章标题</th>
     <td><%= form.text_field :title, :class => 'title' %></td>
   </tr>
   
   <tr>
-    <th valign="top">Content</th>
+    <th valign="top">文章内容</th>
     <td>
       <div>
         <a id="show_blog_content_editor" href="#">Editor</a>
@@ -28,7 +28,7 @@
   </tr>
   
   <tr>
-    <th valign="top">Category</th>
+    <th valign="top">文章分类</th>
     <td>
       <label><%= form.radio_button :category, :value => 'blog' %> 博客文章(blog)</label>
       <label><%= form.radio_button :category, :value => 'note' %> 学习笔记(note)</label>
@@ -66,14 +66,14 @@
   </tr>
 
   <tr>
-    <th valign="top">URL</th>
+    <th valign="top">URL后缀</th>
     <td>
       <%= form.text_field :slug_url, :placeholder => '填写URL英文关键词，用-连接'  %>
     </td>
   </tr>
 
   <tr>
-    <th valign="top">Comment</th>
+    <th valign="top">允许评论</th>
     <td>
       <%= form.check_box :commentable, :style => 'display:inline;' %>
       <div id="form-error-info"></div>
