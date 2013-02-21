@@ -36,7 +36,11 @@ class Account < ActiveRecord::Base
   end
 
   def admin?
-    self.role == "admin"
+    self.role == 'admin'
+  end
+  
+  def commenter?
+    self.role == 'commenter'
   end
   
   def encrypt_cookie_value

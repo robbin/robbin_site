@@ -71,6 +71,6 @@ RobbinSite.helpers do
                 APP_CONFIG['site_url'] + '/rss',
                 blog.cached_tag_list.gsub(/,/, '|'))
   rescue Exception => e
-   logger.error e
+    logger.error e
   end
 end

@@ -1,1 +1,24 @@
-accounts.
+<table>
+  <caption>管理员列表: 共<%=  @admin_accounts.size %>人</caption>
+  <% @admin_accounts.each_with_index do |account, index| %>
+  <tr>
+    <td><%= index + 1 %></td>
+    <td><%= account.name %></td>
+    <td><%= account.blogs_count %></td>
+    <td><%= account.comments_count %></td>
+    <td><%= link_to '编辑', url(:admin, :edit_profile, :id => account.id) %></td>
+  </tr>
+  <% end %>
+</table>
+
+<table>
+  <caption>评论者列表: 共<%=  @commenters.size %>人</caption>
+  <% @commenters.each_with_index do |account, index| %>
+  <tr id='<%= "account_#{account.id}" %>'>
+    <td><%= index+1 %></td>
+    <td><%= commenter_link account %></td>
+    <td><%= account.comments_count %></td>
+    <td><%= link_to '删除', url(:admin, :account, :id => account.id), :method => :delete, :remote => true, :confirm => '要删除用户吗？' %></td>
+  </tr>
+  <% end %>
+</table>

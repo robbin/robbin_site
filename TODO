@@ -1,17 +1,13 @@
 - Now
-  * upload logo
-  * comment box tips: markdown style
-  * upload attachment and delete immediately
+  * upload attachment and delete immediately bug
   
 - Backend
   * Editor Tab
-  * admin panel: 
-    + upload logo
-    + change name and password
-    + delete commenter
-    + delete blog comments
+  * admin panel style:
+    + user profile setting
+    + show accounts list
+    + show blog comments list
     + quick modifiy articles' tags
-  * file upload enhancement
 
 - Frontend
   * resume
@@ -25,5 +21,4 @@
   * default website favicon
 
 - Bug
-  * upload attachment and delete immediately
   * IE compatiablity

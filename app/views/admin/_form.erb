@@ -51,8 +51,10 @@
     <th valign="top">附件</th>
     <td>
       <% unless @attachments.blank? %>
-        <%= partial 'admin/attachment', :collection => @attachments %>
+      已上传的文件：
+      <%= partial 'admin/attachment', :collection => @attachments %>
       <% end %>
+      上传新的文件：
       <div id="attachment_iframes">
         <iframe src="<%= url(:admin, :new_attachment) %>" style="border:0px;height:30px;width:100%;" frameborder="0" border="0" cellspacing="0" allowTransparency="true" scrolling="no" resizable="no"></iframe>
       </div>

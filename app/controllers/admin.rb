@@ -63,7 +63,13 @@ RobbinSite.controllers :admin do
     content_type :js
     comment = BlogComment.find params[:id]
     comment.destroy
-    "$('div#comments>ul>li##{comment.id}').fadeOut('slow', function(){$(this).remove();});"
+    if params[:quick]
+      # delete comment from admin console
+      "$('tr#comment_#{comment.id}').fadeOut('slow', function(){ $(this).remove();});"
+    else
+      # delete comment from blog article
+      "$('div#comments>ul>li##{comment.id}').fadeOut('slow', function(){$(this).remove();});"
+    end
   end
 
   # attachment related routes: upload, show, delete attachment...
@@ -118,6 +124,15 @@ RobbinSite.controllers :admin do
     @admin_accounts = Account.where(:role => 'admin').order('id ASC')
     @commenters = Account.where(:role => 'commenter').order('id DESC')
     render 'admin/accounts'
+  end
+  
+  delete :account, :map => '/admin/account/:id' do
+    content_type :js
+    account = Account.find params[:id]
+    if account.commenter?
+      account.destroy
+      "$('tr#account_#{account.id}').fadeOut('slow', function(){ $(this).remove();});"
+    end
   end
   
   get :blogs, :map => '/admin/blogs' do

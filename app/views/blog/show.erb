@@ -41,7 +41,7 @@
     
     <div class="comment clearfix">
       <div id="comments">      
-        <h2><span><%= @blog.comments_count %></span>Comment</h2>
+        <h2><span><%= @blog.comments_count %></span>条评论</h2>
         <ul>
           <% if @blog.comments_count > 0 %>
           <%= partial 'blog/comment', :collection => @blog.comments.reverse %>
@@ -49,9 +49,9 @@
         </ul>
       </div>
       <% if @blog.commentable? %>
-      <h4>Leave a Reply</h4>
       <a name="comments"></a>
       <div class="relative">
+        <div style="text-align:right;">[<a href="http://wowubuntu.com/markdown/" target="_blank">评论可以使用Markdown格式</a>]</div>
         <% form_for BlogComment.new, url(:blog, :create_comment, :id => @blog.id), :remote => true do |f| %>
         <%= f.text_area :content, :class => 'comment' %>
         <div id="comment-error-info"></div>

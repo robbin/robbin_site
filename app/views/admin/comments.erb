@@ -1,1 +1,13 @@
-comments
+<table>
+  <caption>评论列表: 共<%=  @comments.total_entries %>条</caption>
+  <% @comments.each_with_index do |comment, index| %>
+  <tr id='<%= "comment_#{comment.id}" %>'>
+    <td><%= index + 1 %></td>
+    <td><%= commenter_link comment.account %></td>
+    <td><%= link_to "删除", url(:admin, :comment, :id => comment.id, :quick => true), :method => :delete, :remote => true, :confirm => '要删除评论吗？' %></td>
+    <td><%= comment.brief_content %></td>
+  </tr>
+  <% end %>
+</table>
+
+<%= (will_paginate @comments, :previous_label => '前一页', :next_label => '后一页').to_s.html_safe %>

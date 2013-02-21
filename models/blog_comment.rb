@@ -18,7 +18,7 @@ class BlogComment < ActiveRecord::Base
   end
   
   def brief_content
-    Sanitize.clean(content)
+    Sanitize.clean(content).truncate(100)
   end
   
   def md_content
