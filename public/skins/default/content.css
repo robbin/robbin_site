@@ -65,7 +65,7 @@ body{ background:#bebebe url(bg.gif);}
 .text{padding:30px 40px; font-size:14px; min-height:120px;}
 .con .text .infor_tag{margin-top: -15px;margin-bottom: 15px;}
 .text .img{ margin-bottom:10px; text-align:center;}
-.text img{ max-height:200px;}
+.text img{ max-width:600px;}
 .note_edit{ background:url(y.png) no-repeat 0 -388px;; color:#999;  padding-left:18px; margin:20px 0 -20px 40px; color:#f60;}
 
 .con .info{ background:#f7f7f7; border-top:1px solid #eee; padding:15px 40px 15px 40px;border-radius: 0 0 5px 5px;-webkit-border-radius:  0 0 5px 5px;-moz-border-radius:  0 0 5px 5px;-khtml-border-radius:  0 0 5px 5px;}
@@ -137,7 +137,8 @@ body{ background:#bebebe url(bg.gif);}
 .con .content .info{ background:none; border:none; margin-top:-10px;}
 .share{ padding:0 40px;}
 .share span{ float:right; margin-left:10px;}
-#blog_content_preview{ display:none; width:610px;box-shadow: 0px 0px 0px #999; border:1px #ccc solid; margin-bottom:10px;}
+#blog_content_preview{ display:none; width:620px;box-shadow: 0px 0px 0px #999; border:1px #ccc solid; margin-bottom:10px;padding:35px;}
+#blog_content_preview td{ width:auto;}
 .blog_content_editor_tab{ background:url(piont_ddd.png) repeat-x bottom; margin-bottom:10px; width:690px; }
 .blog_content_editor_tab a{ display: block; float:left; border:1px #ddd solid; border-top:none; height:30px; width:80px; text-align:center; line-height:32px;margin-right:10px;background:url(piont_ddd.png) repeat-x top;}
 .blog_content_editor_tab a:hover{ text-decoration:none; color:#666; background:url(piont_69c.png) repeat-x top; }

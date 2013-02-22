@@ -13,7 +13,7 @@
     
     <div class="content">
     	<div class="tit clearfix">
-  			<span class="<%= @blog.category -%>_icon"></span>
+  			<%= blog_category_icon(@blog) %>
         <%= link_to @blog.title, blog_url(@blog) %>
         <%= link_to '', blog_url(@blog, mime_type = :md), :class => 'markdown', :title => 'Markdown格式原文' %>
         <% if account_admin? %>
