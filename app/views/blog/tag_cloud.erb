@@ -9,7 +9,7 @@
   		<ul class="clearfix">
         <% Blog.cached_tag_cloud.each do |tag| %>
         <li>
-          <%= link_to "<span>#{tag.name}</span>".html_safe, url(:blog, :tag, :name => tag.name), :class => 'tag', :rel => 'rel' %>
+          <%= link_to "<span>#{tag.name}</span>".html_safe, url(:blog, :tag, :name => tag.name), :class => 'tag' %>
           X <span><%= tag.count %></span>
         </li>
         <% end %>

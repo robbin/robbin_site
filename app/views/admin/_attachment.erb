@@ -1,7 +1,7 @@
 <div id="attachment_<%= attachment.id %>">
   <%= link_to attachment.file.file.identifier, attachment.file.url, :target => '_blank' %>
   <%= link_to image_tag('btn_delete.png', :title => '删除附件'), url(:admin, :attachment, :id => attachment.id), :method => :delete, :remote => true, :confirm => '是否删除附件' %>
-  <a href="#" onclick="window.parent.$('#blog_content').insertAtCaret('\n![<%= attachment.file.file.identifier %>](<%= attachment.file.url %>)\n\n');return false;"><%= image_tag 'btn_sticky.png', :title => '将图片插入编辑器' %></a>
+  <a href="#" onclick="window.parent.$('#blog_content').insertAtCaret('\n![<%= attachment.file.file.identifier %>](<%= APP_CONFIG['site_url'] %><%= attachment.file.url %>)\n\n');return false;"><%= image_tag 'btn_sticky.png', :title => '将图片插入编辑器' %></a>
 </div>
 <script type="text/javascript">
   $('a[data-remote=true]').on('click', function(e) {
