@@ -62,8 +62,8 @@ body{ background:#bebebe url(bg.gif);}
 .tit .del:hover{background-position:2px -198px;}
 .tit .markdown:hover{ background-position:0 -886px;}
 
-.text{padding:30px 40px; font-size:14px; min-height:120px;}
-.con .text .infor_tag{margin-top: -15px;margin-bottom: 15px;}
+.text{padding:20px 40px; font-size:14px; min-height:120px;}
+.con .text .infor_tag{margin-top: -10px;margin-bottom: 10px;}
 .text .img{ margin-bottom:10px; text-align:center;}
 .text img{ max-width:600px;}
 .note_edit{ background:url(y.png) no-repeat 0 -388px;; color:#999;  padding-left:18px; margin:20px 0 -20px 40px; color:#f60;}
@@ -131,7 +131,7 @@ body{ background:#bebebe url(bg.gif);}
 .con .content p{ margin-bottom:20px;}
 .con .content .tit{ border:none; padding-top:30px;}
 .con .content .tran{ display:inline-block; background:url(x.png) no-repeat 0 -642px; width:30px; height:30px; vertical-align:middle; margin-right:5px;}
-.con .content .text{ padding-top:10px; padding-bottom:10px;}
+.con .content .text{ padding-top:0px; padding-bottom:10px;}
 .cont_tag{ margin-bottom:10px;}
 .con .content .text p a{ color:#f60;}
 .con .content .info{ background:none; border:none; margin-top:-10px;}
@@ -160,7 +160,7 @@ body{ background:#bebebe url(bg.gif);}
 .submit:hover{background:url(x.png) no-repeat 0 -490px; cursor:pointer;}
 /*comment*/
 .con .comment{ padding:20px 40px; }
-.con .comment h2{ font-size:18px; font-weight:bold; border-bottom:2px #ddd solid; padding-bottom:3px; }
+.con .comment h2{ font-size:18px; font-weight:bold; border-bottom:2px #ddd solid; padding-bottom:3px;margin-bottom:10px; }
 .con .comment h2 span{ font-size:22px; margin-right:5px;}
 .con .comment .user_img{ float:left; margin-right:20px; width:40px; height:40px;}
 .con .comment .user_img img{ width:40px; height:40px; border-radius:50px;-webkit-border-radius:50px;-moz-border-radius:50px;-khtml-border-radius:50px;}
