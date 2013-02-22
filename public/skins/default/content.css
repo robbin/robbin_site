@@ -68,7 +68,7 @@ body{ background:#bebebe url(bg.gif);}
 .text img{ max-width:600px;}
 .note_edit{ background:url(y.png) no-repeat 0 -388px;; color:#999;  padding-left:18px; margin:20px 0 -20px 40px; color:#f60;}
 
-.con .info{ background:#f7f7f7; border-top:1px solid #eee; padding:15px 40px 15px 40px;border-radius: 0 0 5px 5px;-webkit-border-radius:  0 0 5px 5px;-moz-border-radius:  0 0 5px 5px;-khtml-border-radius:  0 0 5px 5px;}
+.con .info{ background:#f7f7f7; border-top:1px solid #eee; padding:10px 40px 10px 40px;border-radius: 0 0 5px 5px;-webkit-border-radius:  0 0 5px 5px;-moz-border-radius:  0 0 5px 5px;-khtml-border-radius:  0 0 5px 5px;}
 .con .info .author,
 .con .info .time,
 .con .info .edit,

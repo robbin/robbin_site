@@ -21,11 +21,13 @@
         <%= link_to '', url(:admin, :edit_blog, :id => @blog.id), :class => 'edit', :title => '编辑' %>
         <% end %>
       </div>
+      <% unless @blog.cached_tags.blank? %>
       <div class="info clearfix">
         <% @blog.cached_tags.each do |tag| %>
         <%= link_to "<span>#{tag}</span>".html_safe, url(:blog, :tag, :name => tag), :class => 'tag', :rel => 'tag' %>
         <% end %>
       </div>
+      <% end %>
       <div class="text">
         <%= @blog.md_content.html_safe %>
       </div>
