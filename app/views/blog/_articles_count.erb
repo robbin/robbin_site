@@ -1,6 +1,6 @@
 <% if blogs.total_pages > 1 %>
   <% content_for :javascripts do %>
-  <script type="text/javascript" charset="utf-8">
+  <script type="text/javascript">
   $(function(){
     $('div.pagination').append(' 共<%= blogs.total_entries %>篇文章');
   });

@@ -1,4 +1,4 @@
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   window.opener.$('div.box').hide();
   window.opener.$('div.header div.write').html('<%= @account.name %><%= js_escape_html(button_to("退出", url(:logout), :method => :delete)).html_safe %>');
   window.close();

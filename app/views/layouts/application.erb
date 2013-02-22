@@ -14,7 +14,7 @@
     <div id="flash-notice"></div>
     <div class="header">
       <div class="wrap">
-      	<div class="user_img"><img src="/skins/data/100.png" width="80" height="80"></div>
+      	<div class="user_img"><img src="/skins/data/100.png" width="80" height="80" alt="website icon"></div>
         <h1><span class="blog_title"><%= APP_CONFIG['site_title'] %></span></h1>
         <div class="write">
         <% unless account_login? %>
@@ -74,7 +74,7 @@
     <%= javascript_include_tag 'jquery', 'jquery-ujs', 'application' %>
     <%= yield_content :javascripts %>
     <% if flash[:notice] %>
-      <script type="text/javascript" charset="utf-8">
+      <script type="text/javascript">
         $('div#flash-notice').html('<%= flash[:notice] %>').show().fadeOut(3000);
       </script>
     <% end %>

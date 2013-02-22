@@ -171,7 +171,7 @@ body{ background:#bebebe url(bg.gif);}
 .con .comment ul li:last-child { border-bottom: 0; margin-bottom:20px;} 
 .con .comment h4{font-size:18px; font-weight:bold; margin-bottom:10px;}
 .con .comment textarea{ height:140px; width: 615px; border:1px #ccc solid;  border-radius: 5px;-webkit-border-radius: 5px;-moz-border-radius: 5px;-khtml-border-radius: 5px; padding:5px 10px; font-size:14px;outline: none;}
-.comment_btn{background:url(x.png) no-repeat 0 -540px; border:none; width:110px; height:40px; float:right; border-radius: 0px;-webkit-border-radius: 0px;-moz-border-radius: 0px;-khtml-border-radius: 0px; margin-top:10px\9;}
+.comment_btn{background:url(x.png) no-repeat 0 -540px; border:none; width:110px; height:40px; float:right; border-radius: 0px;-webkit-border-radius: 0px;-moz-border-radius: 0px;-khtml-border-radius: 0px; margin-top:10px;}
 .comment_btn:hover{background:url(x.png) no-repeat 0 -590px; cursor:pointer;}
 
 /*tag_list*/
