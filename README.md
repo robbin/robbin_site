@@ -7,7 +7,18 @@ This is my personal website project.
 ## System requirements
 
 * ruby 1.9, recommend 1.9 p327 version
-* MySQL 5.x, you should set utf-8 default encoding with adding line `default-storage-engine  = innodb` to `my.cnf`
+* MySQL 5.x, you should set utf-8 default encoding utf-8 at `my.cnf`, like this:
+
+        [client]   # on 5.0 or 5.1
+        default-character-set=utf8
+        [mysqld]
+        default-character-set=utf8 
+
+        [mysqld]   # on 5.5
+        collation-server = utf8_unicode_ci
+        init-connect='SET NAMES utf8'
+        character-set-server = utf8
+
 * memcached
 * nginx as web server, `config/nginx.conf` is my nginx configuration snippet.
 
