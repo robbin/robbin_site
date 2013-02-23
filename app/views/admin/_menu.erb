@@ -1,0 +1,6 @@
+<div class="admin_menu">
+  <%= link_to '查看评论列表', url(:admin, :comments) %>
+  <%= link_to '查看用户列表', url(:admin, :accounts) %>
+  <%= link_to '查看文章列表', url(:admin, :blogs) %>
+  <%= link_to '修改用户信息', url(:admin, :edit_profile, :id => current_account) %>
+</div>
