@@ -1,13 +1,25 @@
-<table>
-  <caption>评论列表: 共<%=  @comments.total_entries %>条</caption>
-  <% @comments.each_with_index do |comment, index| %>
-  <tr id='<%= "comment_#{comment.id}" %>'>
-    <td><%= index + 1 %></td>
-    <td><%= commenter_link comment.account %></td>
-    <td><%= link_to "删除", url(:admin, :comment, :id => comment.id, :quick => true), :method => :delete, :remote => true, :confirm => '要删除评论吗？' %></td>
-    <td><%= comment.brief_content %></td>
-  </tr>
-  <% end %>
-</table>
-
-<%= (will_paginate @comments, :previous_label => '前一页', :next_label => '后一页').to_s.html_safe %>
+<%= partial 'admin/menu' %>
+<div class="publish">
+	<div class="con">
+    <table class="admin">
+      <caption>评论列表: 共<%=  @comments.total_entries %>条</caption>
+      <tr>
+        <td></td>
+        <td>评论者</td>
+        <td>操作</td>
+        <td>被评文章</td>
+        <td>评论内容</td>
+      </tr>
+      <% @comments.each_with_index do |comment, index| %>
+      <tr id='<%= "comment_#{comment.id}" %>'>
+        <td><%= index + 1 %></td>
+        <td><%= commenter_link comment.account %></td>
+        <td><%= link_to "删除", url(:admin, :comment, :id => comment.id, :quick => true), :method => :delete, :remote => true, :confirm => '要删除评论吗？' %></td>
+        <td><%= link_to comment.blog.title, blog_url(comment.blog), :anchor => 'comments', :target => '_blank' %></td>
+        <td><%= comment.brief_content %></td>
+      </tr>
+      <% end %>
+    </table>
+    <%= (will_paginate @comments, :previous_label => '前一页', :next_label => '后一页').to_s.html_safe %>
+  </div>
+</div>

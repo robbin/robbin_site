@@ -4,6 +4,13 @@
 
 This is my personal website project.
 
+## System requirements
+
+* ruby 1.9, recommend 1.9 p327 version
+* MySQL 5.x, you should set utf-8 default encoding with adding line `default-storage-engine  = innodb` to `my.cnf`
+* memcached
+* nginx as web server, `config/nginx.conf` is my nginx configuration snippet.
+
 ## Installing
 1. run `bundle install`
 2. copy `config/app_config.example.yml` to `config/app_config.yml` and copy `config/database.example.yml` to `config/database.yml`

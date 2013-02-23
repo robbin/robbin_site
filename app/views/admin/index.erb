@@ -1,10 +1,8 @@
-<div class="admin_menu">
-  <%= link_to '修改个人设置', url(:admin, :edit_profile, :id => current_account) %>
-  <%= link_to '查看用户列表', url(:admin, :accounts) %>
-  <%= link_to '查看文章列表', url(:admin, :blogs) %>
-  <%= link_to '查看评论列表', url(:admin, :comments) %>
+<%= partial 'admin/menu' %>
+<div class="publish">
+	<div class="con">
+    <p>
+      管理控制台
+    </p>
+  </div>
 </div>
-
-<p>
-  admin console.
-</p>

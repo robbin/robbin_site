@@ -1,1 +1,27 @@
-blogs.
+<%= partial 'admin/menu' %>
+<div class="publish">
+	<div class="con">
+    <table class="admin">
+      <caption>文章列表: 共<%=  @blogs.size %>篇</caption>
+      <tr>
+        <td></td>
+        <td>文章标题</td>
+        <td>浏览数</td>
+        <td>评论数</td>
+        <td>Tag</td>
+        <td>操作</td>
+      </tr>
+      <% @blogs.each_with_index do |blog, index| %>
+      <tr>
+        <td><%= index + 1 %></td>
+        <td><%= link_to blog.title, blog_url(blog), :target => '_blank' %></td>
+        <td><%= blog.view_count %></td>
+        <td><%= blog.comments_count %></td>
+        <td><%= blog.cached_tag_list %></td>
+        <td>操作</td>
+      </tr>
+      <% end %>
+    </table>
+    <%= (will_paginate @blogs, :previous_label => '前一页', :next_label => '后一页').to_s.html_safe %>
+  </div>
+</div>

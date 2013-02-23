@@ -151,7 +151,7 @@ body{ background:#bebebe url(bg.gif);}
 .publish .content td{ width:800px; padding:5px 0;}
 .publish input{ width: 680px; border:1px #ccc solid; height:28px;  border-radius: 5px;-webkit-border-radius: 5px;-moz-border-radius: 5px;-khtml-border-radius: 5px; padding:0 5px;}
 .publish input.submit{ width:110px; height:40px; border:none;border-radius:0;-webkit-border-radius:0;-moz-border-radius: 0px;-khtml-border-radius: 0px;}
-.publish textarea{ height:500px; width: 670px; padding:10px; border:1px #ccc solid;  border-radius: 5px;-webkit-border-radius: 5px;-moz-border-radius: 5px;-khtml-border-radius: 5px; font-size:14px;outline: none;}
+.publish textarea{ height:500px; width: 670px; padding:10px; border:1px #ccc solid;  border-radius: 5px;-webkit-border-radius: 5px;-moz-border-radius: 5px;-khtml-border-radius: 5px; font-size:14px; line-height:1.6; outline: none;}
 .publish label{ vertical-align:middle; margin-right:20px;}
 .publish label input{ vertical-align:middle; width:auto;}
 .publish input.title{ font-size:14px;}
@@ -232,3 +232,9 @@ div#flash-notice{ width:100px;height:24px;text-align:center;position:fixed;backg
 div#comment-error-info{ width:120px;height:24px;text-align:center;float:left;position:relative;background-color:red;color:#fff;display:none;}
 div#form-error-info{ width:100%;height:20px;text-align:left;display:block;color:red;}
 div#form-error-info span{padding:0 5px;}
+
+/* admin */
+table.admin caption{ text-align:center; font-size:16px;font:bold;margin-bottom:10px;}
+table.admin td {padding:5px 10px;}
+div.admin_menu {text-align:center;background-color:white;padding:10px;margin-top:10px;font-size:14px;}
+div.admin_menu a{margin:0 30px;}

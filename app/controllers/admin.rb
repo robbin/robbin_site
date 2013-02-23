@@ -122,7 +122,7 @@ RobbinSite.controllers :admin do
   
   get :accounts, :map => '/admin/accounts' do
     @admin_accounts = Account.where(:role => 'admin').order('id ASC')
-    @commenters = Account.where(:role => 'commenter').order('id DESC')
+    @commenters = Account.where(:role => 'commenter').order('id DESC').page(params[:page]).per_page(100)
     render 'admin/accounts'
   end
   
