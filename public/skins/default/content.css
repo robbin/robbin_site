@@ -20,7 +20,7 @@ body{ background:#bebebe url(bg.gif);}
 /*nav*/
 .nav{ font-size:14px; background:url(x.png) 0 0 ; height:53px;}
 .nav li{ float:left; }
-.nav a{display:block; font-size:16px; height:46px; width:110px; margin-right:10px; text-align:center; line-height:53px; font-family:Helvetica; color:#666;}
+.nav a{display:block; font-size:16px; height:46px; width:110px; margin-right:10px; text-align:center; line-height:53px;color:#666;}
 .nav a:hover{ border-bottom:3px solid #69c	; color:#333; text-decoration:none;}
 .nav .current{ border-bottom:3px solid #69c	; color:#333; font-weight:bold;}
 .nav .search{ height:45px; /*background:url(x.png) 0 -60px;*/ padding-top:8px;}
@@ -30,7 +30,7 @@ body{ background:#bebebe url(bg.gif);}
 
 
 /*left*/
-.left{ width:720px; margin-right:40px; float:left; padding-top:20px;}
+.left{ width:720px; margin-right:20px; float:left; padding-top:20px;}
 .left h3{font-size:26px;margin-bottom: 10px;font-weight: bold;color: #fff; text-shadow:#999 1px 1px 0;}
 .left h3 span{ color:#666; text-shadow:none;}
 .left h3 a.tag span{color: #B77B1B;}
@@ -83,7 +83,7 @@ body{ background:#bebebe url(bg.gif);}
 .con .info .comment:hover{ background-position:0 -453px; color:#f60;}
 
 /*right*/
-.right{ width:200px; float:left; background:#fff url(x.png) repeat-x 0 -995px; margin-top:-5px; padding:20px; margin-bottom:20px;border-radius: 0 0 5px 5px;-webkit-border-radius:  0 0 5px 5px;-moz-border-radius:  0 0 5px 5px;-khtml-border-radius:  0 0 5px 5px; box-shadow: 0px 1px 2px #999;}
+.right{ width:200px; float:right; background:#fff url(x.png) repeat-x 0 -995px; margin-top:-5px; padding:20px; margin-bottom:20px;border-radius: 0 0 5px 5px;-webkit-border-radius:  0 0 5px 5px;-moz-border-radius:  0 0 5px 5px;-khtml-border-radius:  0 0 5px 5px; box-shadow: 0px 1px 2px #999;}
 .right h3{ font-size:18px; margin-bottom:10px; padding-bottom:2px; font-weight:bold; color:#666;border-bottom: 2px #ddd solid;}
 .right ul{ margin-bottom:20px;}
 .right .tag { font-size:14px; line-height:16px; margin-bottom:30px;}
