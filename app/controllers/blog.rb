@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 RobbinSite.controllers :blog do
   
   get :index do
@@ -46,8 +48,17 @@ RobbinSite.controllers :blog do
     end
   end
 
+  get :quote_comment, :map => '/comment/quote' do
+    return false unless account_login?
+    return false unless params[:id]
+    comment = BlogComment.find params[:id].to_i
+    body = "\n> #{comment.account.name} 评论:\n"
+    comment.content.gsub(/\n{3,}/, "\n\n").split("\n").each {|line| body << "> #{line}\n"}
+    body
+  end
+  
   post :comment_preview, :map => '/comment/preview' do
-    halt 401 unless account_login?
+    return false unless account_login?
     Sanitize.clean(GitHub::Markdown.to_html(params[:term], :gfm), Sanitize::Config::RELAXED) if params[:term]
   end
   
