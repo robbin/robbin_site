@@ -56,10 +56,17 @@
       <% if @blog.commentable? %>
       <a name="comments"></a>
       <div class="relative">
-        <div style="text-align:right;">[<a href="http://wowubuntu.com/markdown/" target="_blank">评论可以使用Markdown格式</a>]</div>
+        <div class="editor_switcher">
+          <ul>
+            <li class="current"><a id="publish_comment" href="#">发表评论</a></li>
+            <li><a id="preview_comment" href="#">预览评论</a></li>
+          </ul>
+          <span style="float:right;">[<a href="http://wowubuntu.com/markdown/" target="_blank">评论可以使用Markdown格式</a>]</span>
+        </div>
         <% form_for BlogComment.new, url(:blog, :create_comment, :id => @blog.id), :remote => true do |f| %>
           <%= f.text_area :content, :class => 'comment' %>
           <div id="comment-error-info"></div>
+          <div id="comment_preview" class="con comment"></div>
           <%= f.submit '', :class => 'comment_btn' %>
         <% end %>
         <div class="box" style="<%= "display:none;" if account_login? %>">
@@ -105,6 +112,25 @@
         $('div#comment-error-info').html('评论太少，多写点').show().fadeOut(3000);
         return false;
       }
+    });
+    
+    // preview comments
+    $('a#publish_comment').click(function(){
+      $('a#publish_comment').parent().addClass('current');
+      $('a#preview_comment').parent().removeClass('current');
+      $('div#comment_preview').hide();
+      $('textarea#blog_comment_content').show();
+      return false;
+    });
+    $('a#preview_comment').click(function(){
+      $.post('<%= url(:blog, :comment_preview) %>', {term: $('textarea#blog_comment_content').val()}, function(data){
+        $('a#preview_comment').parent().addClass('current');
+        $('a#publish_comment').parent().removeClass('current');
+        $('textarea#blog_comment_content').hide();
+        $('div#comment_preview').html(data);
+        $('div#comment_preview').show();
+      });
+      return false;
     });
   });
   </script>

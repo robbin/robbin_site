@@ -45,6 +45,11 @@ RobbinSite.controllers :blog do
       render 'blog/show'
     end
   end
+
+  post :comment_preview, :map => '/comment/preview' do
+    halt 401 unless account_login?
+    Sanitize.clean(GitHub::Markdown.to_html(params[:term], :gfm), Sanitize::Config::RELAXED) if params[:term]
+  end
   
   post :create_comment, :map => '/blog/:id/comments' do
     content_type :js
