@@ -63,13 +63,7 @@ RobbinSite.controllers :admin do
     content_type :js
     comment = BlogComment.find params[:id]
     comment.destroy
-    if params[:quick]
-      # delete comment from admin console
-      "$('tr#comment_#{comment.id}').fadeOut('slow', function(){ $(this).remove();});"
-    else
-      # delete comment from blog article
-      "$('div#comments>ul>li##{comment.id}').fadeOut('slow', function(){$(this).remove();});"
-    end
+    "$('tr#comment_#{comment.id}').fadeOut('slow', function(){ $(this).remove();});"
   end
 
   # attachment related routes: upload, show, delete attachment...

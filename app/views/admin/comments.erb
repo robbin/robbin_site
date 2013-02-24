@@ -14,7 +14,7 @@
       <tr id='<%= "comment_#{comment.id}" %>'>
         <td><%= index + 1 %></td>
         <td><%= commenter_link comment.account %></td>
-        <td><%= link_to "删除", url(:admin, :comment, :id => comment.id, :quick => true), :method => :delete, :remote => true, :confirm => '要删除评论吗？' %></td>
+        <td><%= link_to "删除", url(:admin, :comment, :id => comment.id), :method => :delete, :remote => true, :confirm => '要删除评论吗？' %></td>
         <td><%= link_to comment.blog.title, blog_url(comment.blog), :anchor => 'comments', :target => '_blank' %></td>
         <td><%= comment.brief_content %></td>
       </tr>

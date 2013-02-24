@@ -54,4 +54,16 @@ RobbinSite.controllers :blog do
     @comment = blog.comments.create(:account => current_account, :content => params[:blog_comment][:content])
     render 'blog/create_comment'
   end
+  
+  delete :comment, :map => '/comment/:id' do
+    content_type :js
+    comment = BlogComment.find params[:id]
+    if account_admin? || (account_commenter? && comment.account == current_account)
+      comment.destroy
+      "$('div#comments>ul>li##{comment.id}').fadeOut('slow', function(){$(this).remove();});"
+    else
+      halt 403
+    end
+  end
+  
 end

@@ -21,6 +21,10 @@ RobbinSite.helpers do
   def account_admin?
     current_account && current_account.admin? ? true : false
   end
+
+  def account_commenter?
+    current_account && current_account.commenter? ? true : false
+  end
   
   # blog article url generator for SEO purpose
   def blog_url(blog, mime_type = :html)
