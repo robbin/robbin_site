@@ -20,7 +20,7 @@ gem 'will_paginate', :require => ['will_paginate/active_record', 'will_paginate/
 gem 'sanitize'
 gem 'carrierwave', :require => ['carrierwave', 'carrierwave/orm/activerecord']
 gem 'mini_magick'
-gem 'weibo_2'
+gem "rest-client"
 
 # Production requirements
 group :production do

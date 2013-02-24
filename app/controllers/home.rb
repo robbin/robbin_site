@@ -59,41 +59,31 @@ RobbinSite.controllers do
   # weibo authentication
   get :weibo_login do
     session[:quick_login] = true if params[:quick_login]
-    redirect WeiboOAuth2::Client.new.authorize_url
+    redirect WeiboAuth.new.authorize_url
   end
 
   get :weibo_callback do
-    client = WeiboOAuth2::Client.new
+    halt 401, "没有微博验证码" unless params[:code]
+    auth = WeiboAuth.new
     begin
-      if access_token = client.auth_code.get_token(params[:code].to_s)
-        weibo_uid = access_token.params["uid"]
-        token = client.get_token_from_hash({:access_token => access_token.token, :expires_at => access_token.expires_at})
-        if token.validated?
-          @account = Account.where(:provider => 'weibo', :uid => weibo_uid).first
-
-          # create commenter account when first weibo login
-          unless @account 
-            weibo_user = client.users.show_by_uid(weibo_uid)
-            @account = Account.create(:provider => 'weibo', :uid => weibo_uid, :name => weibo_user.screen_name, :role => 'commenter', :profile_url => weibo_user.profile_url, :profile_image_url => weibo_user.profile_image_url)
-          end
-      
-          # update weibo profile if profile is empty
-          if @account.profile_url.blank? || @account.profile_image_url.blank?
-            weibo_user = client.users.show_by_uid(weibo_uid)
-            @account.update_attributes(:profile_url => weibo_user.profile_url, :profile_image_url => weibo_user.profile_image_url)
-          end
-      
-          session[:account_id] = @account.id
-          if session[:quick_login]
-            session[:quick_login] = nil
-            render 'home/weibo_callback', :layout => false
-          else
-            flash[:notice] = '成功登录'
-            redirect_to url(:index)
-          end
-        end
+      auth.callback(params[:code])
+      user_info = auth.get_user_info
+      @account = Account.where(:provider => 'weibo', :uid => user_info['id'].to_i).first
+      # create commenter account when first weibo login
+      unless @account 
+        @account = Account.create(:provider => 'weibo', :uid => user_info['id'], :name => user_info['screen_name'], :role => 'commenter', :profile_url => user_info['profile_url'], :profile_image_url => user_info['profile_image_url'])
+      end
+      # update weibo profile if profile is empty
+      if @account.profile_url.blank? || @account.profile_image_url.blank?
+        @account.update_attributes(:profile_url => user_info['profile_url'], :profile_image_url => user_info['profile_image_url'])
+      end
+      session[:account_id] = @account.id
+      if session[:quick_login]
+        session[:quick_login] = nil
+        render 'home/weibo_callback', :layout => false
       else
-        halt 401, "授权失败，请重试几次"
+        flash[:notice] = '成功登录'
+        redirect_to url(:index)
       end
     rescue => e
       STDERR.puts e
@@ -101,5 +91,4 @@ RobbinSite.controllers do
       halt 401, "授权失败，请重试几次"
     end
   end
-
 end

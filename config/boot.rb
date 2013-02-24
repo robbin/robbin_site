@@ -69,9 +69,4 @@ WillPaginate.per_page = 20
 # Set carrierwave sanitize
 CarrierWave::SanitizedFile.sanitize_regexp = /[^[:word:]\.\-\+]/
 
-# Weibo config
-WeiboOAuth2::Config.api_key = APP_CONFIG['weibo_api_key']
-WeiboOAuth2::Config.api_secret = APP_CONFIG['weibo_api_secret']
-WeiboOAuth2::Config.redirect_uri = APP_CONFIG['weibo_redirect_uri']
-
 Padrino.load!
