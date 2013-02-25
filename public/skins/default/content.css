@@ -160,8 +160,11 @@ body{ background:#bebebe url(bg.gif);}
 .submit:hover{background:url(x.png) no-repeat 0 -490px; cursor:pointer;}
 /*comment*/
 .con .comment{ padding:20px 40px; }
-.con .comment h2{ font-size:18px; font-weight:bold; border-bottom:2px #ddd solid; padding-bottom:3px;margin-bottom:10px; }
+.con .comment h1{ font-size:20px;font-weight:bold;}
+.con .comment h2{ font-size:18px;font-weight:bold; border-bottom:2px #ddd solid; padding-bottom:3px;margin-bottom:10px; }
 .con .comment h2 span{ font-size:22px; margin-right:5px;}
+.con .comment h3 {font-size: 16px; font-weight:bold;color: #666;text-shadow:none;}
+.con .comment h4{font-size:14px; font-weight:bold; margin-bottom:10px;}
 .con .comment .user_img{ float:left; margin-right:20px; width:40px; height:40px;}
 .con .comment .user_img img{ width:40px; height:40px; border-radius:50px;-webkit-border-radius:50px;-moz-border-radius:50px;-khtml-border-radius:50px;}
 .con .comment .cot_con{ float:left; width:580px;}
@@ -169,13 +172,11 @@ body{ background:#bebebe url(bg.gif);}
 .con .comment .cot_con .info .user_name{ font-size:14px; font-weight:bold;}
 .con .comment ul li{ border-bottom:1px #eee solid; padding:15px 0;}
 .con .comment ul li:last-child { border-bottom: 0; margin-bottom:20px;} 
-.con .comment h4{font-size:18px; font-weight:bold; margin-bottom:10px;}
 .con .comment textarea{ height:140px; width: 615px; border:1px #ccc solid;  border-radius: 5px;-webkit-border-radius: 5px;-moz-border-radius: 5px;-khtml-border-radius: 5px; padding:5px 10px; font-size:14px;outline: none;}
 .con .comment blockquote {border-left: 4px solid #dddddd;padding: 0 15px;color: #777777; }
 .con .comment blockquote > :first-child { margin-top: 0; }
 .con .comment blockquote > :last-child { margin-bottom: 0; }
-.con .comment pre code{word-wrap: break-word;}
-.con .comment h3 {font-size: 15px; color: #666;text-shadow:none;}
+.con .comment pre code{word-wrap: break-word;word-break: break-all;}
 .con .comment .editor_switcher {height:25px;margin-bottom:6px;background:url(piont_ddd.png) repeat-x bottom;}
 .con .comment .editor_switcher ul {margin:0;padding:0;list-style:none;width:200px;font-weight:bold;}
 .con .comment .editor_switcher ul li {margin:0 5px;padding:0;list-style:none;float:left;border:1px #ddd solid; border-top:none; width:80px; text-align:center; margin-right:10px;background:url(piont_ddd.png) repeat-x top;}
