@@ -2,10 +2,11 @@
 <div class="publish">
 	<div class="con">
     <table class="admin">
-      <caption>文章列表: 共<%=  @blogs.size %>篇</caption>
+      <caption>文章列表: 共<%=  @blogs.total_entries %>篇</caption>
       <tr>
         <td></td>
         <td>文章标题</td>
+        <td>发表时间</td>
         <td>浏览数</td>
         <td>评论数</td>
         <td>Tag</td>
@@ -15,6 +16,7 @@
       <tr>
         <td><%= index + 1 %></td>
         <td><%= link_to blog.title, blog_url(blog), :target => '_blank' %></td>
+        <td><%= time_ago_in_words(blog.created_at) %></td>
         <td><%= blog.view_count %></td>
         <td><%= blog.comments_count %></td>
         <td><%= blog.cached_tag_list %></td>

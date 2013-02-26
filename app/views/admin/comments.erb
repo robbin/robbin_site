@@ -6,17 +6,19 @@
       <tr>
         <td></td>
         <td>评论者</td>
-        <td>操作</td>
         <td>被评文章</td>
+        <td width="70">评论时间</td>
         <td>评论内容</td>
+        <td width="30">操作</td>
       </tr>
       <% @comments.each_with_index do |comment, index| %>
       <tr id='<%= "comment_#{comment.id}" %>'>
         <td><%= index + 1 %></td>
         <td><%= commenter_link comment.account %></td>
-        <td><%= link_to "删除", url(:admin, :comment, :id => comment.id), :method => :delete, :remote => true, :confirm => '要删除评论吗？' %></td>
         <td><%= link_to comment.blog.title, blog_url(comment.blog), :anchor => 'comments', :target => '_blank' %></td>
+        <td><%= time_ago_in_words(comment.created_at) %></td>
         <td><%= comment.brief_content %></td>
+        <td><%= link_to "删除", url(:admin, :comment, :id => comment.id), :method => :delete, :remote => true, :confirm => '要删除评论吗？' %></td>
       </tr>
       <% end %>
     </table>

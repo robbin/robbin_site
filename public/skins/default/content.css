@@ -259,7 +259,7 @@ table.admin caption{ text-align:center; font-size:16px;font:bold;margin-bottom:1
 table.admin td {padding:5px 10px;}
 div.admin_menu {text-align:center;background-color:white;padding:10px;margin-top:10px;font-size:14px;}
 div.admin_menu a{margin:0 30px;}
-table.admin {padding: 0;border-collapse: collapse; margin:10px auto; }
+table.admin {padding: 0;border-collapse: collapse; margin:10px auto 25px auto; }
 table.admin tr {border-top: 1px solid #cccccc;background-color: white;margin: 0;padding: 0; }
 table.admin tr:nth-child(2n) {background-color: #f8f8f8; }
 table.admin tr th {font-weight: bold;border: 1px solid #cccccc;text-align: left;margin: 0;padding: 6px 13px; }

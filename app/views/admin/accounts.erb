@@ -6,6 +6,7 @@
       <tr>
         <td></td>
         <td>名字</td>
+        <td>注册时间</td>
         <td>文章数</td>
         <td>评论数</td>
         <td>操作</td>
@@ -14,18 +15,19 @@
       <tr>
         <td><%= index + 1 %></td>
         <td><%= account.name %></td>
+        <td><%= time_ago_in_words(account.created_at) %></td>
         <td><%= account.blogs_count %></td>
         <td><%= account.comments_count %></td>
         <td><%= link_to '编辑', url(:admin, :edit_profile, :id => account.id) %></td>
       </tr>
       <% end %>
     </table>
-    <hr>
     <table class="admin">
-      <caption>评论者列表: 共<%=  @commenters.size %>人</caption>
+      <caption>评论者列表: 共<%=  @commenters.total_entries %>人</caption>
       <tr>
         <td></td>
         <td>名字</td>
+        <td>注册时间</td>
         <td>评论数</td>
         <td>操作</td>
       </tr>
@@ -33,10 +35,12 @@
       <tr id='<%= "account_#{account.id}" %>'>
         <td><%= index+1 %></td>
         <td><%= commenter_link account %></td>
+        <td><%= time_ago_in_words(account.created_at) %></td>
         <td><%= account.comments_count %></td>
         <td><%= link_to '删除', url(:admin, :account, :id => account.id), :method => :delete, :remote => true, :confirm => '要删除用户吗？' %></td>
       </tr>
       <% end %>
     </table>
+    <%= (will_paginate @commenters, :previous_label => '前一页', :next_label => '后一页').to_s.html_safe %>
   </div>
-</div>    
+</div>
