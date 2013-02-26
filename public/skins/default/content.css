@@ -10,12 +10,14 @@ body{ background:#bebebe url(bg.gif);}
 .header h1{ color:#fff; font-weight:bold; padding-top:60px;}
 .header h1 .blog_title{ font-size:35px; line-height:35px;}
 .header h2{ color:#fff; font-size:18px; font-weight:bold; }
-.header .write{ float:right; color:#fff; width:240px; text-align:right;}
+.header .write{ float:right; color:#fff; text-align:right;}
 .header .write a{color:#fff; margin-left:8px; margin-right:8px; display:inline-block; height:20px; line-height:20px; vertical-align:middle; background:url(y.png) 0px -240px no-repeat; padding-left:16px;}
 .header .write a:hover{background:url(y.png) 0px -270px no-repeat; color:#f87b00;}
 .header .write input{ background:none; border:none; color:#fff;background: url(y.png) 0px -716px no-repeat; padding-left:20px;}
 .header .write input:hover{ color:#f60;background: url(y.png) 0px -746px no-repeat; text-decoration:underline; cursor:pointer;}
 .header .write form{ display:inline;}
+.header .write .admin{background:url(y.png) -3px -980px no-repeat;}
+.header .write .admin:hover{background:url(y.png) -3px -1010px no-repeat;}
 
 /*nav*/
 .nav{ font-size:14px; background:url(x.png) 0 0 ; height:53px;}
@@ -27,7 +29,6 @@ body{ background:#bebebe url(bg.gif);}
 .nav input{ background:#fff; border:1px #ccc solid; border-right:none; height:30px;  border-radius: 5px 0 0 5px;-webkit-border-radius: 5px 0 0 5px;-moz-border-radius: 5px 0 0 5px;-khtml-border-radius: 5px 0 0 5px; padding:0 10px; height:30px; width:189px; float:left;}
 .nav button{ background:#fff url(y.png) 3px 5px no-repeat; border:1px #ccc solid; border-left:none; border-radius:0 5px 5px 0;-webkit-border-radius:0 5px 5px 0;-moz-border-radius:0 5px 5px 0 ;-khtml-border-radius:0 5px 5px 0; padding:0; margin:0; width:30px; height:32px;}
 .nav button:hover{ background:#fff url(y.png) 3px -35px no-repeat;}
-
 
 /*left*/
 .left{ width:720px; margin-right:20px; float:left; padding-top:20px;}
@@ -184,9 +185,15 @@ body{ background:#bebebe url(bg.gif);}
 .con .comment .editor_switcher li.current{ border-bottom:1px #fff solid; background:url(piont_69c.png) repeat-x top;}
 .con .comment .editor_switcher li a {text-decoration:none;}
 .con .comment #comment_preview {display:none;margin-bottom:10px;}
+.relative #comment_preview{ border:1px #ddd solid;box-shadow:none; padding:5px 10px; min-height:140px;}
 
 .comment_btn{background:url(x.png) no-repeat 0 -540px; border:none; width:110px; height:40px; float:right; border-radius: 0px;-webkit-border-radius: 0px;-moz-border-radius: 0px;-khtml-border-radius: 0px; margin-top:10px;}
 .comment_btn:hover{background:url(x.png) no-repeat 0 -590px; cursor:pointer;}
+.quote_comment{ display:inline-block; width:16px; height:16px; background:url(y.png) no-repeat 0 -1039px; float:right;}
+.quote_comment:hover{ background-position:0 -1069px;}
+.delete{ display:inline-block; width:16px; height:16px; background:url(y.png) no-repeat 0 -660px; float:right; margin-left:5px; }
+.delete:hover{ background-position:0 -690px;}
+
 
 /*tag_list*/
 .tag_list{ padding:30px 40px; min-height:300px;}
@@ -252,3 +259,16 @@ table.admin caption{ text-align:center; font-size:16px;font:bold;margin-bottom:1
 table.admin td {padding:5px 10px;}
 div.admin_menu {text-align:center;background-color:white;padding:10px;margin-top:10px;font-size:14px;}
 div.admin_menu a{margin:0 30px;}
+table.admin {padding: 0;border-collapse: collapse; margin:10px auto; }
+table.admin tr {border-top: 1px solid #cccccc;background-color: white;margin: 0;padding: 0; }
+table.admin tr:nth-child(2n) {background-color: #f8f8f8; }
+table.admin tr th {font-weight: bold;border: 1px solid #cccccc;text-align: left;margin: 0;padding: 6px 13px; }
+table.admin tr td {border: 1px solid #cccccc;text-align: left;margin: 0;padding: 6px 13px; }
+table.admin tr:hover{ background:#eee;}
+table.admin tr th :first-child, 
+table.admin tr td :first-child {margin-top: 0; }
+table.admin tr th :last-child,
+table.admin tr td :last-child {margin-bottom: 0; }
+table.edit_pro{padding: 0;border-collapse: collapse; margin:10px auto; }
+table.edit_pro caption{ text-align:center; font-size:16px;font:bold;margin-bottom:10px;}
+#account_logo{ border:none;}

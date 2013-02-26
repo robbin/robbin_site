@@ -4,11 +4,11 @@
  		<div class="info">
       <span class="user_name"><%= commenter_link(comment.account) %></span>
       <span class="time"><%= time_ago_in_words(comment.created_at) %></span>
-      <% if account_login? %>
-      <span><a href="#" title="引用" class="quote_comment"><%= image_tag 'quote.png', :alt => '引用' %></a></span>
+			<% if account_admin? || (account_commenter? && comment.account == current_account) %>
+			<span><%= link_to '', url(:blog, :comment, :id => comment.id), :method => :delete, :remote => true, :confirm => '要删除评论吗？', :class => 'delete', :title => '删除评论' %></span>
       <% end %>
-      <% if account_admin? || (account_commenter? && comment.account == current_account) %>
-      <span><%= link_to '删除', url(:blog, :comment, :id => comment.id), :method => :delete, :remote => true, :confirm => '要删除评论吗？', :class => 'del', :title => '删除评论' %></span>
+      <% if account_login? %>
+      <span><a href="#" title="引用" class="quote_comment"></a></span>
       <% end %>
     </div>
     <div class="comment_content"><%= comment.md_content.html_safe %></div>

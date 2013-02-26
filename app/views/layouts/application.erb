@@ -22,7 +22,7 @@
           <%= current_account.name -%>
           <% if account_admin? -%>
           <%= link_to '写文章', url(:admin, :new_blog) -%>
-          <%= link_to '管理', url(:admin, :index) -%>
+          <%= link_to   '管理', url(:admin, :index), :class => 'admin' -%>
           <% end -%>
           <%= button_to '退出', url(:logout), :method => :delete -%>
         <% end -%>

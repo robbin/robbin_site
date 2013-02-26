@@ -3,7 +3,7 @@
 <div class="publish">
 	<div class="con">
     <% form_for @account, url(:admin, :profile, :id => @account.id), :method => :put,  :multipart => true do |form| %>
-    <table class="admin content">
+    <table class="content edit_pro">
       <caption>修改用户信息</caption>
       <tr>
         <th valign="top">用户名字</th>
