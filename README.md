@@ -22,7 +22,7 @@ This is my personal website project.
 * memcached
 * nginx as web server, `config/nginx.conf` is my nginx configuration snippet.
 
-## Installing
+## Install
 1. run `bundle install`
 2. copy `config/app_config.example.yml` to `config/app_config.yml` and copy `config/database.example.yml` to `config/database.yml`
 3. modify database config for your need.
