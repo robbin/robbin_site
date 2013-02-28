@@ -35,7 +35,7 @@
           <span class="author"><%= @blog.account.name %></span>
           <span class="time"><%= time_ago_in_words(@blog.created_at) %>发表</span>
           <span class="edit"><%= time_ago_in_words(@blog.content_updated_at) %>更新</span>
-          <span class="views" title="浏览次数"><%= @blog.view_count %></span>
+          <span class="views" title="浏览次数"><%= @blog.view_count %>次浏览</span>
         </div>
       </div>
     </div><!-- content -->
