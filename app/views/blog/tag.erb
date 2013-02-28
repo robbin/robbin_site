@@ -1,5 +1,6 @@
 <% @nav = 'tag' %>
 <% @title = params[:name].force_encoding("UTF-8") + "分类文章" %>
+<% @title << " | 第#{params[:page]}页" if params[:page] && params[:page].to_i > 1 %>
 <% @description = params[:name].force_encoding("UTF-8") + "分类下所有文章列表" %>
 
 <div class="left">

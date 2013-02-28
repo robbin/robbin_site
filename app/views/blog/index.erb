@@ -1,5 +1,7 @@
 <% @nav = 'blog' %>
 <% @title = "最近博客文章" %>
+<% @title << " | 第#{params[:page]}页" if params[:page] && params[:page].to_i > 1 %>
+
 <% @description = '最近发表的博客文章列表' %>
 
 <div class="left">

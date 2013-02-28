@@ -1,4 +1,5 @@
 <% @nav = 'home' %>
+<% @title =  "#{APP_CONFIG['site_title']} | 第#{params[:page]}页" if params[:page] && params[:page].to_i > 1 %>
 
 <div class="left">
   <%= partial 'blog/blog', :collection => @blogs %>
