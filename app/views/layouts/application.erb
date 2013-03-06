@@ -14,7 +14,7 @@
     <div class="header">
       <div class="wrap">
       	<div class="user_img"><img src="/skins/data/100.png" width="80" height="80" alt="website icon"></div>
-        <h1><span class="blog_title"><%= APP_CONFIG['site_title'] %></span></h1>
+        <div class="blog_title"><%= APP_CONFIG['site_title'] %></div>
         <div class="write">
         <% unless account_login? -%>
           <%= link_to '登录', url(:login) -%>
@@ -22,12 +22,12 @@
           <%= current_account.name -%>
           <% if account_admin? -%>
           <%= link_to '写文章', url(:admin, :new_blog) -%>
-          <%= link_to   '管理', url(:admin, :index), :class => 'admin' -%>
+          <%= link_to '管理', url(:admin, :index), :class => 'admin' -%>
           <% end -%>
           <%= button_to '退出', url(:logout), :method => :delete -%>
         <% end -%>
         </div>
-        <h2><%= APP_CONFIG['site_motto'] %></h2>
+        <div class="blog_motto"><%= APP_CONFIG['site_motto'] %></div>
       </div>
     </div><!-- header -->
     

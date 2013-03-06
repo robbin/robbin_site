@@ -7,9 +7,8 @@ body{ background:#bebebe url(bg.gif);}
 .header .wrap{}
 .header .user_img{ float:left; margin:60px 20px 0 0; }
 .header .user_img img{border-left:none; border-radius:50px;-webkit-border-radius:50px;-moz-border-radius:50px;-khtml-border-radius:50px;}
-.header h1{ color:#fff; font-weight:bold; padding-top:60px;}
-.header h1 .blog_title{ font-size:35px; line-height:35px;}
-.header h2{ color:#fff; font-size:18px; font-weight:bold; }
+.header .blog_title{color:#fff; font-weight:bold; font-size:35px; line-height:35px; padding-top:60px;}
+.header .blog_motto{ color:#fff; font-size:18px; font-weight:bold; }
 .header .write{ float:right; color:#fff; text-align:right;}
 .header .write a{color:#fff; margin-left:8px; margin-right:8px; display:inline-block; height:20px; line-height:20px; vertical-align:middle; background:url(y.png) 0px -240px no-repeat; padding-left:16px;}
 .header .write a:hover{background:url(y.png) 0px -270px no-repeat; color:#f87b00;}
@@ -128,9 +127,9 @@ body{ background:#bebebe url(bg.gif);}
 .page_nav .prev{ float:left;background-position:13px -363px; padding-left:40px;}
 .page_nav .prev:hover{ background-position:13px -363px;}
 /*content*/
-.con .content{}
+.con .content h1 {font-weight:bold;}
 .con .content p{ margin-bottom:20px;}
-.con .content .tit{ border:none; padding-top:30px;}
+.con .content .tit{ border:none; padding-top:30px; padding-bottom:0;}
 .con .content .tran{ display:inline-block; background:url(x.png) no-repeat 0 -642px; width:30px; height:30px; vertical-align:middle; margin-right:5px;}
 .con .content .text{ padding-top:0px; padding-bottom:10px;}
 .cont_tag{ margin-bottom:10px;}
