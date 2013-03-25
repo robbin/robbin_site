@@ -1,0 +1,62 @@
+<% content_for :javascripts do %>
+  <%= javascript_include_tag 'highlight.min' %>
+  <script type="text/javascript">
+  $(function(){
+    // form validation
+    $('form#editor input[type=submit]').click(function(){
+      var error_info = '';
+      $('div#form-error-info').html('');
+      if ($('input#blog_title').val().length < 3) {
+        error_info += '<span>文章标题太短了;</span>';
+      }
+      if ($('textarea#blog_content').val().length < 10) {
+        error_info += '<span>文章内容太少了;</span>';
+      }
+      var slugUrl = $('input#blog_slug_url').val();
+      if (slugUrl.length > 0) {
+        var re = /^[a-zA-Z0-9\-]{1,}$/;
+        if (!re.test(slugUrl)) {
+          error_info += '<span>URL格式错了：只允许字母数字横线</span>';
+        }
+      }
+      if (error_info.length > 0) {
+        $('div#form-error-info').html(error_info);
+        return false;
+      }
+    });
+    
+    // toggle add/remove tag to and from input box
+    $('form#editor div.tag a.tag').click(function(){
+      var tagName = $.trim($(this).find('span').html());
+      var tagList = filterTags($('input#blog_user_tags').val());
+      var index = $.inArray(tagName, tagList)
+      if (index === -1) {
+        tagList.push(tagName);
+      } else {
+        tagList.splice(index, 1);
+      }
+      $('input#blog_user_tags').val(tagList.join(" , ")).focus();
+      return false;
+    });
+    
+    // toggle blog content editor and preview
+    $('a#show_blog_content_editor').click(function(){
+      $('a#show_blog_content_editor').addClass('current');
+      $('a#show_blog_content_preview').removeClass('current');
+      $('div#blog_content_preview').hide();
+      $('textarea#blog_content').show();
+      return false;
+    });
+    $('a#show_blog_content_preview').click(function(){
+      $.post('<%= url(:admin, :blog_preview) %>', {term: $('textarea#blog_content').val()}, function(data){
+        $('a#show_blog_content_editor').removeClass('current');
+        $('a#show_blog_content_preview').addClass('current');
+        $('div#blog_content_preview').html(data).show();
+        $('textarea#blog_content').hide();
+      });
+      return false;
+    });
+    
+  });
+  </script>
+<% end %>

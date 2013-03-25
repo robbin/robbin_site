@@ -1,10 +1,9 @@
 source 'http://rubygems.org'
-#source 'http://ruby.taobao.org'
 
 # Project requirements
 gem 'rake'
-gem 'padrino-core', :git => 'git://github.com/padrino/padrino-framework.git'
-gem 'padrino-helpers', :git => 'git://github.com/padrino/padrino-framework.git'
+gem 'padrino-core', '~> 0.11'
+gem 'padrino-helpers', '~> 0.11'
 
 # Component requirements
 gem 'bcrypt-ruby', :require => 'bcrypt'
@@ -31,7 +30,7 @@ end
 group :development do
   gem 'thin'
   gem 'pry'
-  gem 'padrino-gen', :git => 'git://github.com/padrino/padrino-framework.git'
+  gem 'padrino-gen', '~> 0.11'
 end
 
 # Test requirements

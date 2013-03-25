@@ -27,10 +27,17 @@ This is my personal website project.
 2. copy `config/app_config.example.yml` to `config/app_config.yml` and copy `config/database.example.yml` to `config/database.yml`
 3. modify database config for your need.
 4. create database match your database.yml and start your database.
-5. run `rake secret` to generate session secret key and fill it in app_config.
-6. run `rake ar:migrate` to setup database schema.
-7. run `rake seed` to generate admin user.
+5. run `bundle exec rake secret` to generate session secret key and fill it in app_config.
+6. run `bundle exec rake ar:migrate` to setup database schema.
+7. run `bundle exec rake seed` to generate admin user.
 8. start memcached with `memcached -d`.
-9. run `thin start` for development environment and run `./servicectl start` for production environment.
+9. run `bundle exec thin start` for development environment and run `./servicectl start` for production environment.
+
+## Run on Windows
+
+remove such lines in `Gemfile` and run with thin.
+
+    gem 'kgio'
+    gem 'rainbows'
 
 ## MIT License
