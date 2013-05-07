@@ -1,13 +1,15 @@
+require 'bundler/setup'
 require 'padrino-core/cli/rake'
+
+PadrinoTasks.use(:database)
 PadrinoTasks.use(:activerecord)
-PadrinoTasks.use(:seed)
 PadrinoTasks.init
 
 namespace :metric do
   desc "project statistics"
   task 'stat' do
     puts "\nRuby:"
-    stat_files Dir.glob('**/*.rb') - Dir.glob('test/**/*.rb') - Dir.glob('db/**/*.rb')
+    stat_files Dir.glob('**/*.rb') - Dir.glob('test/**/*.rb') - Dir.glob('db/**/*.rb') - Dir.glob('config/**/*.rb')
   end
 end
 

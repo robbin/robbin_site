@@ -29,7 +29,7 @@ This is my personal website project.
 4. create database match your database.yml and start your database.
 5. run `bundle exec rake secret` to generate session secret key and fill it in app_config.
 6. run `bundle exec rake ar:migrate` to setup database schema.
-7. run `bundle exec rake seed` to generate admin user.
+7. run `bundle exec rake db:seed` to generate admin user.
 8. start memcached with `memcached -d`.
 9. run `bundle exec thin start` for development environment and run `./servicectl start` for production environment.
 
