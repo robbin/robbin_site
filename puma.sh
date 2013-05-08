@@ -16,7 +16,7 @@ case "$1" in
     bundle exec pumactl -S $state_file stop
     ;;
   restart)
-	  bundle exec pumactl -S $state_file restart
+    bundle exec pumactl -S $state_file restart
     ;;
   status)
     bundle exec pumactl -S $state_file status
