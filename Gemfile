@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 
 # Project requirements
 gem 'rake'
+gem 'tilt', '~> 1.3.7'
 gem 'padrino-core', '~> 0.11'
 gem 'padrino-helpers', '~> 0.11'
 
@@ -20,16 +21,16 @@ gem 'sanitize'
 gem 'carrierwave', :require => ['carrierwave', 'carrierwave/orm/activerecord']
 gem 'mini_magick'
 gem 'rest-client'
+gem 'puma'
 
 # Production requirements
-group :production do
-  gem 'rainbows'
-end
+# group :production do
+#   gem 'rainbows'
+# end
 
 # Development requirements
 group :development do
-  gem 'thin'
-  gem 'pry'
+  gem 'pry-padrino'
   gem 'padrino-gen', '~> 0.11'
 end
 
