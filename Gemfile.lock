@@ -106,8 +106,6 @@ GEM
     url_mount (0.2.1)
       rack
     will_paginate (3.0.4)
-    zbatery (4.1.2)
-      rainbows (~> 4.3)
 
 PLATFORMS
   ruby
@@ -131,10 +129,10 @@ DEPENDENCIES
   padrino-helpers (~> 0.11)
   pry
   rack-test
+  rainbows
   rake
   rest-client
   sanitize
   second_level_cache!
   thin
   will_paginate
-  zbatery
