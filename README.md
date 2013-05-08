@@ -31,13 +31,13 @@ This is my personal website project.
 6. run `bundle exec rake ar:migrate` to setup database schema.
 7. run `bundle exec rake db:seed` to generate admin user.
 8. start memcached with `memcached -d`.
-9. run `bundle exec thin start` for development environment and run `./servicectl start` for production environment.
+9. run `bundle exec thin start` for development environment and run `./zbatery.sh start` for production environment.
 
 ## Run on Windows
 
 remove such lines in `Gemfile` and run with thin.
 
     gem 'kgio'
-    gem 'rainbows'
+    gem 'zbatery'
 
 ## MIT License
