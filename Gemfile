@@ -21,17 +21,18 @@ gem 'sanitize'
 gem 'carrierwave', :require => ['carrierwave', 'carrierwave/orm/activerecord']
 gem 'mini_magick'
 gem 'rest-client'
-gem 'zbatery'
 
 # Production requirements
-# group :production do
-#   gem 'rainbows'
-# end
+group :production do
+  gem 'zbatery'
+  # gem 'rainbows'
+end
 
 # Development requirements
 group :development do
   gem 'pry-padrino'
   gem 'padrino-gen', '~> 0.11'
+  gem 'thin'
 end
 
 # Test requirements
