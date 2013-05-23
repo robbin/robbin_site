@@ -1,7 +1,7 @@
 # rainbows config
 Rainbows! do
-  use :ThreadPool
-  # use :ThreadSpawn
+  # use :ThreadPool
+  use :ThreadSpawn
   worker_connections 16
 end
 
