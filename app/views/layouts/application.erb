@@ -2,19 +2,19 @@
 <html lang="zh-CN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width; initial-scale=1.1; minimum-scale=1.0; maximum-scale=2.0;user-scalable=no;">
+    <meta name="viewport" content="width=device-width, initial-scale=1.1, minimum-scale=1.0, maximum-scale=2.0, user-scalable=no">
     <title><%= @title ? "#{@title} - #{APP_CONFIG['site_title']}": APP_CONFIG['site_title'] %></title>
     <meta name="description" content="<%= @description || APP_CONFIG['site_description'] %>">
     <meta name="author" content="Robbin Fan">
     <link href="/rss" rel="alternate" title="<%= APP_CONFIG['site_title'] %>" type="application/rss+xml" />
-    <%= stylesheet_link_tag '/skins/default/document', '/skins/default/content' %>
+    <%= stylesheet_link_tag 'default/document', 'default/content' %>
     <%= yield_content :stylesheets %>
   </head>
   <body>
     <div id="flash-notice"></div>
     <div class="header">
       <div class="wrap">
-      	<div class="user_img"><img src="/skins/data/100.png" width="80" height="80" alt="website icon"></div>
+      	<div class="user_img"><img src="/images/website.png" width="80" height="80" alt="website icon"></div>
         <div class="blog_title"><%= APP_CONFIG['site_title'] %></div>
         <div class="write">
         <% unless account_login? -%>
