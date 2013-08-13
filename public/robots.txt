@@ -8,5 +8,4 @@ Disallow: /uploads/
 Disallow: /stylesheets/
 Disallow: /javascripts/
 Disallow: /images/
-Disallow: /skins/
 Disallow: /*.md$
