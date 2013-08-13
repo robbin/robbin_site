@@ -300,22 +300,27 @@ MEDIA QUERIES
 .right{ display:none;}
 .search{ display:none;}
 .con .comment{ padding:20px;}
-.con .comment .user_img{width: 12%;margin-right: 3%;}
-.con .comment .cot_con{ width:85%;}
+.con .comment .user_img{width: 18%;margin-right: 5%;}
+.con .comment .cot_con{ width:77%;}
 .relative .box{ width:80%; padding:5%; right:-5%;}
+.text{word-break: break-all;word-wrap: break-word;}
+.category_title{ display:none;}
 }
 
 @media screen and (max-width: 480px) {
-.nav{ padding:0 20px;}
+.nav{ padding:0 20px;background: url(x.png) 0 0;height: 36px;}
+.nav a{ line-height:36px; height:33px;}
 .nav li{ width:20%;}
 .nav li:nth-child(4n){ display:none;}
+.header{ height:60px;}	
 .header .user_img{ display:none;}
-.header .blog_title{ font-size:30px; margin-left:20px;padding-top: 20px;}
-.header .blog_title{ font-size:30px;}
+.header .blog_title{ font-size:26px; margin-left:20px;padding-top: 15px;}
 .header .write{ float:none; margin-left:10px; text-align:left;}
+.header .write{ display:none;}
 .nav a{ font-size:14px; padding:0 3px;}
 .left h3{ margin-left:15px;}
-.con .tit{padding:15px 20px 15px 20px}
+.con .tit{padding:15px 20px 10px 20px; font-size:18px;}
+.con .text .infor_tag{ margin-bottom:5px;}
 .text{padding:15px 20px;}
 .con{ margin-bottom:20px;}
 .con .info{ padding:15px 20px;}
@@ -326,4 +331,6 @@ MEDIA QUERIES
 .con .content .info{ margin-top:0;}
 .pagination{margin-top:0;}
 .login input.login{ margin-left:auto;}
+.con .info .views{ display:none}
+.con .text video{ width:100%; height:100%;}
 }

@@ -4,7 +4,7 @@
 <% @description = '最近更新的笔记文章列表' %>
 
 <div class="left">
-	<h3>学习笔记</h3>
+	<h3 class-"category_title">学习笔记</h3>
   <%= partial 'blog/blog', :collection => @blogs %>
   <div>
     <%= (will_paginate @blogs, :previous_label => '前一页', :next_label => '后一页').to_s.html_safe %>
