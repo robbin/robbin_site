@@ -5,7 +5,7 @@
 <% @description = '最近发表的博客文章列表' %>
 
 <div class="left">
-	<h3 class-"category_title">博客文章</h3>
+	<h3 class="category_title">博客文章</h3>
   <%= partial 'blog/blog', :collection => @blogs %>
   <div>
     <%= (will_paginate @blogs, :previous_label => '前一页', :next_label => '后一页').to_s.html_safe %>
