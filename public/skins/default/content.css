@@ -17,7 +17,6 @@ body{ background:#bebebe url(bg.gif);}
 .header .write form{ display:inline;}
 .header .write .admin{background:url(y.png) -3px -980px no-repeat;}
 .header .write .admin:hover{background:url(y.png) -3px -1010px no-repeat;}
-
 /*nav*/
 .nav{ font-size:14px; background:url(x.png) 0 0 ; height:53px;}
 .nav li{ float:left; }
@@ -271,3 +270,60 @@ table.admin tr td :last-child {margin-bottom: 0; }
 table.edit_pro{padding: 0;border-collapse: collapse; margin:10px auto; }
 table.edit_pro caption{ text-align:center; font-size:16px;font:bold;margin-bottom:10px;}
 #account_logo{ border:none;}
+
+/************************************************************************************
+MEDIA QUERIES
+*************************************************************************************/
+
+/* for 980px or less */
+@media screen and (max-width: 980px) {
+.header{ height:100px;}	
+.header .user_img{float: left;margin: 10px 20px 0 10px;}
+.header .blog_motto{ display:none;}
+.header .blog_title{padding-top: 40px;}
+.header .write{}
+.left {width:98%; margin:0 1%;}
+.right{ display:none;}
+.search{ display:none;}
+.con .comment textarea{ width:94%; padding:3%}
+.wrap{ width:98%;}
+.login{ padding:10% 10%; margin:10px auto; height:auto;}
+
+}
+
+@media screen and (max-width:750px) {
+.text img{max-width:100%;}
+.nav{ padding:0 3%}
+.nav li{ width:15%;}
+.nav a{ width:auto;}
+.left {width:98%; margin:0 1%;}
+.right{ display:none;}
+.search{ display:none;}
+.con .comment{ padding:20px;}
+.con .comment .user_img{width: 12%;margin-right: 3%;}
+.con .comment .cot_con{ width:85%;}
+.relative .box{ width:80%; padding:5%; right:-5%;}
+}
+
+@media screen and (max-width: 480px) {
+.nav{ padding:0 20px;}
+.nav li{ width:20%;}
+.nav li:nth-child(4n){ display:none;}
+.header .user_img{ display:none;}
+.header .blog_title{ font-size:30px; margin-left:20px;padding-top: 20px;}
+.header .blog_title{ font-size:30px;}
+.header .write{ float:none; margin-left:10px; text-align:left;}
+.nav a{ font-size:14px; padding:0 3px;}
+.left h3{ margin-left:15px;}
+.con .tit{padding:15px 20px 15px 20px}
+.text{padding:15px 20px;}
+.con{ margin-bottom:20px;}
+.con .info{ padding:15px 20px;}
+.con .info .author,
+.con .info .edit{ display:none;}
+.tit .markdown{ display:none;}
+.con .content .text{padding:0 20px 10px 20px;}
+.con .content .info{ margin-top:0;}
+.pagination{margin-top:0;}
+.login input.login{ margin-left:auto;}
+}
