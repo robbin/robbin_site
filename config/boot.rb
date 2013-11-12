@@ -64,7 +64,7 @@ ActsAsTaggableOn.remove_unused_tags = true
 ActsAsTaggableOn.strict_case_match = true
 
 # Set will_paginate default page number
-WillPaginate.per_page = 20
+WillPaginate.per_page = 15
 
 # Set carrierwave sanitize
 CarrierWave::SanitizedFile.sanitize_regexp = /[^[:word:]\.\-\+]/
