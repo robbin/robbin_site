@@ -3,15 +3,10 @@
 RobbinSite.controllers :blog do
   
   get :index do
-    @blogs = Blog.where(:category => 'blog').order('id DESC').page(params[:page])
+    @blogs = Blog.order('id DESC').page(params[:page])
     render 'blog/index'
   end
   
-  get :note, :map => '/note' do
-    @blogs = Blog.where(:category => 'note').order('content_updated_at DESC').page(params[:page])
-    render 'blog/note'
-  end
-
   get :tag_cloud, :map => '/tag' do
     render 'blog/tag_cloud'
   end

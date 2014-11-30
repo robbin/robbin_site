@@ -12,7 +12,6 @@
     
     <div class="content">
     	<div class="tit clearfix">
-  			<%= blog_category_icon(@blog) %>
         <h1><%= link_to @blog.title, blog_url(@blog) %></h1>
         <%= link_to '', blog_url(@blog, mime_type = :md), :class => 'markdown', :title => 'Markdown格式原文' %>
         <% if account_admin? %>

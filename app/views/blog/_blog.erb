@@ -8,7 +8,6 @@
 
 <div class="con">
 	<div class="tit clearfix">
-    <%= blog_category_icon(blog) %>
     <%= link_to blog.title, blog_url(blog) %>
     <% if account_admin? %>
     <%= link_to '', url(:admin, :blog, :id => blog.id), :method => :delete, :confirm => '你要删除这篇文章吗？', :class => 'del', :title => '删除' %>

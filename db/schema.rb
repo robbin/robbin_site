@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 16) do
+ActiveRecord::Schema.define(:version => 17) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -53,17 +53,16 @@ ActiveRecord::Schema.define(:version => 16) do
   end
 
   create_table "blogs", :force => true do |t|
-    t.string   "title",                                              :null => false
+    t.string   "title",                                :null => false
     t.string   "slug_url"
-    t.integer  "view_count",                       :default => 0,    :null => false
-    t.integer  "blog_content_id",                                    :null => false
-    t.datetime "created_at",                                         :null => false
+    t.integer  "view_count",         :default => 0,    :null => false
+    t.integer  "blog_content_id",                      :null => false
+    t.datetime "created_at",                           :null => false
     t.integer  "account_id"
-    t.integer  "comments_count",                   :default => 0,    :null => false
+    t.integer  "comments_count",     :default => 0,    :null => false
     t.datetime "content_updated_at"
-    t.boolean  "commentable",                      :default => true, :null => false
+    t.boolean  "commentable",        :default => true, :null => false
     t.string   "cached_tag_list"
-    t.string   "category",           :limit => 20
   end
 
   add_index "blogs", ["account_id"], :name => "index_blogs_on_account_id"

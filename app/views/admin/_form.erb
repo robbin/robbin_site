@@ -26,14 +26,6 @@
   </tr>
   
   <tr>
-    <th valign="top">文章分类</th>
-    <td>
-      <label><%= form.radio_button :category, :value => 'blog' %> 博客文章(blog)</label>
-      <label><%= form.radio_button :category, :value => 'note' %> 学习笔记(note)</label>
-    </td>
-  </tr>
-  
-  <tr>
     <th valign="top">Tag</th>
     <td>
       <%= form.text_field :user_tags, :placeholder => '用逗号分开，不超过3个，Tag必须是字母数字空格下划线和中文' %>

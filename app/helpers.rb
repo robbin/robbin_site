@@ -54,14 +54,6 @@ RobbinSite.helpers do
     end
   end  
   
-  def blog_category_icon(blog)
-    if blog.category == 'note'
-      "<span class='note_icon' title='学习笔记'></span>".html_safe
-    else
-      "<span class='blog_icon' title='博客文章'></span>".html_safe
-    end
-  end
-  
   # blog search ping for SEO purpose
   def ping_search_engine(blog)
     # http://www.google.cn/intl/zh-CN/help/blogsearch/pinging_API.html

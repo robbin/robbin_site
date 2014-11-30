@@ -1,1 +1,4 @@
 - Next
+	* add ferret full-text search
+	* update ruby to 2.1
+	* update padrino to 0.12
