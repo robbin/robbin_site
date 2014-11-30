@@ -35,10 +35,7 @@
     <div class="nav">
       <div class="wrap clearfix">
       	<div class="search fr">
-          <form action="/search" id="cse-search-box" method="get">
-            <input type="hidden" name="cx" value="<%= APP_CONFIG['google_cse'] %>" />
-            <input type="hidden" name="cof" value="FORID:10" />
-            <input type="hidden" name="ie" value="UTF-8" />
+          <form action="http://guge.io/" id="cse-search-box" method="get" onsubmit="return false;">
             <input id="search-box" name="q" type="text" placeholder="Search" value="<%= params[:q] %>">
             <button id="search-button"></button>
           </form>
@@ -68,10 +65,14 @@
     </div><!-- footer -->
     <%= javascript_include_tag 'jquery', 'jquery-ujs', 'application' %>
     <%= yield_content :javascripts %>
-    <% if flash[:notice] %>
-      <script type="text/javascript">
-        $('div#flash-notice').html('<%= flash[:notice] %>').show().fadeOut(3000);
-      </script>
-    <% end %>
+    <script type="text/javascript">
+      $('form#cse-search-box button#search-button').click(function(){
+      	window.open('http://guge.io/#q=' + $('form#cse-search-box input#search-box').val() + '+site:robbinfan.com');
+      	return false;
+      });
+      <% if flash[:notice] %>
+      $('div#flash-notice').html('<%= flash[:notice] %>').show().fadeOut(3000);
+      <% end %>
+    </script>
   </body>
 </html>

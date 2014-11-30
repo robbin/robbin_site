@@ -14,10 +14,6 @@ RobbinSite.controllers do
   get :weibo do
     render 'home/weibo'
   end
-
-  get :search do
-    render 'home/search'
-  end
   
   get :rss do
     content_type :rss
