@@ -1,4 +1,3 @@
-<% @nav = @blog.category %>
 <% @title = @blog.title %>
 <% @description = @blog.cached_tag_list.to_s + ' ' + @blog.content.truncate(200).gsub(/(\r|\n)/, ' ') %>
 

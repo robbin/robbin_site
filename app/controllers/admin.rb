@@ -13,7 +13,6 @@ RobbinSite.controllers :admin do
   # blog related routes: publish, update, delete blog and blog content editor preview...
   get :new_blog, :map => '/admin/blog/new' do
     @blog = Blog.new
-    @blog.category = 'blog'
     @attachments = current_account.attachments.orphan
     render 'admin/new_blog'
   end
