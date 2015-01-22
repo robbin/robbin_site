@@ -6,6 +6,7 @@ RobbinSite.controllers :admin do
     halt 403 unless account_admin?
   end
   
+  # main page
   get :index do
     render 'admin/index'
   end
