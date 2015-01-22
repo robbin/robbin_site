@@ -7,6 +7,8 @@ RobbinSite.controllers :admin do
   end
   
   # main page
+  
+  # another comment for testing
   get :index do
     render 'admin/index'
   end
