@@ -42,7 +42,7 @@ GEM
     dalli (2.7.2)
     database_cleaner (1.3.0)
     erubis (2.7.0)
-    eventmachine (1.0.3)
+    eventmachine (1.0.8)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
     github-markdown (0.6.7)
@@ -153,3 +153,6 @@ DEPENDENCIES
   tilt (~> 1.3.7)
   will_paginate
   zbatery
+
+BUNDLED WITH
+   1.10.6
