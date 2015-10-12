@@ -1,0 +1,15 @@
+<% @nav = 'blog' %>
+<% @title = "博客文章搜索结果" %>
+<% @description = '博客文章搜索结果' %>
+
+<div class="left">
+	<h3 class="category_title">博客文章</h3>
+  <%= partial 'blog/blog', :collection => @blogs %>
+  <div>
+    搜索结果：<%=  @blogs.size %>篇文章
+  </div>
+</div><!-- left content -->
+
+<div class="right">
+  <%= partial 'blog/right' %>
+</div><!-- right content -->

@@ -10,6 +10,17 @@ RobbinSite.controllers do
     @blogs = Blog.order('id DESC').page(params[:page])
     render 'home/index'
   end
+
+  get :search do
+    client = Elasticsearch::Client.new log: true
+    raw_result = client.search index: 'robbin_site', body: { query: { match: { _all: params[:q] } } }
+    blog_ids = []
+    raw_result['hits']['hits'].each do |search_id|
+      blog_ids << search_id['_id'].to_i
+    end
+    @blogs = Blog.find(blog_ids)
+    render 'home/search'
+  end
   
   get :weibo do
     render 'home/weibo'
